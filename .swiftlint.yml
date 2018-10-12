@@ -1,0 +1,57 @@
+# SwiftLint: A tool to enforce Swift style and conventions, loosely based on GitHub's Swift Style Guide.
+# https://github.com/github/swift-style-guide
+#
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+- JNetworkingKitTests
+- Pods
+
+opt_in_rules:
+- closure_spacing
+- conditional_returns_on_newline
+- empty_count
+- explicit_init
+- force_unwrapping
+- overridden_super_call
+- private_outlet
+- redundant_nil_coalescing
+
+disabled_rules:
+ - nesting
+
+private_outlet:
+  allow_private_set: true
+
+force_cast:
+   severity: error
+identifier_name:
+  min_length:
+    warning: 3
+  max_length:
+    warning: 65
+
+type_name:
+  max_length:
+    warning: 65
+
+type_body_length:
+  warning: 700
+
+function_body_length:
+  warning: 200
+
+file_length:
+  warning: 2000
+
+function_parameter_count:
+  warning: 10
+
+custom_rules:
+  comment_copyright_block: # rule identifier
+    included: ".*\\.swift" # regex that defines paths to include during linting. optional.
+    name: "Copyright block" # rule name. optional.
+    regex: "//\n//*.*swift\n//*.*\n//\n//  Created by*.*\n//  Copyright*.*\n//" # matching pattern
+    match_kinds:
+      - comment
+    message: "Copyright block should be removed." # violation message. optional.
+    severity: warning # violation severity. optional.

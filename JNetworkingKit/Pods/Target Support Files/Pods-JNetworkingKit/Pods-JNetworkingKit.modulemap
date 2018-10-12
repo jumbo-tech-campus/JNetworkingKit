@@ -1,0 +1,6 @@
+framework module Pods_JNetworkingKit {
+  umbrella header "Pods-JNetworkingKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
