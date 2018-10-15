@@ -3,8 +3,8 @@ import Foundation
 extension URLSession: RequestClientType {
 
     public func perform(request: Request,
-                 onSuccess: @escaping (Response) -> Void,
-                 onError: @escaping (RequestClientError) -> Void) {
+                        onSuccess: @escaping (Response) -> Void,
+                        onError: @escaping (RequestClientError) -> Void) {
         guard let request = request.asUrlRequest() else {
             onError(RequestClientError.invalidRequest)
             return

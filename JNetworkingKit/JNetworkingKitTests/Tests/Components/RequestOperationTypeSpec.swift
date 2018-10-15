@@ -39,8 +39,9 @@ class RequestOperationTypeSpec: QuickSpec {
             context("execution succeed") {
                 var expectedResult: String!
                 let fakeResponse = Response(data: nil, statusCode: 0)
+                var callbackThread: Thread!
 
-                describe("valid data received") {
+                context("valid data received") {
                     beforeEach {
                         executorMock.stubs.performRequest.response = fakeResponse
                         parserMock.stubs.parse.result = "Fake result"
@@ -48,25 +49,35 @@ class RequestOperationTypeSpec: QuickSpec {
                         sut.execute(
                             onSuccess: { result in
                                 expectedResult = result
+                                callbackThread = Thread.current
                             },
                             onError: { _ in }
                         )
                     }
 
+                    afterEach {
+                        expectedResult = nil
+                        callbackThread = nil
+                    }
+
                     it("parses the data") {
-                        expect(parserMock.captures.parse).toNot(beNil())
+                        expect(parserMock.captures.parse).toEventuallyNot(beNil())
                     }
 
                     it("sends the response received from the executor to the parser") {
-                        expect(parserMock.captures.parse?.response).to(equal(fakeResponse))
+                        expect(parserMock.captures.parse?.response).toEventually(equal(fakeResponse))
                     }
 
                     it("forwards the data to the onSuccess callback") {
-                        expect(expectedResult).to(equal(parserMock.stubs.parse.result))
+                        expect(expectedResult).toEventually(equal(parserMock.stubs.parse.result))
+                    }
+
+                    it("performs the success callback on the main thread") {
+                        expect(callbackThread.isMainThread).toEventually(equal(true))
                     }
                 }
 
-                describe("invalid data received") {
+                context("invalid data received") {
                     var expectedError: Error!
 
                     beforeEach {
@@ -77,14 +88,24 @@ class RequestOperationTypeSpec: QuickSpec {
                             onSuccess: { _ in },
                             onError: { error in
                                 expectedError = error
+                                callbackThread = Thread.current
                             }
                         )
 
                         executorMock.captures.performRequest?.onSuccess(fakeResponse)
                     }
 
-                    it("forward the parser error to the onError callback") {
-                        expect(expectedError).toNot(beNil())
+                    afterEach {
+                        expectedResult = nil
+                        callbackThread = nil
+                    }
+
+                    it("forwards the parser error to the onError callback") {
+                        expect(expectedError).toEventuallyNot(beNil())
+                    }
+
+                    it("performs the error callback on the main thread") {
+                        expect(callbackThread.isMainThread).toEventually(equal(true))
                     }
                 }
             }

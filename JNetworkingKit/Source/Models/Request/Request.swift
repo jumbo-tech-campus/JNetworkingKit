@@ -24,11 +24,11 @@ public struct Request {
     }
 
     public init(environment: Environment,
-         route: RequestRoute? = nil,
-         method: Request.Method = .get,
-         headers: RequestHeaders = [:],
-         parameters: RequestParameters = [:],
-         data: Data? = nil) {
+                route: RequestRoute? = nil,
+                method: Request.Method = .get,
+                headers: RequestHeaders = [:],
+                parameters: RequestParameters = [:],
+                data: Data? = nil) {
         self.environment = environment
         self.route = route
         self.method = method

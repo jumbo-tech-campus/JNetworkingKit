@@ -9,27 +9,27 @@ public protocol RequestOperationType {
     var parser: Parser { get set }
     var request: Request { get set }
 
-    func execute(onSuccess: @escaping (Result) -> Void, onError: @escaping (Error) -> Void)
+    func execute(onSuccess: ((Result) -> Void)?, onError: ((Error) -> Void)?)
 }
 
 extension RequestOperationType {
-    public func execute(onSuccess: @escaping (Result) -> Void, onError: @escaping (Error) -> Void) {
+    public func execute(onSuccess: ((Result) -> Void)? = nil, onError: ((Error) -> Void)? = nil) {
         executor.perform(request: request,
             onSuccess: { response in
                 do {
                     let result = try self.parser.parse(response: response)
                     DispatchQueue.main.async {
-                        onSuccess(result)
+                        onSuccess?(result)
                     }
 
                 } catch let error {
                     DispatchQueue.main.async {
-                        onError(error)
+                        onError?(error)
                     }
                 }
             },
             onError: { error in
-                onError(error)
+                onError?(error)
             }
         )
     }
