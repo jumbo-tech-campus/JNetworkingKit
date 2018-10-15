@@ -125,7 +125,7 @@ class RequestOperationTypeSpec: QuickSpec {
                 }
 
                 it("forward the executor error to the onError callback") {
-                    expect(expectedError).toNot(beNil())
+                    expect(expectedError).toEventuallyNot(beNil())
                 }
             }
         }
