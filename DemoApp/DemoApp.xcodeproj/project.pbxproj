@@ -16,6 +16,13 @@
 		A3E204672174949500A796A6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E204662174949500A796A6 /* SecondViewController.swift */; };
 		A3E204692174965A00A796A6 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E204682174965A00A796A6 /* Environment.swift */; };
 		A3E2046B2174966000A796A6 /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2046A2174966000A796A6 /* Gateway.swift */; };
+		A3E204702174AE8400A796A6 /* ImageRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2046E2174AE8400A796A6 /* ImageRequestOperation.swift */; };
+		A3E204712174AE8400A796A6 /* ImageRequestParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2046F2174AE8400A796A6 /* ImageRequestParser.swift */; };
+		A3E204732174B14700A796A6 /* MovieGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E204722174B14700A796A6 /* MovieGateway.swift */; };
+		A3E204762174B16900A796A6 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E204752174B16900A796A6 /* Movie.swift */; };
+		A3E2047A2174B1F100A796A6 /* MovieListRequestParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E204782174B1F100A796A6 /* MovieListRequestParser.swift */; };
+		A3E2047B2174B1F100A796A6 /* MovieListRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E204792174B1F100A796A6 /* MovieListRequestOperation.swift */; };
+		A3E2047F2174B2F400A796A6 /* MovieRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2047E2174B2F400A796A6 /* MovieRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +41,13 @@
 		A3E204662174949500A796A6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		A3E204682174965A00A796A6 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		A3E2046A2174966000A796A6 /* Gateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
+		A3E2046E2174AE8400A796A6 /* ImageRequestOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRequestOperation.swift; sourceTree = "<group>"; };
+		A3E2046F2174AE8400A796A6 /* ImageRequestParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRequestParser.swift; sourceTree = "<group>"; };
+		A3E204722174B14700A796A6 /* MovieGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGateway.swift; sourceTree = "<group>"; };
+		A3E204752174B16900A796A6 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		A3E204782174B1F100A796A6 /* MovieListRequestParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListRequestParser.swift; sourceTree = "<group>"; };
+		A3E204792174B1F100A796A6 /* MovieListRequestOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieListRequestOperation.swift; sourceTree = "<group>"; };
+		A3E2047E2174B2F400A796A6 /* MovieRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				A3DAD5B0217477E900D41D4D /* AppDelegate.swift */,
+				A3E204742174B15E00A796A6 /* Model */,
 				A3E204622174944B00A796A6 /* UI */,
 				A3E204632174945200A796A6 /* Network */,
 				A33D00AF21747D9D00BDC3E5 /* Resources */,
@@ -103,6 +118,8 @@
 			children = (
 				A3E204682174965A00A796A6 /* Environment.swift */,
 				A3E2046A2174966000A796A6 /* Gateway.swift */,
+				A3E2046D2174AE5B00A796A6 /* MovieDownload */,
+				A3E2046C2174AE5300A796A6 /* ImageDownload */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -122,6 +139,42 @@
 				A3E204662174949500A796A6 /* SecondViewController.swift */,
 			);
 			path = Second;
+			sourceTree = "<group>";
+		};
+		A3E2046C2174AE5300A796A6 /* ImageDownload */ = {
+			isa = PBXGroup;
+			children = (
+				A3E2046E2174AE8400A796A6 /* ImageRequestOperation.swift */,
+				A3E2046F2174AE8400A796A6 /* ImageRequestParser.swift */,
+			);
+			path = ImageDownload;
+			sourceTree = "<group>";
+		};
+		A3E2046D2174AE5B00A796A6 /* MovieDownload */ = {
+			isa = PBXGroup;
+			children = (
+				A3E204722174B14700A796A6 /* MovieGateway.swift */,
+				A3E2047E2174B2F400A796A6 /* MovieRouter.swift */,
+				A3E204772174B1D200A796A6 /* MovieList */,
+			);
+			path = MovieDownload;
+			sourceTree = "<group>";
+		};
+		A3E204742174B15E00A796A6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A3E204752174B16900A796A6 /* Movie.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A3E204772174B1D200A796A6 /* MovieList */ = {
+			isa = PBXGroup;
+			children = (
+				A3E204792174B1F100A796A6 /* MovieListRequestOperation.swift */,
+				A3E204782174B1F100A796A6 /* MovieListRequestParser.swift */,
+			);
+			path = MovieList;
 			sourceTree = "<group>";
 		};
 		B8C8A477FEAAB63AD28274C9 /* Pods */ = {
@@ -264,9 +317,16 @@
 			files = (
 				A337438B21747F6F0003CA4D /* FirstViewController.m in Sources */,
 				A3E204692174965A00A796A6 /* Environment.swift in Sources */,
+				A3E204762174B16900A796A6 /* Movie.swift in Sources */,
+				A3E2047B2174B1F100A796A6 /* MovieListRequestOperation.swift in Sources */,
 				A3DAD5B1217477E900D41D4D /* AppDelegate.swift in Sources */,
+				A3E2047F2174B2F400A796A6 /* MovieRouter.swift in Sources */,
 				A3E204672174949500A796A6 /* SecondViewController.swift in Sources */,
 				A3E2046B2174966000A796A6 /* Gateway.swift in Sources */,
+				A3E2047A2174B1F100A796A6 /* MovieListRequestParser.swift in Sources */,
+				A3E204712174AE8400A796A6 /* ImageRequestParser.swift in Sources */,
+				A3E204702174AE8400A796A6 /* ImageRequestOperation.swift in Sources */,
+				A3E204732174B14700A796A6 /* MovieGateway.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

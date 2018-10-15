@@ -2,9 +2,9 @@ import Foundation
 
 @objc
 public class Response: NSObject {
-    var data: Data?
-    var headers: [AnyHashable: Any]
-    var statusCode: Int
+    public var data: Data?
+    public var headers: [AnyHashable: Any]
+    public var statusCode: Int
 
     init(data: Data?, headers: [AnyHashable: Any] = [:], statusCode: Int) {
         self.data = data

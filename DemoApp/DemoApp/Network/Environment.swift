@@ -4,13 +4,14 @@ import JNetworkingKit
 extension Environment {
     static var active: Environment = production
 
-    static let develop = Environment(server: "https://develop.jumbo.com",
-                                        path: "testBackend",
-                                        version: "V100")
+    static let develop = Environment(server: "http://192.168.0.1",
+                                        path: "test",
+                                        version: "v1")
 
-    static let production = Environment(server: "https://mobileapi.jumbo.com",
-                                        version: "V3")
+    static let production = Environment(server: "http://www.omdbapi.com")
 }
+
+//http://www.omdbapi.com/?apikey=[yourkey]&
 
 extension Request {
     init(route: RequestRoute? = nil,

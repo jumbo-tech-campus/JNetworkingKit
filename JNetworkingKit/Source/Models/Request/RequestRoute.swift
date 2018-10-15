@@ -8,7 +8,7 @@ public struct RequestRoute {
         return "\(path)".inject(parameters: parameters)
     }
 
-    init(path: String, parameters: [String: String]? = nil) {
+    public init(path: String, parameters: [String: String]? = nil) {
         self.path = path
         self.parameters = parameters
     }
