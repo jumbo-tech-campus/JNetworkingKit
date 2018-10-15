@@ -36,7 +36,6 @@ extension Environment {
 ```
 
 * **`Gateway`**: is the entry point to the network layer, a unique class the defines the relevant methods to perform a network call. In the demo application, we have created an emtpy class `Gateway` that can be used from Objective-C and will be extended by any set of requests.
-
 If your application has two set of services (*products* and *user*), you can create 2 extensions to the Gateway:
 
 ```swift
@@ -47,27 +46,26 @@ protocol ProductsGateway {
 
 extension Gateway: ProductsGateway {
     @objc func getProducts(onSuccess: @escaping (Product) -> Void, onError: @escaping (Error) -> Void) {
-    	// ...
+        // ...
     }
     
     @objc func getProduct(with id: String, onSuccess: @escaping (Product) -> Void, onError: @escaping (Error) -> Void) {
-    	// ...
+        // ...
     }
 }
 ```
 
 ```swift
 protocol UserGateway {
-    func getUser(with id: String, onSuccess: @escaping (User) -> Void, onError: @escaping (Error) -> Void)
+    func getUser(with id: String, onSuccess: @escaping (User) -> Void,     onError: @escaping (Error) -> Void)
 }
 
 extension Gateway: UserGateway {
     @objc func getUser(with id: String, onSuccess: @escaping (User) -> Void, onError: @escaping (Error) -> Void) {
-    	// ...
+        // ...
     }
 }
 ```
-
 
 * **`Request`**: contains all the necessary information to perform a network call. A `Request` is the result of an `Environment` and a `Route`
 
@@ -87,55 +85,55 @@ The usual flow to using this proposal would be:
 
 1. Create an extension for the `Gateway` for the relevant service set. In the demo applicatino, we have created the *MovieGateway* protocol. If the relevant extension already exists, add a proper method for the service you want to use:
 
-    ```swift
-    protocol MovieGateway {
-        func getMovie(onSuccess: @escaping (Movie) -> Void, onError: @escaping (Error) -> Void)
+```swift
+protocol MovieGateway {
+    func getMovie(onSuccess: @escaping (Movie) -> Void, onError: @escaping (Error) -> Void)
 }
 
-    extension Gateway: MovieGateway {
-        @objc func getMovie(onSuccess: @escaping (Movie) -> Void, onError: @escaping (Error) -> Void) {
-            MovieDetailRequestOperation().execute(onSuccess: onSuccess, onError: onError)
-        }
+extension Gateway: MovieGateway {
+    @objc func getMovie(onSuccess: @escaping (Movie) -> Void, onError: @escaping (Error) -> Void) {
+        MovieDetailRequestOperation().execute(onSuccess: onSuccess, onError: onError)
     }
-	 ```
+}
+```
 
 2. Define the proper `Router` that defines the relevant `Route` for the different services. We suggest to define them in order to have a *the dot notation*.
 
-    ```swift
-    struct MovieRouter {
-        static var list: RequestRoute {
-            let path = "?apikey={apikey}&t={t}"
-            let parameters = ["apikey": "<YOUR-OMDB-KEY>", "t": "Matrix"]
-            return RequestRoute(path: path, parameters: parameters)
-        }
+```swift
+struct MovieRouter {
+    static var list: RequestRoute {
+        let path = "?apikey={apikey}&t={t}"
+        let parameters = ["apikey": "<YOUR-OMDB-KEY>", "t": "Matrix"]
+        return RequestRoute(path: path, parameters: parameters)
     }
-    ```
+}
+```
 
 3. Create a new `RequestOperation` for the service you need to use, the new operation will define the proper parser, executor and request:
 
-	```swift
-	class ProductListRequestOperation: NSObject, RequestOperationType {
-	    typealias Result = [Product]
+```swift
+class ProductListRequestOperation: NSObject, RequestOperationType {
+    typealias Result = [Product]
 
-	    var executor = RequestExecutor()
-	    var parser = ProductListRequestParser()
-	    var request = Request(route: ProductsRouter.list)
-	}
-	```
+    var executor = RequestExecutor()
+    var parser = ProductListRequestParser()
+    var request = Request(route: ProductsRouter.list)
+}
+```
 
 4. Call proper method on the `MyGateway`:
 
-	* In the `onSuccess` completion block handle the data as necessary
-	* In the `onError` completion block handle the error as necessary
+    * In the `onSuccess` completion block handle the data as necessary
+    * In the `onError` completion block handle the error as necessary
 
-    ```objc
-    [self.gateway getProductsOnSuccess:^(NSArray<Product *> *products) {
-        NSLog(@"Fetched %ld products", (long)products.count);
+```objc
+[self.gateway getProductsOnSuccess:^(NSArray<Product *> *products) {
+    NSLog(@"Fetched %ld products", (long)products.count);
 
-    } onError:^(NSError *error) {
-        NSLog(@"Error fetching list: %@", error.localizedDescription);
-    }];
-    ```
+} onError:^(NSError *error) {
+    NSLog(@"Error fetching list: %@", error.localizedDescription);
+}];
+```
 
 
 ## Notes
