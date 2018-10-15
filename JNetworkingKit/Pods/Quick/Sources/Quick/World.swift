@@ -71,7 +71,7 @@ final internal class World: _WorldBase {
 
     internal private(set) var isConfigurationFinalized = false
 
-    internal var exampleHooks: ExampleHooks { return configuration.exampleHooks }
+    internal var exampleHooks: ExampleHooks {return configuration.exampleHooks }
     internal var suiteHooks: SuiteHooks { return configuration.suiteHooks }
 
     // MARK: Singleton Constructor
