@@ -1,6 +1,6 @@
 import Foundation
 
-struct RequestRoute {
+public struct RequestRoute {
     var path: String
     var parameters: [String: String]?
 
@@ -15,7 +15,7 @@ struct RequestRoute {
 }
 
 extension RequestRoute: Equatable {
-    static func == (lhs: RequestRoute, rhs: RequestRoute) -> Bool {
+    public static func == (lhs: RequestRoute, rhs: RequestRoute) -> Bool {
         return lhs.path == rhs.path
             && lhs.parameters == rhs.parameters
     }

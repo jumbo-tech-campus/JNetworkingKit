@@ -2,7 +2,7 @@ import Foundation
 
 extension URLSession: RequestClientType {
 
-    func perform(request: Request,
+    public func perform(request: Request,
                  onSuccess: @escaping (Response) -> Void,
                  onError: @escaping (RequestClientError) -> Void) {
         guard let request = request.asUrlRequest() else {

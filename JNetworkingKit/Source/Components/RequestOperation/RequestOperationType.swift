@@ -1,6 +1,6 @@
 import Foundation
 
-protocol RequestOperationType {
+public protocol RequestOperationType {
     associatedtype Result where Result == Parser.Result
     associatedtype Executor: RequestExecutorType
     associatedtype Parser: RequestParserType
@@ -13,7 +13,7 @@ protocol RequestOperationType {
 }
 
 extension RequestOperationType {
-    func execute(onSuccess: @escaping (Result) -> Void, onError: @escaping (Error) -> Void) {
+    public func execute(onSuccess: @escaping (Result) -> Void, onError: @escaping (Error) -> Void) {
         executor.perform(request: request,
             onSuccess: { response in
                 do {

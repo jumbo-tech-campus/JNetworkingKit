@@ -1,9 +1,9 @@
 import Foundation
 
-typealias RequestHeaders = [String: String]
-typealias RequestParameters = [String: String]
+public typealias RequestHeaders = [String: String]
+public typealias RequestParameters = [String: String]
 
-struct Request {
+public struct Request {
     public enum Method: String {
         case get
         case post
@@ -23,7 +23,7 @@ struct Request {
         return URL(string: [environment.url, route?.route].compactMap({ $0 }).joined(separator: "/"))
     }
 
-    init(environment: Environment,
+    public init(environment: Environment,
          route: RequestRoute? = nil,
          method: Request.Method = .get,
          headers: RequestHeaders = [:],
@@ -37,13 +37,13 @@ struct Request {
         self.data = data
     }
 
-    init(url: String) {
+    public init(url: String) {
         self.init(environment: Environment(server: url))
     }
 }
 
 extension Request: Equatable {
-    static func == (lhs: Request, rhs: Request) -> Bool {
+    public static func == (lhs: Request, rhs: Request) -> Bool {
         return lhs.environment.url == rhs.environment.url
             && lhs.route == rhs.route
             && lhs.method == rhs.method

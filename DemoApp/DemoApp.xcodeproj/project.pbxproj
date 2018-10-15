@@ -14,6 +14,8 @@
 		A3DAD5B8217477EA00D41D4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3DAD5B7217477EA00D41D4D /* Assets.xcassets */; };
 		A3DAD5BB217477EA00D41D4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3DAD5B9217477EA00D41D4D /* LaunchScreen.storyboard */; };
 		A3E204672174949500A796A6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E204662174949500A796A6 /* SecondViewController.swift */; };
+		A3E204692174965A00A796A6 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E204682174965A00A796A6 /* Environment.swift */; };
+		A3E2046B2174966000A796A6 /* Gateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2046A2174966000A796A6 /* Gateway.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		A3DAD5BA217477EA00D41D4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A3DAD5BC217477EA00D41D4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A3E204662174949500A796A6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		A3E204682174965A00A796A6 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		A3E2046A2174966000A796A6 /* Gateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gateway.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 		A3E204632174945200A796A6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				A3E204682174965A00A796A6 /* Environment.swift */,
+				A3E2046A2174966000A796A6 /* Gateway.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -257,8 +263,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A337438B21747F6F0003CA4D /* FirstViewController.m in Sources */,
+				A3E204692174965A00A796A6 /* Environment.swift in Sources */,
 				A3DAD5B1217477E900D41D4D /* AppDelegate.swift in Sources */,
 				A3E204672174949500A796A6 /* SecondViewController.swift in Sources */,
+				A3E2046B2174966000A796A6 /* Gateway.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

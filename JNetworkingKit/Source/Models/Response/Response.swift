@@ -1,7 +1,7 @@
 import Foundation
 
 @objc
-class Response: NSObject {
+public class Response: NSObject {
     var data: Data?
     var headers: [AnyHashable: Any]
     var statusCode: Int
