@@ -1,8 +1,8 @@
 # JNetworkingKit
 
-This project contains a generic networking setup for Swift, but can also be called upon from Objective-C.
+This project contains a generic networking setup for Swift, but can also be called upon from Objective-C using a Gateway.
 
-Key in this proposal are:
+Keys in this proposal are:
 
 * Only 1 class will execute requests
 * Only 1 class will parse requests
@@ -19,66 +19,97 @@ Together they make the code fully testable and can be developed & expanded test-
 
 ## Architecture
 
-The architecture has 6 different entities, that are defined at *Application level* or *Core level*.
+The architecture has 7 different entities, that are defined at *Application level* (your applicatino) or *Library level* (the library itself).
 
-#### App level
+#### Application level
 
-* **`Gateway`**: is the entry point to the network layer, a unique class the defines the relevant methods to start a network call quickly. In our implementation, we will call it `MyGateway` and we will create an extension for every service set we have (*products*, *user*, ...)
-* **`Request`**: contains all the necessary information perform a network call. A `Request` is the result of the of an `Environment` and a `Route`
+* **`Environment`**: should contains information about current environment, it is an extension to the library environemnt struct that contains the environments, in order to access them with the dot notation:
 
-#### Core level
+```swift
+extension Environment {
+    static let develop = Environment(server: "http://192.168.0.1",
+                                     path: "test",
+                                     version: "v1")
+
+    static let production = Environment(server: "http://www.<YOUR-WEBSITE>.com")
+}
+```
+
+* **`Gateway`**: is the entry point to the network layer, a unique class the defines the relevant methods to perform a network call. In the demo application, we have created an emtpy class `Gateway` that can be used from Objective-C and will be extended by any set of requests.
+
+If your application has two set of services (*products* and *user*), you can create 2 extensions to the Gateway:
+
+```swift
+protocol ProductsGateway {
+    func getProducts(onSuccess: @escaping (Product) -> Void, onError: @escaping (Error) -> Void)
+    func getProduct(with id: String, onSuccess: @escaping (Product) -> Void, onError: @escaping (Error) -> Void)
+}
+
+extension Gateway: ProductsGateway {
+    @objc func getProducts(onSuccess: @escaping (Product) -> Void, onError: @escaping (Error) -> Void) {
+    	// ...
+    }
+    
+    @objc func getProduct(with id: String, onSuccess: @escaping (Product) -> Void, onError: @escaping (Error) -> Void) {
+    	// ...
+    }
+}
+```
+
+```swift
+protocol UserGateway {
+    func getUser(with id: String, onSuccess: @escaping (User) -> Void, onError: @escaping (Error) -> Void)
+}
+
+extension Gateway: UserGateway {
+    @objc func getUser(with id: String, onSuccess: @escaping (User) -> Void, onError: @escaping (Error) -> Void) {
+    	// ...
+    }
+}
+```
+
+
+* **`Request`**: contains all the necessary information to perform a network call. A `Request` is the result of an `Environment` and a `Route`
+
+#### Library level
 
 * **`RequestOperation`**: responsible to provide and manage the correct instances of `Request`, `Executor` and `Parser`.
-* **`RequestExecutor`**: responsible to perform the request using the correct `Client`. An extended version of the Executor can be used to add more business logic, like caching or reactive programming functionality.
-* **`RequestClient`**: responsible to execute the request. The default `Client` uses thr `URLSession` component but a different `Client` can be created to use different system or libraries (like _Alamofire_ or similar).
-* **`RequestParser`**: responsible to parse the response.
+* **`RequestExecutor`**: responsible to perform the request using the correct `Client`. An extended version of the Executor can be used to add more business logic, like caching or the observable pattern.
+* **`RequestClient`**: responsible to execute the request. The default `Client` uses the `URLSession` component, but a different `Client` can be created to use different system or libraries (like _Alamofire_).
+* **`RequestParser`**: responsible to parse the response and create the final object.
 
-The **Core** is designed around the `RequestOperation`. It defines its variable using **swift's generics**, in this way a developer can instantiate and use different `RequestExecutor`, `RequestClient` and `RequestParser` instances to add more functionality and capabilities to the Network Layer.
+The library is designed around the `RequestOperation`. It defines its variable using **swift's generics**, in this way a developer can instantiate and use different `RequestExecutor`, `RequestClient` and `RequestParser` instances to add more functionality and capabilities to the Network Layer.
 
 
 ## Dataflow
 
 The usual flow to using this proposal would be:
 
-1. Create an extension for the `MyGateway` for the relevant service set, like *Products* or *User*. If the relevant extension already exists, add a proper method for the service you want to use:
+1. Create an extension for the `Gateway` for the relevant service set. In the demo applicatino, we have created the *MovieGateway* protocol. If the relevant extension already exists, add a proper method for the service you want to use:
 
-	```swift
-	// BASE CLASS FOR THE APP
-	@objc
-	class MyGateway: NSObject {}
-	```
+    ```swift
+    protocol MovieGateway {
+        func getMovie(onSuccess: @escaping (Movie) -> Void, onError: @escaping (Error) -> Void)
+}
 
-	```swift
-	// EXTENSION FOR PRODUCT GATEWAY
-	@objc
-	protocol ProductsGateway {
-	    @objc func getProducts(onSuccess: @escaping ([Product]) -> Void, onError: @escaping (Error) -> Void)
-	    @objc func getProductDetails(_ product: Product, onSuccess: @escaping (Product) -> Void, onError: @escaping (Error) -> Void)
-	}
+    extension Gateway: MovieGateway {
+        @objc func getMovie(onSuccess: @escaping (Movie) -> Void, onError: @escaping (Error) -> Void) {
+            MovieDetailRequestOperation().execute(onSuccess: onSuccess, onError: onError)
+        }
+    }
+	 ```
 
-	extension MyGateway: ProductsGateway {
-	    @objc func getProducts(onSuccess: @escaping ([Product]) -> Void, onError: @escaping (Error) -> Void) {
-	        ProductListRequestOperation().execute(onSuccess: onSuccess, onError: onError)
-	    }
+2. Define the proper `Router` that defines the relevant `Route` for the different services. We suggest to define them in order to have a *the dot notation*.
 
-	    @objc func getProductDetails(_ product: Product, onSuccess: @escaping (Product) -> Void, onError: @escaping (Error) -> Void) {
-	        ProductDetailsRequestOperation(product: product).execute(onSuccess: onSuccess, onError: onError)
-	    }
-	}
-
-	```
-
-2. Define the proper `Router` that define the relevant `Route` for the different services. Note that in this example we implemented a variable and a method: this will allow us to ask for a route using *the dot notation*: `ProductsRouter.list` and `ProductsRouter.details(of: product)` are now available.
-
-	```swift
-	struct ProductsRouter {
-	    static var list = RequestRoute(path: "products/")
-
-	    static func details(of product: Product) -> RequestRoute {
-	        return RequestRoute(path: "products/{id}", parameters: ["id": product.identifier])
-	    }
-	}
-	```
+    ```swift
+    struct MovieRouter {
+        static var list: RequestRoute {
+            let path = "?apikey={apikey}&t={t}"
+            let parameters = ["apikey": "<YOUR-OMDB-KEY>", "t": "Matrix"]
+            return RequestRoute(path: path, parameters: parameters)
+        }
+    }
+    ```
 
 3. Create a new `RequestOperation` for the service you need to use, the new operation will define the proper parser, executor and request:
 
@@ -111,12 +142,11 @@ The usual flow to using this proposal would be:
 
 ### Objective-C support
 
-All magic is, and will be, written in Swift. The only thing Objective-C needs to be able to interact with is the `MyGateway`.
+All magic is, and will be, written in Swift. We didn't want to limit our self in the creation of the library, that's why the only thing Objective-C needs to be able to interact with is the `Gateway`, created on the app level.
 
 ### Try/Catch & errror handling
-You might have noticed there are a number of `try` and `throw` keywords in there. Correct and complete error handling will be a challenge and there will be `do {} catch {}` closures throughtout the codebase.
 
-I'd recommend us to start using [RxSwift](https://github.com/ReactiveX/RxSwift) to overcome this, but also the need of generic app boilerplate.
+You might have noticed there are a number of `try` and `throw` keywords in there. Correct and complete error handling will be a challenge and there will be `do {} catch {}` closures throughtout the codebase.
 
 For the moment the request to the Gateway can generate a `Error` and we can handle it in the `onError` completion block.
 
@@ -125,7 +155,7 @@ For the moment the request to the Gateway can generate a `Error` and we can hand
 
 You've probably noticed `RequestExecutor` is currently only a proxy between `RequestOperation` and the `RequestClient` which was chosen. It gives us the freedom to add business logic to the network layer and change the client as per our needs.
 
-A simple example is the `CacheRequestExecutor`: it add a very simple cache system to show how easy is to extend it. It is also a good point to add [RxSwift](https://github.com/ReactiveX/RxSwift) or implement an `Observable` pattern.
+A simple example is the `CacheRequestExecutor`: it add a very simple cache system to show how easy is to extend it. It is also a good point to implement an `Observable` pattern.
 
 ### RequestParser
 
@@ -133,18 +163,36 @@ The parser can be extended or changes as per our needs with one line of code cha
 
 ## Installation
 
+
+### Library
+
 ```
 $ git clone https://github.com/jumbo-tech-campus/JNetworkingKit
 $ cd JNetworkingKit
 $ open JNetworkingKit.xcworkspace
 ```
 
+Now you can open the workspace and run the unit tests to check that everything works properly.
+
+### DemoApp
+
+```
+$ git clone https://github.com/jumbo-tech-campus/JNetworkingKit
+$ cd DemoApp
+$ open DemoApp.xcworkspace
+```
+
+After you open the workspace, you should replace the **API key** in the `MovieRouter.swift` file. A new key can be created on [OMDb Api](https://www.omdbapi.com/). 
+
+Now you can run the demo application. There are 2 screens:
+
+- The first one will load an image and show it on the screen
+- The second one will downlaod information about the movie Matrix and display title and plot on the screen
 
 ## Future improvement
 
 - Create a `Logger`, which can be used to log information in debug mode.
-- Create an `Executor` to implement a reactive or observable pattern.
-- Add support for `+` operator on requests, to implement the parent / child concept
+- Add support for `+` operator on `Request`s, to implement the parent / child concept
 - Add Cocoapod support
 - Add Carthage support
 - Add Swift Package Manager support
