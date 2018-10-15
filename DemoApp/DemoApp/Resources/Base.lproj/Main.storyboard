@@ -76,9 +76,35 @@
                     <view key="view" contentMode="scaleToFill" id="oLs-Ix-Z01">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wa4-uX-Oal" userLabel="Title Label">
+                                <rect key="frame" x="20" y="114" width="335" height="31.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Plot" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ofy-zr-lKA" userLabel="Plot Label">
+                                <rect key="frame" x="20" y="165.5" width="335" height="20.5"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ljR-BA-rRB" firstAttribute="trailing" secondItem="wa4-uX-Oal" secondAttribute="trailing" constant="20" id="M2P-ch-69L"/>
+                            <constraint firstItem="ofy-zr-lKA" firstAttribute="trailing" secondItem="wa4-uX-Oal" secondAttribute="trailing" id="bTY-hl-WEv"/>
+                            <constraint firstItem="wa4-uX-Oal" firstAttribute="top" secondItem="ljR-BA-rRB" secondAttribute="top" constant="50" id="sju-y1-JgN"/>
+                            <constraint firstItem="wa4-uX-Oal" firstAttribute="leading" secondItem="ljR-BA-rRB" secondAttribute="leading" constant="20" id="uoi-xN-Mfo"/>
+                            <constraint firstItem="ofy-zr-lKA" firstAttribute="top" secondItem="wa4-uX-Oal" secondAttribute="bottom" constant="20" id="v6N-dw-blw"/>
+                            <constraint firstItem="ofy-zr-lKA" firstAttribute="leading" secondItem="wa4-uX-Oal" secondAttribute="leading" id="yNE-Bm-2sx"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ljR-BA-rRB"/>
                     </view>
+                    <connections>
+                        <outlet property="plotLabel" destination="ofy-zr-lKA" id="bd9-2T-NAC"/>
+                        <outlet property="titleLabel" destination="wa4-uX-Oal" id="BXT-i7-5AF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X23-Xu-eqI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

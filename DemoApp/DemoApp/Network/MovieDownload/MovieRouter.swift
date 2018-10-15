@@ -4,7 +4,7 @@ import JNetworkingKit
 struct MovieRouter {
     static var list: RequestRoute {
         let path = "?apikey={apikey}&t={t}"
-        let parameters = ["apikey": "<YOUR-API-KEY>", "t": "Matrix"]
+        let parameters = ["apikey": "1b3dce2d", "t": "Matrix"]
         return RequestRoute(path: path, parameters: parameters)
     }
 }

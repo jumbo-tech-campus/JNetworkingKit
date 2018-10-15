@@ -11,8 +11,6 @@ extension Environment {
     static let production = Environment(server: "http://www.omdbapi.com")
 }
 
-//http://www.omdbapi.com/?apikey=[yourkey]&
-
 extension Request {
     init(route: RequestRoute? = nil,
          method: Request.Method = .get,

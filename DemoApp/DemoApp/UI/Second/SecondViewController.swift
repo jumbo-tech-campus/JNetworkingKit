@@ -3,18 +3,21 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    @IBOutlet private weak var titleLabel: UILabel!
+    @IBOutlet private weak var plotLabel: UILabel!
+
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        Gateway().getMovie(onSuccess: onSuccess, onError: onError)
+        Gateway().getMovie(onSuccess: onGetMovieSuccess, onError: onGetMovieError)
     }
 
-    private func onSuccess(movies: [Movie]) {
-        print(movies)
+    private func onGetMovieSuccess(movie: Movie) {
+        titleLabel.text = movie.title
+        plotLabel.text = movie.plot
     }
 
-    private func onError(error: Error) {
+    private func onGetMovieError(error: Error) {
         print("Error fetching movies:\(error.localizedDescription)")
     }
-
 }

@@ -18,9 +18,14 @@ extension RequestOperationType {
             onSuccess: { response in
                 do {
                     let result = try self.parser.parse(response: response)
-                    onSuccess(result)
+                    DispatchQueue.main.async {
+                        onSuccess(result)
+                    }
+
                 } catch let error {
-                    onError(error)
+                    DispatchQueue.main.async {
+                        onError(error)
+                    }
                 }
             },
             onError: { error in
