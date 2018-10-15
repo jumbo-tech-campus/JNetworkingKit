@@ -1,0 +1,16 @@
+PODS:
+  - JNetworkingKit (1.0.0)
+
+DEPENDENCIES:
+  - JNetworkingKit (from `../`)
+
+EXTERNAL SOURCES:
+  JNetworkingKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  JNetworkingKit: 3be29fe3fc90a5114cb21b90f2a405f17bfe298c
+
+PODFILE CHECKSUM: f3be8929db390282be11f0be3ddf6cd16596ad7e
+
+COCOAPODS: 1.5.3

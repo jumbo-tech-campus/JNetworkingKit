@@ -1,0 +1,6 @@
+framework module JNetworkingKit {
+  umbrella header "JNetworkingKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
