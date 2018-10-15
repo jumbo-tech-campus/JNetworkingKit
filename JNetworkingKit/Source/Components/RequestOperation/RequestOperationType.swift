@@ -29,7 +29,9 @@ extension RequestOperationType {
                 }
             },
             onError: { error in
-                onError?(error)
+                DispatchQueue.main.async {
+                    onError?(error)
+                }
             }
         )
     }
