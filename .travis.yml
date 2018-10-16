@@ -1,0 +1,6 @@
+language: objective-c
+osx_image: xcode10
+xcode_workspace: JNetworkingKit/JNetworkingKit.xcworkspace
+xcode_scheme: JNetworkingKit
+xcode_sdk: iphonesimulator12.0
+xcode_destination: platform=iOS Simulator,OS=12.0,name=iPhone X
