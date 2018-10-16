@@ -1,5 +1,7 @@
 # JNetworkingKit
 
+[![Build Status](https://travis-ci.org/jumbo-tech-campus/JNetworkingKit.svg?branch=master)](https://travis-ci.org/jumbo-tech-campus/JNetworkingKit)
+
 This project contains a generic networking setup for Swift, but can also be called upon from Objective-C using a Gateway.
 
 Keys in this proposal are:
@@ -19,11 +21,11 @@ Together they make the code fully testable and can be developed & expanded test-
 
 ## Architecture
 
-The architecture has 7 different entities, that are defined at *Application level* (your applicatino) or *Library level* (the library itself).
+The architecture has 7 different entities, that are defined at *Application level* (your application) or *Library level* (the library itself).
 
 #### Application level
 
-* **`Environment`**: should contains information about current environment, it is an extension to the library environemnt struct that contains the environments, in order to access them with the dot notation:
+* **`Environment`**: should contains information about current environment, it is an extension to the library environment struct that contains the environments, in order to access them with the dot notation:
 
 ```swift
 extension Environment {
@@ -35,7 +37,7 @@ extension Environment {
 }
 ```
 
-* **`Gateway`**: is the entry point to the network layer, a unique class the defines the relevant methods to perform a network call. In the demo application, we have created an emtpy class `Gateway` that can be used from Objective-C and will be extended by any set of requests.
+* **`Gateway`**: is the entry point to the network layer, a unique class the defines the relevant methods to perform a network call. In the demo application, we have created an empty class `Gateway` that can be used from Objective-C and will be extended by any set of requests.
 If your application has two set of services (*products* and *user*), you can create 2 extensions to the Gateway:
 
 ```swift
@@ -48,7 +50,7 @@ extension Gateway: ProductsGateway {
     @objc func getProducts(onSuccess: @escaping (Product) -> Void, onError: @escaping (Error) -> Void) {
         // ...
     }
-    
+
     @objc func getProduct(with id: String, onSuccess: @escaping (Product) -> Void, onError: @escaping (Error) -> Void) {
         // ...
     }
@@ -83,7 +85,7 @@ The library is designed around the `RequestOperation`. It defines its variable u
 
 The usual flow to using this proposal would be:
 
-1. Create an extension for the `Gateway` for the relevant service set. In the demo applicatino, we have created the *MovieGateway* protocol. If the relevant extension already exists, add a proper method for the service you want to use:
+1. Create an extension for the `Gateway` for the relevant service set. In the demo application, we have created the *MovieGateway* protocol. If the relevant extension already exists, add a proper method for the service you want to use:
 
 ```swift
 protocol MovieGateway {
@@ -109,29 +111,29 @@ struct MovieRouter {
 }
 ```
 
-3. Create a new `RequestOperation` for the service you need to use, the new operation will define the proper parser, executor and request:
+3. Create a new `RequestOperation` for the service you need to use. The new operation will define the proper parser, executor and request:
 
 ```swift
-class ProductListRequestOperation: NSObject, RequestOperationType {
-    typealias Result = [Product]
+class MovieDetailRequestOperation: NSObject, RequestOperationType {
+    typealias Result = Movie
 
     var executor = RequestExecutor()
-    var parser = ProductListRequestParser()
-    var request = Request(route: ProductsRouter.list)
+    var parser = MovieDetailRequestParser()
+    var request = Request(route: MovieRouter.list)
 }
 ```
 
-4. Call proper method on the `MyGateway`:
+4. Call proper method on your `Gateway`:
 
     * In the `onSuccess` completion block handle the data as necessary
     * In the `onError` completion block handle the error as necessary
 
 ```objc
-[self.gateway getProductsOnSuccess:^(NSArray<Product *> *products) {
-    NSLog(@"Fetched %ld products", (long)products.count);
+[self.gateway getMovieOnSuccess:^(Movie *movie) {
+    NSLog(@"Fetched movie %@", movie.title);
 
 } onError:^(NSError *error) {
-    NSLog(@"Error fetching list: %@", error.localizedDescription);
+    NSLog(@"Error fetching the movie: %@", error.localizedDescription);
 }];
 ```
 
@@ -142,9 +144,9 @@ class ProductListRequestOperation: NSObject, RequestOperationType {
 
 All magic is, and will be, written in Swift. We didn't want to limit our self in the creation of the library, that's why the only thing Objective-C needs to be able to interact with is the `Gateway`, created on the app level.
 
-### Try/Catch & errror handling
+### Try/Catch & error handling
 
-You might have noticed there are a number of `try` and `throw` keywords in there. Correct and complete error handling will be a challenge and there will be `do {} catch {}` closures throughtout the codebase.
+You might have noticed there are a number of `try` and `throw` keywords in there. Correct and complete error handling will be a challenge and there will be `do {} catch {}` closures through the codebase.
 
 For the moment the request to the Gateway can generate a `Error` and we can handle it in the `onError` completion block.
 
@@ -166,7 +168,7 @@ The parser can be extended or changes as per our needs with one line of code cha
 
 ```
 $ git clone https://github.com/jumbo-tech-campus/JNetworkingKit
-$ cd JNetworkingKit
+$ cd JNetworkingKit/JNetworkingKit
 $ open JNetworkingKit.xcworkspace
 ```
 
@@ -176,16 +178,16 @@ Now you can open the workspace and run the unit tests to check that everything w
 
 ```
 $ git clone https://github.com/jumbo-tech-campus/JNetworkingKit
-$ cd DemoApp
+$ cd JNetworkingKit/DemoApp
 $ open DemoApp.xcworkspace
 ```
 
-After you open the workspace, you should replace the **API key** in the `MovieRouter.swift` file. A new key can be created on [OMDb Api](https://www.omdbapi.com/). 
+After you open the workspace, you should replace the **API key** in the `MovieRouter.swift` file. A new key can be created on [OMDb Api](https://www.omdbapi.com/).
 
 Now you can run the demo application. There are 2 screens:
 
 - The first one will load an image and show it on the screen
-- The second one will downlaod information about the movie Matrix and display title and plot on the screen
+- The second one will download information about the movie Matrix and display title and plot on the screen
 
 ## Future improvement
 
