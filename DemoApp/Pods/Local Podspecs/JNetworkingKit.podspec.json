@@ -1,6 +1,6 @@
 {
   "name": "JNetworkingKit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "summary": "A generic networking setup for Swift and Objective-C.",
   "license": {
     "type": "MIT",
@@ -15,7 +15,7 @@
   },
   "source": {
     "git": "https://github.com/jumbo-tech-campus/JNetworkingKit.git",
-    "tag": "1.0.1"
+    "tag": "1.0.2"
   },
   "source_files": "JNetworkingKit/Source/**/*.{swift}"
 }
