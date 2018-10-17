@@ -38,6 +38,7 @@ private extension Request {
         var request = URLRequest(url: url)
         request.httpMethod = self.method.rawValue
         request.allHTTPHeaderFields = self.headers
+        request.httpBody = self.data
 
         return request
     }
