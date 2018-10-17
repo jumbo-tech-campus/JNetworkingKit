@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
   s.version = "1.0.0"
   s.summary = "A generic networking setup for Swift and Objective-C."
   s.license = {
-    :type => 'Apache License, Version 2.0', :text => <<-LICENSE
+    :type => 'MIT', :text => <<-LICENSE
       MIT License
 
       Copyright (c) 2018 Jumbo Tech Campus
