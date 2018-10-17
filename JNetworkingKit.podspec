@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name    = "JNetworkingKit"
-  s.version = "1.0.0"
+  s.version = "1.0.1"
   s.summary = "A generic networking setup for Swift and Objective-C."
   s.license = {
     :type => 'MIT', :text => <<-LICENSE

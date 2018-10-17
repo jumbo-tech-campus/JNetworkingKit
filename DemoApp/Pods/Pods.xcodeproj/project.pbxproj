@@ -7,24 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		134769349E8E1A5AE06E3208DA951912 /* URLSessionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77D5D97810A57044131FB34C951149B0 /* URLSessionClient.swift */; };
-		18B1A5C0F4B3560E53E9C410E852A12F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0FA50D8564D3BEB62AE9F9BE114B86D /* Request.swift */; };
+		134769349E8E1A5AE06E3208DA951912 /* URLSessionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE99619747D33CCED096BA52BCCE68A2 /* URLSessionClient.swift */; };
+		18B1A5C0F4B3560E53E9C410E852A12F /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D51EFAA9228A21014D3B910826015C6 /* Request.swift */; };
 		20C9FC0E1E4306B9389C59154786D0C9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		293E1EEA41ACC5DF1E68D78B31FA3701 /* JNetworkingKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 97296C4D79B458E89CAAB85F25061ECC /* JNetworkingKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		293E1EEA41ACC5DF1E68D78B31FA3701 /* JNetworkingKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D5E2A216476775076FB0E74340BEE47E /* JNetworkingKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2A704766AD06E8522A8A4B018C1ABD6D /* Pods-DemoApp-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CD4FD0EDE0451463E1223D3D0848ACE3 /* Pods-DemoApp-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		675BCA045C383C738373828350897341 /* Pods-DemoApp-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FEA28139ADF70472F0519703078FFEE /* Pods-DemoApp-dummy.m */; };
-		67BA14AA78C226DD1AF37DB639564D2D /* RequestExecutorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B38C32F0FEF0F8889ED86D622198360E /* RequestExecutorType.swift */; };
-		6C1A734AADE9F5C50A765A688CCD552C /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E708B2B3D681697187E96F968E11FB27 /* ResponseData.swift */; };
-		75EC690D99F2670F330C37B209F19806 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7762E503CE1D39DF86CE6C64F6CE84E /* Environment.swift */; };
-		7EDFEC3C903DEEE127E794515B05B890 /* RequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84829ADA508E1825F9C9F41F5E963459 /* RequestExecutor.swift */; };
-		8B919EF1DAA3F58F27D892BA41843CE0 /* RequestRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B30958FA4C0E6C41E54EA76F90A5D61 /* RequestRoute.swift */; };
-		93C50F1A3F8F4C46581B58BF145B765F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA2921C4D2EA5DB9C5A3C3AAC35F803 /* String.swift */; };
-		A89FDC05E5618DAB73DACF9D02F3A7C1 /* JNetworkingKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D2D08F3B7F9DD8181523DCE21550EF0 /* JNetworkingKit-dummy.m */; };
-		ADAEAC8912EC9DA17D21B1B29D50E5A7 /* RequestOperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20730D1605F01648A86BACA9A056CF7 /* RequestOperationType.swift */; };
+		67BA14AA78C226DD1AF37DB639564D2D /* RequestExecutorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB7F26962806F0FD5A8FA6396310EC24 /* RequestExecutorType.swift */; };
+		6C1A734AADE9F5C50A765A688CCD552C /* ResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E9DBEC8B600CE40AD41F5FD60DB5434 /* ResponseData.swift */; };
+		75EC690D99F2670F330C37B209F19806 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B6DD12C0EA9E568EE681B18532FB60 /* Environment.swift */; };
+		7EDFEC3C903DEEE127E794515B05B890 /* RequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001A79A0D6F5508D730BDD09A600C1D2 /* RequestExecutor.swift */; };
+		8B919EF1DAA3F58F27D892BA41843CE0 /* RequestRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF7792E53C00C0014AA54F8315FEE350 /* RequestRoute.swift */; };
+		93C50F1A3F8F4C46581B58BF145B765F /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 322952518C88B5DE682C39C27F872692 /* String.swift */; };
+		A89FDC05E5618DAB73DACF9D02F3A7C1 /* JNetworkingKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C0B165627C97033C32A5512BA4A154E /* JNetworkingKit-dummy.m */; };
+		ADAEAC8912EC9DA17D21B1B29D50E5A7 /* RequestOperationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B323787ABF19A63E11F2237D819A0D7A /* RequestOperationType.swift */; };
 		B3C7F07AE02A39040B4F1BC538D7C73A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */; };
-		B86BAF25403E8681E1C4E4CFD4150D14 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D1627A0D4B67708F91A553A1B48F960 /* Response.swift */; };
-		C63A5688D19B4C6DC640071984EE7C76 /* RequestClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62AC229A7F994144F64C68EE7DF09AEE /* RequestClientType.swift */; };
-		E4390DB1A4F09D2AE57E6AEA420FF52C /* RequestParserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCB067D2079E5987BC7337E160268CC /* RequestParserType.swift */; };
+		B86BAF25403E8681E1C4E4CFD4150D14 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45D091CB90BD4E1D0449F8CCFE549DCE /* Response.swift */; };
+		C63A5688D19B4C6DC640071984EE7C76 /* RequestClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21906B0A8A1F9720351DAF101A986945 /* RequestClientType.swift */; };
+		E4390DB1A4F09D2AE57E6AEA420FF52C /* RequestParserType.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE3D3D929DA587FEF5F7AEE2E31FDB9 /* RequestParserType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,40 +38,41 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		001A79A0D6F5508D730BDD09A600C1D2 /* RequestExecutor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestExecutor.swift; sourceTree = "<group>"; };
+		08EBE39DEBFD43EA7B655E8241B9BC52 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		1BCC74FBACC77CE966E33447516D2B60 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		1C0B165627C97033C32A5512BA4A154E /* JNetworkingKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JNetworkingKit-dummy.m"; sourceTree = "<group>"; };
+		1D51EFAA9228A21014D3B910826015C6 /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		1FB15BABBB6209DDAD5B3E4CD2D7E8A4 /* Pods_DemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_DemoApp.framework; path = "Pods-DemoApp.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21906B0A8A1F9720351DAF101A986945 /* RequestClientType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestClientType.swift; sourceTree = "<group>"; };
 		242919D93F9FD3900E12E1D62FBEED8D /* Pods-DemoApp-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DemoApp-frameworks.sh"; sourceTree = "<group>"; };
 		248D7ABC2384BD9B9EA71D4F27255E1F /* Pods-DemoApp-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-DemoApp-resources.sh"; sourceTree = "<group>"; };
-		2D3AAE0902C6498FA779185087F15AA6 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DBA3EF25BD75BB0C565FC3EE05671D1 /* JNetworkingKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JNetworkingKit-prefix.pch"; sourceTree = "<group>"; };
 		311A1AD4433245FBACDB1D75CCAFB722 /* Pods-DemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DemoApp.debug.xcconfig"; sourceTree = "<group>"; };
-		3295827E1DF3680D53F7904EE7B3890E /* JNetworkingKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JNetworkingKit.xcconfig; sourceTree = "<group>"; };
-		3BCB067D2079E5987BC7337E160268CC /* RequestParserType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestParserType.swift; sourceTree = "<group>"; };
+		322952518C88B5DE682C39C27F872692 /* String.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		42815FA8FB2383A7DB64EC427ACCDBEA /* Pods-DemoApp-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-DemoApp-acknowledgements.plist"; sourceTree = "<group>"; };
-		4D2D08F3B7F9DD8181523DCE21550EF0 /* JNetworkingKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JNetworkingKit-dummy.m"; sourceTree = "<group>"; };
+		45D091CB90BD4E1D0449F8CCFE549DCE /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		50B6DD12C0EA9E568EE681B18532FB60 /* Environment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		5A16F4CFC63FAC439D7A04994F579A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		5D1627A0D4B67708F91A553A1B48F960 /* Response.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		5E9DBEC8B600CE40AD41F5FD60DB5434 /* ResponseData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
 		5FEA28139ADF70472F0519703078FFEE /* Pods-DemoApp-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-DemoApp-dummy.m"; sourceTree = "<group>"; };
-		62AC229A7F994144F64C68EE7DF09AEE /* RequestClientType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestClientType.swift; sourceTree = "<group>"; };
-		6CA2921C4D2EA5DB9C5A3C3AAC35F803 /* String.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		77D5D97810A57044131FB34C951149B0 /* URLSessionClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = URLSessionClient.swift; sourceTree = "<group>"; };
-		84829ADA508E1825F9C9F41F5E963459 /* RequestExecutor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestExecutor.swift; sourceTree = "<group>"; };
+		82A5E893F6DF096474A1AE5416C848BB /* JNetworkingKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JNetworkingKit.modulemap; sourceTree = "<group>"; };
 		8CE3885E66D378A658642E111F9C3D1D /* Pods-DemoApp.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-DemoApp.modulemap"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		97296C4D79B458E89CAAB85F25061ECC /* JNetworkingKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JNetworkingKit-umbrella.h"; sourceTree = "<group>"; };
-		9B30958FA4C0E6C41E54EA76F90A5D61 /* RequestRoute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestRoute.swift; sourceTree = "<group>"; };
-		A0492A4278E043AAB953A247D32D9B7C /* JNetworkingKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JNetworkingKit-prefix.pch"; sourceTree = "<group>"; };
-		A7762E503CE1D39DF86CE6C64F6CE84E /* Environment.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		AE95E8D0206C1D05E276D59E326578E5 /* JNetworkingKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = JNetworkingKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		ADE3D3D929DA587FEF5F7AEE2E31FDB9 /* RequestParserType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestParserType.swift; sourceTree = "<group>"; };
 		B2FA1B5DACB04AC2151A054249C81566 /* JNetworkingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = JNetworkingKit.framework; path = JNetworkingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B38C32F0FEF0F8889ED86D622198360E /* RequestExecutorType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestExecutorType.swift; sourceTree = "<group>"; };
+		B323787ABF19A63E11F2237D819A0D7A /* RequestOperationType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestOperationType.swift; sourceTree = "<group>"; };
 		B611CABACB0E94A999909FDD1EDE07EC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE99619747D33CCED096BA52BCCE68A2 /* URLSessionClient.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = URLSessionClient.swift; sourceTree = "<group>"; };
+		BF7792E53C00C0014AA54F8315FEE350 /* RequestRoute.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestRoute.swift; sourceTree = "<group>"; };
 		C0007C680C58948F3430418E2EE172BC /* Pods-DemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-DemoApp.release.xcconfig"; sourceTree = "<group>"; };
-		C20730D1605F01648A86BACA9A056CF7 /* RequestOperationType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestOperationType.swift; sourceTree = "<group>"; };
+		C3A25D1CDBC7F8483E50B38E73FE46DC /* JNetworkingKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JNetworkingKit.xcconfig; sourceTree = "<group>"; };
+		C436AEB55332CA6036C5975D31F91CB8 /* JNetworkingKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = JNetworkingKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C8ED76661AD3DA2AA520ABD8211DF228 /* Pods-DemoApp-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-DemoApp-acknowledgements.markdown"; sourceTree = "<group>"; };
 		CD4FD0EDE0451463E1223D3D0848ACE3 /* Pods-DemoApp-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-DemoApp-umbrella.h"; sourceTree = "<group>"; };
-		DFA4178F0C9A7D2DD187231C04B15E55 /* JNetworkingKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = JNetworkingKit.modulemap; sourceTree = "<group>"; };
-		E0FA50D8564D3BEB62AE9F9BE114B86D /* Request.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
-		E708B2B3D681697187E96F968E11FB27 /* ResponseData.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ResponseData.swift; sourceTree = "<group>"; };
-		F8F31BAF4185CB02BABA3B61D417EBD7 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		D5E2A216476775076FB0E74340BEE47E /* JNetworkingKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JNetworkingKit-umbrella.h"; sourceTree = "<group>"; };
+		DA11FA004DF415A2F68B6644D1B3814A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB7F26962806F0FD5A8FA6396310EC24 /* RequestExecutorType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestExecutorType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +95,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		066170948EB056D24960495B78794EE6 /* JNetworkingKit */ = {
+			isa = PBXGroup;
+			children = (
+				5CD95CB83D1485F917FE5F872148DAD0 /* Components */,
+				0961148B4379B318866E43274BAE21AF /* Extensions */,
+				17DF0BE8B852E8D8D19BF27D61799982 /* Models */,
+				6E997DD2710643C5DAF876408CFE19FD /* Pod */,
+				C441760D9614B153F88BC8FA8A26561B /* Support Files */,
+			);
+			name = JNetworkingKit;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		0961148B4379B318866E43274BAE21AF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				322952518C88B5DE682C39C27F872692 /* String.swift */,
+			);
+			name = Extensions;
+			path = JNetworkingKit/Source/Extensions;
+			sourceTree = "<group>";
+		};
+		17DF0BE8B852E8D8D19BF27D61799982 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7FF59B4BA273D96AA51E99268D40EDDB /* Request */,
+				6AD19B36BFC774CB3C688355BB945135 /* Response */,
+			);
+			name = Models;
+			path = JNetworkingKit/Source/Models;
+			sourceTree = "<group>";
+		};
+		1AB33024943F1C011C2AFF30C371D3D3 /* RequestOperation */ = {
+			isa = PBXGroup;
+			children = (
+				B323787ABF19A63E11F2237D819A0D7A /* RequestOperationType.swift */,
+			);
+			name = RequestOperation;
+			path = RequestOperation;
+			sourceTree = "<group>";
+		};
 		1D9271790BC02257E089802FBF704FE4 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -101,45 +143,6 @@
 				1FB15BABBB6209DDAD5B3E4CD2D7E8A4 /* Pods_DemoApp.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		22CB6CAA01F86265924920AFC9694B39 /* JNetworkingKit */ = {
-			isa = PBXGroup;
-			children = (
-				3DD168802C40849D0008C620CA0878F8 /* Components */,
-				691DAC29430FC029072837B829B4E152 /* Extensions */,
-				D8190638B2FC78DAF54279786D6F1A99 /* Models */,
-				596FBFBC2333C682FB973E8902623E74 /* Pod */,
-				2BA360FF360D79639041ECAA3D2AC2DC /* Support Files */,
-			);
-			name = JNetworkingKit;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		2BA360FF360D79639041ECAA3D2AC2DC /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				2D3AAE0902C6498FA779185087F15AA6 /* Info.plist */,
-				DFA4178F0C9A7D2DD187231C04B15E55 /* JNetworkingKit.modulemap */,
-				3295827E1DF3680D53F7904EE7B3890E /* JNetworkingKit.xcconfig */,
-				4D2D08F3B7F9DD8181523DCE21550EF0 /* JNetworkingKit-dummy.m */,
-				A0492A4278E043AAB953A247D32D9B7C /* JNetworkingKit-prefix.pch */,
-				97296C4D79B458E89CAAB85F25061ECC /* JNetworkingKit-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "DemoApp/Pods/Target Support Files/JNetworkingKit";
-			sourceTree = "<group>";
-		};
-		3DD168802C40849D0008C620CA0878F8 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				B71C33D79C1C74617E875D2EC6F35E26 /* RequestClient */,
-				683E2077FB42091FC3C770FC106F270B /* RequestExecutor */,
-				89C9DBF119D8B96C1DE0375B19F08162 /* RequestOperation */,
-				A9867441E35044CC8386FA9F6BB2DC5E /* RequestParser */,
-			);
-			name = Components;
-			path = JNetworkingKit/Source/Components;
 			sourceTree = "<group>";
 		};
 		4056CE810F521B760B3BAD777DDE31E8 /* Pods-DemoApp */ = {
@@ -160,23 +163,26 @@
 			path = "Target Support Files/Pods-DemoApp";
 			sourceTree = "<group>";
 		};
-		596FBFBC2333C682FB973E8902623E74 /* Pod */ = {
+		5B3CC83A296A711EFDD06AF26D58415F /* RequestExecutor */ = {
 			isa = PBXGroup;
 			children = (
-				AE95E8D0206C1D05E276D59E326578E5 /* JNetworkingKit.podspec */,
-				F8F31BAF4185CB02BABA3B61D417EBD7 /* README.md */,
+				001A79A0D6F5508D730BDD09A600C1D2 /* RequestExecutor.swift */,
+				DB7F26962806F0FD5A8FA6396310EC24 /* RequestExecutorType.swift */,
 			);
-			name = Pod;
+			name = RequestExecutor;
+			path = RequestExecutor;
 			sourceTree = "<group>";
 		};
-		59E1E348B1D851F354FB8338BB067D35 /* Response */ = {
+		5CD95CB83D1485F917FE5F872148DAD0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				5D1627A0D4B67708F91A553A1B48F960 /* Response.swift */,
-				E708B2B3D681697187E96F968E11FB27 /* ResponseData.swift */,
+				FA45C0E84E761B18CAA93ABED92FC5EA /* RequestClient */,
+				5B3CC83A296A711EFDD06AF26D58415F /* RequestExecutor */,
+				1AB33024943F1C011C2AFF30C371D3D3 /* RequestOperation */,
+				E6EC0696C8AB2DC346D6523499F22C8D /* RequestParser */,
 			);
-			name = Response;
-			path = Response;
+			name = Components;
+			path = JNetworkingKit/Source/Components;
 			sourceTree = "<group>";
 		};
 		5E0D919E635D23B70123790B8308F8EF /* iOS */ = {
@@ -187,23 +193,24 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		683E2077FB42091FC3C770FC106F270B /* RequestExecutor */ = {
+		6AD19B36BFC774CB3C688355BB945135 /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				84829ADA508E1825F9C9F41F5E963459 /* RequestExecutor.swift */,
-				B38C32F0FEF0F8889ED86D622198360E /* RequestExecutorType.swift */,
+				45D091CB90BD4E1D0449F8CCFE549DCE /* Response.swift */,
+				5E9DBEC8B600CE40AD41F5FD60DB5434 /* ResponseData.swift */,
 			);
-			name = RequestExecutor;
-			path = RequestExecutor;
+			name = Response;
+			path = Response;
 			sourceTree = "<group>";
 		};
-		691DAC29430FC029072837B829B4E152 /* Extensions */ = {
+		6E997DD2710643C5DAF876408CFE19FD /* Pod */ = {
 			isa = PBXGroup;
 			children = (
-				6CA2921C4D2EA5DB9C5A3C3AAC35F803 /* String.swift */,
+				C436AEB55332CA6036C5975D31F91CB8 /* JNetworkingKit.podspec */,
+				1BCC74FBACC77CE966E33447516D2B60 /* LICENSE */,
+				08EBE39DEBFD43EA7B655E8241B9BC52 /* README.md */,
 			);
-			name = Extensions;
-			path = JNetworkingKit/Source/Extensions;
+			name = Pod;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -217,43 +224,15 @@
 			);
 			sourceTree = "<group>";
 		};
-		88BED9A046CB01F1536AACE1444D0609 /* Request */ = {
+		7FF59B4BA273D96AA51E99268D40EDDB /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				A7762E503CE1D39DF86CE6C64F6CE84E /* Environment.swift */,
-				E0FA50D8564D3BEB62AE9F9BE114B86D /* Request.swift */,
-				9B30958FA4C0E6C41E54EA76F90A5D61 /* RequestRoute.swift */,
+				50B6DD12C0EA9E568EE681B18532FB60 /* Environment.swift */,
+				1D51EFAA9228A21014D3B910826015C6 /* Request.swift */,
+				BF7792E53C00C0014AA54F8315FEE350 /* RequestRoute.swift */,
 			);
 			name = Request;
 			path = Request;
-			sourceTree = "<group>";
-		};
-		89C9DBF119D8B96C1DE0375B19F08162 /* RequestOperation */ = {
-			isa = PBXGroup;
-			children = (
-				C20730D1605F01648A86BACA9A056CF7 /* RequestOperationType.swift */,
-			);
-			name = RequestOperation;
-			path = RequestOperation;
-			sourceTree = "<group>";
-		};
-		A9867441E35044CC8386FA9F6BB2DC5E /* RequestParser */ = {
-			isa = PBXGroup;
-			children = (
-				3BCB067D2079E5987BC7337E160268CC /* RequestParserType.swift */,
-			);
-			name = RequestParser;
-			path = RequestParser;
-			sourceTree = "<group>";
-		};
-		B71C33D79C1C74617E875D2EC6F35E26 /* RequestClient */ = {
-			isa = PBXGroup;
-			children = (
-				62AC229A7F994144F64C68EE7DF09AEE /* RequestClientType.swift */,
-				77D5D97810A57044131FB34C951149B0 /* URLSessionClient.swift */,
-			);
-			name = RequestClient;
-			path = RequestClient;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -264,22 +243,35 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D8190638B2FC78DAF54279786D6F1A99 /* Models */ = {
+		C441760D9614B153F88BC8FA8A26561B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				88BED9A046CB01F1536AACE1444D0609 /* Request */,
-				59E1E348B1D851F354FB8338BB067D35 /* Response */,
+				DA11FA004DF415A2F68B6644D1B3814A /* Info.plist */,
+				82A5E893F6DF096474A1AE5416C848BB /* JNetworkingKit.modulemap */,
+				C3A25D1CDBC7F8483E50B38E73FE46DC /* JNetworkingKit.xcconfig */,
+				1C0B165627C97033C32A5512BA4A154E /* JNetworkingKit-dummy.m */,
+				2DBA3EF25BD75BB0C565FC3EE05671D1 /* JNetworkingKit-prefix.pch */,
+				D5E2A216476775076FB0E74340BEE47E /* JNetworkingKit-umbrella.h */,
 			);
-			name = Models;
-			path = JNetworkingKit/Source/Models;
+			name = "Support Files";
+			path = "DemoApp/Pods/Target Support Files/JNetworkingKit";
 			sourceTree = "<group>";
 		};
 		E0EFEA098202913E2BC713E4CE49F966 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				22CB6CAA01F86265924920AFC9694B39 /* JNetworkingKit */,
+				066170948EB056D24960495B78794EE6 /* JNetworkingKit */,
 			);
 			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		E6EC0696C8AB2DC346D6523499F22C8D /* RequestParser */ = {
+			isa = PBXGroup;
+			children = (
+				ADE3D3D929DA587FEF5F7AEE2E31FDB9 /* RequestParserType.swift */,
+			);
+			name = RequestParser;
+			path = RequestParser;
 			sourceTree = "<group>";
 		};
 		F78FD055B769C56ABB53AFC0D30DD822 /* Targets Support Files */ = {
@@ -288,6 +280,16 @@
 				4056CE810F521B760B3BAD777DDE31E8 /* Pods-DemoApp */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		FA45C0E84E761B18CAA93ABED92FC5EA /* RequestClient */ = {
+			isa = PBXGroup;
+			children = (
+				21906B0A8A1F9720351DAF101A986945 /* RequestClientType.swift */,
+				BE99619747D33CCED096BA52BCCE68A2 /* URLSessionClient.swift */,
+			);
+			name = RequestClient;
+			path = RequestClient;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -476,7 +478,7 @@
 		};
 		5631ACA6EBD55F3796735D8C62A11A3A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3295827E1DF3680D53F7904EE7B3890E /* JNetworkingKit.xcconfig */;
+			baseConfigurationReference = C3A25D1CDBC7F8483E50B38E73FE46DC /* JNetworkingKit.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -635,7 +637,7 @@
 		};
 		D60D4D74E3D734ECAD0C2A8B22917E9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3295827E1DF3680D53F7904EE7B3890E /* JNetworkingKit.xcconfig */;
+			baseConfigurationReference = C3A25D1CDBC7F8483E50B38E73FE46DC /* JNetworkingKit.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
