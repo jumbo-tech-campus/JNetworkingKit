@@ -28,7 +28,7 @@ class EnvironmentSpec: QuickSpec {
                 }
 
                 it("compares correctly environment with same configuration") {
-                    expect(sut).to(equal(newEnvironment))
+                    expect(sut) == newEnvironment
                 }
             }
         }

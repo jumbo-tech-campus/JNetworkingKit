@@ -1,10 +1,12 @@
 import Foundation
 
-public struct Environment {
+@objc
+public class Environment: NSObject {
     private var server: String
     private var path: String?
     private var version: String?
 
+    @objc
     var url: String {
         return [server, path, version].compactMap({ $0 }).joined(separator: "/")
     }
@@ -14,12 +16,14 @@ public struct Environment {
         self.path = path
         self.version = version
     }
-}
 
-extension Environment: Equatable {
-    public static func == (lhs: Environment, rhs: Environment) -> Bool {
-        return lhs.server == rhs.server
-            && lhs.path == rhs.path
-            && lhs.version == rhs.version
+    public override func isEqual(_ object: Any?) -> Bool {
+        guard let environment = object as? Environment else {
+            return false
+        }
+
+        return server == environment.server
+            && path == environment.path
+            && version == environment.version
     }
 }
