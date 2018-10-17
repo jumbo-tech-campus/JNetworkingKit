@@ -7,7 +7,7 @@ public class Environment: NSObject {
     private var version: String?
 
     @objc
-    var url: String {
+    public var url: String {
         return [server, path, version].compactMap({ $0 }).joined(separator: "/")
     }
 
