@@ -20,3 +20,20 @@ extension RequestRoute: Equatable {
             && lhs.parameters == rhs.parameters
     }
 }
+
+public func + (lhs: RequestRoute, rhs: RequestRoute) -> RequestRoute {
+    let combinedPath = "\(lhs.path)/\(rhs.path)"
+    var combinedParameters = lhs.parameters
+
+    if let rhsParameters = rhs.parameters {
+        combinedParameters?.merge(rhsParameters) { (current, _) in current }
+    }
+
+    return RequestRoute(path: combinedPath, parameters: combinedParameters)
+}
+
+public func + (lhs: String, rhs: RequestRoute) -> RequestRoute {
+    let combinedPath = "\(lhs)/\(rhs.path)"
+
+    return RequestRoute(path: combinedPath, parameters: rhs.parameters)
+}
