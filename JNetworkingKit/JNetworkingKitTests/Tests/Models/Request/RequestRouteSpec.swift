@@ -7,72 +7,70 @@ class RouteSpec: QuickSpec {
 
     override func spec() {
         describe("Route") {
-            let pathStub = "product/{id}/{name}"
-            let parametersStub = ["id": "1", "name": "Stub"]
             var sut: RequestRoute!
 
-            beforeEach {
-                sut = RequestRoute(path: pathStub, parameters: parametersStub)
+            context("Init") {
+                let pathStub = "product/{id}/{name}"
+                let parametersStub = ["id": "1", "name": "Stub"]
+
+                beforeEach {
+                    sut = RequestRoute(path: pathStub, parameters: parametersStub)
+                }
+
+                it("return the correct url") {
+                    expect(sut.route).to(equal("product/1/Stub"))
+                }
             }
 
-            it("return the correct url") {
-                expect(sut.route).to(equal("product/1/Stub"))
-            }
-        }
+            describe("Add") {
+                let lhsRoute = RequestRoute(path: "left")
+                let rhsRoute = RequestRoute(path: "right")
+                let lhsRouteWithParams = RequestRoute(path: "left/{leftId}", parameters: ["leftId": "1"])
+                let rhsRouteWithParams = RequestRoute(path: "right/{rightId}", parameters: ["rightId": "2"])
 
-        describe("String+Route") {
-            let lhsString = "lists"
-            let rhsRoute = RequestRoute(path: "list/{listId}", parameters: ["listId": "1"])
-            var sut: RequestRoute!
+                context("String plus Route") {
+                    let lhsString = "string"
 
-            beforeEach {
-                sut = lhsString + rhsRoute
-            }
+                    beforeEach {
+                        sut = lhsString + rhsRouteWithParams
+                    }
 
-            it("return the correct url") {
-                expect(sut.route).to(equal("lists/list/1"))
-            }
-        }
+                    it("return the correct url") {
+                        expect(sut.route).to(equal("string/right/2"))
+                    }
+                }
 
-        describe("RouteWithParams+RouteWithParams") {
-            let lhsRoute = RequestRoute(path: "list/{listId}", parameters: ["listId": "1"])
-            let rhsRoute = RequestRoute(path: "item/{itemId}", parameters: ["itemId": "2"])
-            var sut: RequestRoute!
+                context("Route plus Route") {
+                    context("with left and right params") {
+                        beforeEach {
+                            sut = lhsRouteWithParams + rhsRouteWithParams
+                        }
 
-            beforeEach {
-                sut = lhsRoute + rhsRoute
-            }
+                        it("return the correct url") {
+                            expect(sut.route).to(equal("left/1/right/2"))
+                        }
+                    }
 
-            it("return the correct url") {
-                expect(sut.route).to(equal("list/1/item/2"))
-            }
-        }
+                    context("with right params") {
+                        beforeEach {
+                            sut = lhsRoute + rhsRouteWithParams
+                        }
 
-        describe("Route+RouteWithParams") {
-            let lhsRoute = RequestRoute(path: "lists")
-            let rhsRoute = RequestRoute(path: "list/{listId}", parameters: ["listId": "1"])
-            var sut: RequestRoute!
+                        it("return the correct url") {
+                            expect(sut.route).to(equal("left/right/2"))
+                        }
+                    }
 
-            beforeEach {
-                sut = lhsRoute + rhsRoute
-            }
+                    context("with left params") {
+                        beforeEach {
+                            sut = lhsRouteWithParams + rhsRoute
+                        }
 
-            it("return the correct url") {
-                expect(sut.route).to(equal("lists/list/1"))
-            }
-        }
-
-        describe("RouteWithParams+Route") {
-            let lhsRoute = RequestRoute(path: "list/{listId}", parameters: ["listId": "1"])
-            let rhsRoute = RequestRoute(path: "items")
-            var sut: RequestRoute!
-
-            beforeEach {
-                sut = lhsRoute + rhsRoute
-            }
-
-            it("return the correct url") {
-                expect(sut.route).to(equal("list/1/items"))
+                        it("return the correct url") {
+                            expect(sut.route).to(equal("left/1/right"))
+                        }
+                    }
+                }
             }
         }
     }
