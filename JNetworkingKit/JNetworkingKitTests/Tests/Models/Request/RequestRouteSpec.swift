@@ -28,47 +28,33 @@ class RouteSpec: QuickSpec {
                 let lhsRouteWithParams = RequestRoute(path: "left/{leftId}", parameters: ["leftId": "1"])
                 let rhsRouteWithParams = RequestRoute(path: "right/{rightId}", parameters: ["rightId": "2"])
 
-                context("String plus Route") {
-                    let lhsString = "string"
-
+                context("with left and right params") {
                     beforeEach {
-                        sut = lhsString + rhsRouteWithParams
+                        sut = lhsRouteWithParams + rhsRouteWithParams
                     }
 
                     it("return the correct url") {
-                        expect(sut.route).to(equal("string/right/2"))
+                        expect(sut.route).to(equal("left/1/right/2"))
                     }
                 }
 
-                context("Route plus Route") {
-                    context("with left and right params") {
-                        beforeEach {
-                            sut = lhsRouteWithParams + rhsRouteWithParams
-                        }
-
-                        it("return the correct url") {
-                            expect(sut.route).to(equal("left/1/right/2"))
-                        }
+                context("with right params") {
+                    beforeEach {
+                        sut = lhsRoute + rhsRouteWithParams
                     }
 
-                    context("with right params") {
-                        beforeEach {
-                            sut = lhsRoute + rhsRouteWithParams
-                        }
+                    it("return the correct url") {
+                        expect(sut.route).to(equal("left/right/2"))
+                    }
+                }
 
-                        it("return the correct url") {
-                            expect(sut.route).to(equal("left/right/2"))
-                        }
+                context("with left params") {
+                    beforeEach {
+                        sut = lhsRouteWithParams + rhsRoute
                     }
 
-                    context("with left params") {
-                        beforeEach {
-                            sut = lhsRouteWithParams + rhsRoute
-                        }
-
-                        it("return the correct url") {
-                            expect(sut.route).to(equal("left/1/right"))
-                        }
+                    it("return the correct url") {
+                        expect(sut.route).to(equal("left/1/right"))
                     }
                 }
             }
