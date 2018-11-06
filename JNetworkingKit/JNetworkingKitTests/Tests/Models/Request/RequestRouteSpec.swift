@@ -3,26 +3,24 @@ import Nimble
 
 @testable import JNetworkingKit
 
-class RouteSpec: QuickSpec {
+class RequestRouteSpec: QuickSpec {
 
     override func spec() {
-        describe("Route") {
+        describe("RequestRoute") {
             var sut: RequestRoute!
 
-            context("Init") {
-                let pathStub = "product/{id}/{name}"
-                let parametersStub = ["id": "1", "name": "Stub"]
+            let pathStub = "product/{id}/{name}"
+            let parametersStub = ["id": "1", "name": "Stub"]
 
-                beforeEach {
-                    sut = RequestRoute(path: pathStub, parameters: parametersStub)
-                }
-
-                it("return the correct url") {
-                    expect(sut.route).to(equal("product/1/Stub"))
-                }
+            beforeEach {
+                sut = RequestRoute(path: pathStub, parameters: parametersStub)
             }
 
-            describe("Add") {
+            it("returns the correct route") {
+                expect(sut.route).to(equal("product/1/Stub"))
+            }
+
+            describe("combine two RequestRoutes") {
                 let lhsRoute = RequestRoute(path: "left")
                 let rhsRoute = RequestRoute(path: "right")
                 let lhsRouteWithParams = RequestRoute(path: "left/{leftId}", parameters: ["leftId": "1"])
@@ -33,7 +31,7 @@ class RouteSpec: QuickSpec {
                         sut = lhsRouteWithParams + rhsRouteWithParams
                     }
 
-                    it("return the correct url") {
+                    it("returns the correct route") {
                         expect(sut.route).to(equal("left/1/right/2"))
                     }
                 }
@@ -43,7 +41,7 @@ class RouteSpec: QuickSpec {
                         sut = lhsRoute + rhsRouteWithParams
                     }
 
-                    it("return the correct url") {
+                    it("returns the correct route") {
                         expect(sut.route).to(equal("left/right/2"))
                     }
                 }
@@ -53,7 +51,7 @@ class RouteSpec: QuickSpec {
                         sut = lhsRouteWithParams + rhsRoute
                     }
 
-                    it("return the correct url") {
+                    it("returns the correct route") {
                         expect(sut.route).to(equal("left/1/right"))
                     }
                 }
