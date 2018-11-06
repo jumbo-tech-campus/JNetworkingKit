@@ -16,6 +16,10 @@ class RequestRouteSpec: QuickSpec {
                 sut = RequestRoute(path: pathStub, parameters: parametersStub)
             }
 
+            afterEach {
+                sut = nil
+            }
+
             it("returns the correct route") {
                 expect(sut.route).to(equal("product/1/Stub"))
             }
@@ -31,6 +35,10 @@ class RequestRouteSpec: QuickSpec {
                         sut = lhsRouteWithParams + rhsRouteWithParams
                     }
 
+                    afterEach {
+                        sut = nil
+                    }
+
                     it("returns the correct route") {
                         expect(sut.route).to(equal("left/1/right/2"))
                     }
@@ -41,6 +49,10 @@ class RequestRouteSpec: QuickSpec {
                         sut = lhsRoute + rhsRouteWithParams
                     }
 
+                    afterEach {
+                        sut = nil
+                    }
+
                     it("returns the correct route") {
                         expect(sut.route).to(equal("left/right/2"))
                     }
@@ -49,6 +61,10 @@ class RequestRouteSpec: QuickSpec {
                 context("with left params") {
                     beforeEach {
                         sut = lhsRouteWithParams + rhsRoute
+                    }
+
+                    afterEach {
+                        sut = nil
                     }
 
                     it("returns the correct route") {
