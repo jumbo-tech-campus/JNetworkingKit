@@ -9,7 +9,7 @@ class RequestRouteSpec: QuickSpec {
         describe("RequestRoute") {
             var sut: RequestRoute!
             var pathStub: String!
-            var parametersStub: [String:String]!
+            var parametersStub: [String: String]!
 
             beforeEach {
                 pathStub = "product/{id}/{name}"
