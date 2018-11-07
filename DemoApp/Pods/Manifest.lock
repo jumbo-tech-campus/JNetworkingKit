@@ -1,5 +1,5 @@
 PODS:
-  - JNetworkingKit (1.0.3)
+  - JNetworkingKit (1.1.0)
 
 DEPENDENCIES:
   - JNetworkingKit (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  JNetworkingKit: a7666e2896e255f1b272f057301a765361d7896c
+  JNetworkingKit: e42384a512ac845fcbb20f5df747775168d23157
 
 PODFILE CHECKSUM: f3be8929db390282be11f0be3ddf6cd16596ad7e
 
