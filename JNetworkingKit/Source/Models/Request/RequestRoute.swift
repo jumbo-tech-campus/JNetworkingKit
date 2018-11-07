@@ -20,3 +20,7 @@ extension RequestRoute: Equatable {
             && lhs.parameters == rhs.parameters
     }
 }
+
+public func + (lhs: RequestRoute, rhs: RequestRoute) -> RequestRoute {
+    return RequestRoute(path: "\(lhs.route)/\(rhs.route)")
+}
