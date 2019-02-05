@@ -19,12 +19,8 @@ public struct Request {
     var parameters: RequestParameters
     var data: Data?
 
-    var url: URL? {
+    public var url: URL? {
         return URL(string: [environment.url, route?.route].compactMap({ $0 }).joined(separator: "/"))
-    }
-
-    public var debugUrl: String {
-        return url?.absoluteString ?? "unknown url"
     }
 
     public init(environment: Environment,
