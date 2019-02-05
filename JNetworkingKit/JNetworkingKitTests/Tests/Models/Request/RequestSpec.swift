@@ -19,6 +19,10 @@ class RequestSpec: QuickSpec {
                 expect(sut.url?.absoluteString).to(equal("http://www.jumbo.com/1/2"))
             }
 
+            it("return a debug url description") {
+                expect(sut.debugUrl).to(equal("http://www.jumbo.com/1/2"))
+            }
+
             describe("check if two request are equal") {
 
                 it("recognize equal requests") {
