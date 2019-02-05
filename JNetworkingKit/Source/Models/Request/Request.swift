@@ -19,7 +19,7 @@ public struct Request {
     var parameters: RequestParameters
     var data: Data?
 
-    var url: URL? {
+    public var url: URL? {
         return URL(string: [environment.url, route?.route].compactMap({ $0 }).joined(separator: "/"))
     }
 
