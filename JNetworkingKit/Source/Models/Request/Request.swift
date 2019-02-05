@@ -23,6 +23,10 @@ public struct Request {
         return URL(string: [environment.url, route?.route].compactMap({ $0 }).joined(separator: "/"))
     }
 
+    public var debugUrl: String {
+        return url?.absoluteString ?? "unknown url"
+    }
+
     public init(environment: Environment,
                 route: RequestRoute? = nil,
                 method: Request.Method = .get,
