@@ -3,7 +3,7 @@ import Foundation
 public enum RequestClientError: Error, Hashable {
     case generic(message: String)
     case invalidRequest
-    case invalidResponse
+    case invalidResponse(response: Response?)
     case noData
 }
 

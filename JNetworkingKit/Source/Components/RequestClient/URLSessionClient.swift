@@ -17,7 +17,7 @@ extension URLSession: RequestClientType {
             }
 
             guard let response = response as? HTTPURLResponse else {
-                return onError(RequestClientError.invalidResponse)
+                return onError(RequestClientError.invalidResponse(response: nil))
             }
 
             guard let data = data else {
