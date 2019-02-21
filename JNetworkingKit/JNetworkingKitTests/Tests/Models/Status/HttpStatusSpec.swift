@@ -14,13 +14,12 @@ class HttpStatusSpec: QuickSpec {
             }
 
             describe("check informational response") {
-
                 beforeEach {
                     statusCode = 150
                 }
 
                 it("initializes an informational response status code") {
-                expect(HttpStatus.status(for: statusCode)).to(equal(.informationalResponse))
+                    expect(HttpStatus.status(for: statusCode)).to(equal(.informationalResponse))
                 }
 
                 it("recognizes the status code as an informational response") {
@@ -29,12 +28,11 @@ class HttpStatusSpec: QuickSpec {
             }
 
             describe("check success response") {
-
                 beforeEach {
                     statusCode = 250
                 }
 
-                it("initializes an success response status code") {
+                it("initializes a success response status code") {
                     expect(HttpStatus.status(for: statusCode)).to(equal(.success))
                 }
 
@@ -44,7 +42,6 @@ class HttpStatusSpec: QuickSpec {
             }
 
             describe("check redirection response") {
-
                 beforeEach {
                     statusCode = 350
                 }
@@ -59,7 +56,6 @@ class HttpStatusSpec: QuickSpec {
             }
 
             describe("check client error response") {
-
                 beforeEach {
                     statusCode = 450
                 }
@@ -74,7 +70,6 @@ class HttpStatusSpec: QuickSpec {
             }
 
             describe("check server error response") {
-
                 beforeEach {
                     statusCode = 550
                 }
@@ -89,7 +84,6 @@ class HttpStatusSpec: QuickSpec {
             }
 
             describe("check unknown response") {
-
                 beforeEach {
                     statusCode = 999
                 }

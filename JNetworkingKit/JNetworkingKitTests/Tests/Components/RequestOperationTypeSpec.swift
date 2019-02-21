@@ -40,8 +40,8 @@ class RequestOperationTypeSpec: QuickSpec {
             }
 
             context("execution succeed") {
-                var expectedResult: String!
                 let fakeResponse = Response(data: Data(), statusCode: 0)
+                var expectedResult: String!
                 var callbackThread: Thread!
 
                 context("valid data received") {

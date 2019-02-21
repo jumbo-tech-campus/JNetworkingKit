@@ -1,7 +1,6 @@
 import Foundation
 
 public enum RequestParserError: Error, Hashable {
-    case noData
     case invalidData
     case api(code: String, message: String)
 }
