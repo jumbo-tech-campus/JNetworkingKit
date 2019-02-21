@@ -6,44 +6,44 @@ public enum HttpStatus {
     case serverError
     case unknown
 
-    static public func status(for statusCode: Int) -> HttpStatus {
+    init(_ statusCode: Int) {
         switch statusCode {
         case 100...199:
-            return .informationalResponse
+            self = .informationalResponse
         case 200...299:
-            return .success
+            self = .success
         case 300...399:
-            return .redirection
+            self = .redirection
         case 400...499:
-            return .clientError
+            self = .clientError
         case 500...599:
-            return .serverError
+            self = .serverError
         default:
-            return .unknown
+            self = .unknown
         }
     }
 
     static public func isInformationalResponse(statusCode: Int) -> Bool {
-        return HttpStatus.status(for: statusCode) == .informationalResponse
+        return HttpStatus(statusCode) == .informationalResponse
     }
 
     static public func isSuccessful(statusCode: Int) -> Bool {
-        return HttpStatus.status(for: statusCode) == .success
+        return HttpStatus(statusCode) == .success
     }
 
     static public func isRedirection(statusCode: Int) -> Bool {
-        return HttpStatus.status(for: statusCode) == .redirection
+        return HttpStatus(statusCode) == .redirection
     }
 
     static public func isClientError(statusCode: Int) -> Bool {
-        return HttpStatus.status(for: statusCode) == .clientError
+        return HttpStatus(statusCode) == .clientError
     }
 
     static public func isServerError(statusCode: Int) -> Bool {
-        return HttpStatus.status(for: statusCode) == .serverError
+        return HttpStatus(statusCode) == .serverError
     }
 
     static public func isUnknown(statusCode: Int) -> Bool {
-        return HttpStatus.status(for: statusCode) == .unknown
+        return HttpStatus(statusCode) == .unknown
     }
 }

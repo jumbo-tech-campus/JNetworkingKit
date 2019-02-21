@@ -19,7 +19,7 @@ class HttpStatusSpec: QuickSpec {
                 }
 
                 it("initializes an informational response status code") {
-                    expect(HttpStatus.status(for: statusCode)).to(equal(.informationalResponse))
+                    expect(HttpStatus(statusCode)).to(equal(.informationalResponse))
                 }
 
                 it("recognizes the status code as an informational response") {
@@ -33,7 +33,7 @@ class HttpStatusSpec: QuickSpec {
                 }
 
                 it("initializes a success response status code") {
-                    expect(HttpStatus.status(for: statusCode)).to(equal(.success))
+                    expect(HttpStatus(statusCode)).to(equal(.success))
                 }
 
                 it("recognizes the status code as a success response") {
@@ -47,7 +47,7 @@ class HttpStatusSpec: QuickSpec {
                 }
 
                 it("initializes an redirection response status code") {
-                    expect(HttpStatus.status(for: statusCode)).to(equal(.redirection))
+                    expect(HttpStatus(statusCode)).to(equal(.redirection))
                 }
 
                 it("recognizes the status code as a redirection response") {
@@ -61,7 +61,7 @@ class HttpStatusSpec: QuickSpec {
                 }
 
                 it("initializes an client error response status code") {
-                    expect(HttpStatus.status(for: statusCode)).to(equal(.clientError))
+                    expect(HttpStatus(statusCode)).to(equal(.clientError))
                 }
 
                 it("recognizes the status code as a client error response") {
@@ -75,7 +75,7 @@ class HttpStatusSpec: QuickSpec {
                 }
 
                 it("initializes an server error response status code") {
-                    expect(HttpStatus.status(for: statusCode)).to(equal(.serverError))
+                    expect(HttpStatus(statusCode)).to(equal(.serverError))
                 }
 
                 it("recognizes the status code as a server error response") {
@@ -89,7 +89,7 @@ class HttpStatusSpec: QuickSpec {
                 }
 
                 it("initializes an redirection response status code") {
-                    expect(HttpStatus.status(for: statusCode)).to(equal(.unknown))
+                    expect(HttpStatus(statusCode)).to(equal(.unknown))
                 }
 
                 it("recognizes the status code as a redirection response") {

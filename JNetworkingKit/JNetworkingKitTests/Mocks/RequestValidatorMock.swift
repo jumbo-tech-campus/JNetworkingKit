@@ -12,7 +12,7 @@ class RequestValidatorMock {
     }
 
     struct Stubs {
-        lazy var validate = Validate()
+        var validate = Validate()
 
         struct Validate {
             var error: Error?

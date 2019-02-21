@@ -12,7 +12,7 @@ class RequestParserMock {
     }
 
     struct Stubs {
-        lazy var parse = Parse()
+        var parse = Parse()
 
         struct Parse {
             var error: Error?
