@@ -20,7 +20,7 @@ public protocol RequestValidatorType {
 }
 
 extension RequestValidatorType {
-    func validate(response: Response) throws {
+    public func validate(response: Response) throws {
         switch response.statusCode {
         case 100...199:
             throw RequestValidatorError.informationalResponse(response)
