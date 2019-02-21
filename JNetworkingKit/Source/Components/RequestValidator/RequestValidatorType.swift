@@ -16,8 +16,6 @@ public enum RequestValidatorError: Error {
 }
 
 public protocol RequestValidatorType {
-    var operationError: ((Error) -> Error)? { get }
-
     func validate(response: Response) throws
 }
 

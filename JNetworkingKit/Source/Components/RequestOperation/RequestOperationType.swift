@@ -10,6 +10,7 @@ public protocol RequestOperationType {
     var parser: Parser { get set }
     var request: Request { get set }
     var validator: Validator { get set }
+    var operationError: ((Error) -> Error)? { get set }
 
     func execute(onSuccess: ((Result) -> Void)?, onError: ((Error) -> Void)?)
 }
@@ -27,13 +28,13 @@ extension RequestOperationType {
 
                 } catch let error {
                     DispatchQueue.main.async {
-                        onError?(self.validator.operationError?(error) ?? error)
+                        onError?(self.operationError?(error) ?? error)
                     }
                 }
             },
             onError: { error in
                 DispatchQueue.main.async {
-                    onError?(self.validator.operationError?(error) ?? error)
+                    onError?(self.operationError?(error) ?? error)
                 }
             }
         )
