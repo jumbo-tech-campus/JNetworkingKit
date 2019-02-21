@@ -8,5 +8,5 @@ public enum RequestParserError: Error {
 public protocol RequestParserType {
     associatedtype Result
 
-    func parse(response: Response) throws -> Result
+    func parse(data: Data) throws -> Result
 }

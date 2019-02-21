@@ -42,7 +42,8 @@ class RequestOperationTypeSpec: QuickSpec {
             }
 
             context("execution succeed") {
-                let fakeResponse = Response(data: Data(), statusCode: 0)
+                let fakeData = Data()
+                let fakeResponse = Response(data: fakeData, statusCode: 0)
                 var expectedResult: String!
                 var callbackThread: Thread!
 
@@ -70,7 +71,7 @@ class RequestOperationTypeSpec: QuickSpec {
                     }
 
                     it("sends the response received from the executor to the parser") {
-                        expect(parserMock.captures.parse?.response).toEventually(equal(fakeResponse))
+                        expect(parserMock.captures.parse?.data).toEventually(equal(fakeData))
                     }
 
                     it("forwards the data to the onSuccess callback") {
