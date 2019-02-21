@@ -17,6 +17,7 @@ opt_in_rules:
 - redundant_nil_coalescing
 
 disabled_rules:
+ - identifier_name
  - nesting
 
 private_outlet:

@@ -4,33 +4,39 @@ public protocol RequestOperationType {
     associatedtype Result where Result == Parser.Result
     associatedtype Executor: RequestExecutorType
     associatedtype Parser: RequestParserType
+    associatedtype Validator: RequestValidatorType
 
     var executor: Executor { get set }
     var parser: Parser { get set }
     var request: Request { get set }
+    var validator: Validator { get set }
+    var operationError: ((Error) -> Error) { get }
 
     func execute(onSuccess: ((Result) -> Void)?, onError: ((Error) -> Void)?)
 }
 
-extension RequestOperationType {
+public extension RequestOperationType {
+    public var operationError: ((Error) -> Error) { return { $0 } }
+
     public func execute(onSuccess: ((Result) -> Void)? = nil, onError: ((Error) -> Void)? = nil) {
         executor.perform(request: request,
             onSuccess: { response in
                 do {
-                    let result = try self.parser.parse(response: response)
+                    try self.validator.validate(response: response)
+                    let result = try self.parser.parse(data: response.data)
                     DispatchQueue.main.async {
                         onSuccess?(result)
                     }
 
                 } catch let error {
                     DispatchQueue.main.async {
-                        onError?(error)
+                        onError?(self.operationError(error))
                     }
                 }
             },
             onError: { error in
                 DispatchQueue.main.async {
-                    onError?(error)
+                    onError?(self.operationError(error))
                 }
             }
         )

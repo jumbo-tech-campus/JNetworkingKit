@@ -10,19 +10,24 @@ class RequestOperationTypeSpec: QuickSpec {
             var executorMock: RequestExecutorMock!
             var parserMock: RequestParserMock!
             var requestMock: Request!
+            var validatorMock: RequestValidatorMock!
+            var operationErrorMock: ((Error) -> Error)!
             var sut: ConcreteRequestOperation!
 
             beforeEach {
                 executorMock = RequestExecutorMock()
                 parserMock = RequestParserMock()
                 requestMock = Request(url: "")
-                sut = ConcreteRequestOperation(executor: executorMock, parser: parserMock, request: requestMock)
+                validatorMock = RequestValidatorMock()
+                operationErrorMock = { $0 }
+                sut = ConcreteRequestOperation(executor: executorMock, parser: parserMock, request: requestMock, validator: validatorMock, operationError: operationErrorMock)
             }
 
             afterEach {
                 executorMock = nil
                 parserMock = nil
                 requestMock = nil
+                validatorMock = nil
                 sut = nil
             }
 
@@ -37,8 +42,9 @@ class RequestOperationTypeSpec: QuickSpec {
             }
 
             context("execution succeed") {
+                let fakeData = Data()
+                let fakeResponse = Response(data: fakeData, statusCode: 0)
                 var expectedResult: String!
-                let fakeResponse = Response(data: nil, statusCode: 0)
                 var callbackThread: Thread!
 
                 context("valid data received") {
@@ -65,7 +71,7 @@ class RequestOperationTypeSpec: QuickSpec {
                     }
 
                     it("sends the response received from the executor to the parser") {
-                        expect(parserMock.captures.parse?.response).toEventually(equal(fakeResponse))
+                        expect(parserMock.captures.parse?.data).toEventually(equal(fakeData))
                     }
 
                     it("forwards the data to the onSuccess callback") {
@@ -83,6 +89,7 @@ class RequestOperationTypeSpec: QuickSpec {
                     beforeEach {
                         executorMock.captures.performRequest?.onSuccess(fakeResponse)
                         parserMock.stubs.parse.error = ErrorMock.stub
+                        validatorMock.stubs.validate.error = ErrorMock.stub
 
                         sut.execute(
                             onSuccess: { _ in },
@@ -138,10 +145,14 @@ class ConcreteRequestOperation: RequestOperationType {
     var executor: RequestExecutorMock
     var parser: RequestParserMock
     var request: Request
+    var validator: RequestValidatorMock
+    var operationError: ((Error) -> Error)
 
-    init(executor: RequestExecutorMock, parser: RequestParserMock, request: Request) {
+    init(executor: RequestExecutorMock, parser: RequestParserMock, request: Request, validator: RequestValidatorMock, operationError: @escaping ((Error) -> Error)) {
         self.executor = executor
         self.parser = parser
         self.request = request
+        self.validator = validator
+        self.operationError = operationError
     }
 }

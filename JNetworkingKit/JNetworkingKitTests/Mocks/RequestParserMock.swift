@@ -3,30 +3,30 @@ import Foundation
 @testable import JNetworkingKit
 
 class RequestParserMock {
-    var captures = Captures()
-    var stubs = Stubs()
-
     struct Captures {
         var parse: Parse?
 
         struct Parse {
-            var response: Response?
+            var data: Data?
         }
     }
 
     struct Stubs {
-        lazy var parse = Parse()
+        var parse = Parse()
 
         struct Parse {
             var error: Error?
             var result: String?
         }
     }
+
+    var captures = Captures()
+    var stubs = Stubs()
 }
 
 extension RequestParserMock: RequestParserType {
-    func parse(response: Response) throws -> String {
-        captures.parse = Captures.Parse(response: response)
+    func parse(data: Data) throws -> String {
+        captures.parse = Captures.Parse(data: data)
 
         if let error = stubs.parse.error {
             throw error
