@@ -11,6 +11,7 @@ class RequestOperationTypeSpec: QuickSpec {
             var parserMock: RequestParserMock!
             var requestMock: Request!
             var validatorMock: RequestValidatorMock!
+            var operationErrorMock: ((Error) -> Error)!
             var sut: ConcreteRequestOperation!
 
             beforeEach {
@@ -18,7 +19,8 @@ class RequestOperationTypeSpec: QuickSpec {
                 parserMock = RequestParserMock()
                 requestMock = Request(url: "")
                 validatorMock = RequestValidatorMock()
-                sut = ConcreteRequestOperation(executor: executorMock, parser: parserMock, request: requestMock, validator: validatorMock)
+                operationErrorMock = { $0 }
+                sut = ConcreteRequestOperation(executor: executorMock, parser: parserMock, request: requestMock, validator: validatorMock, operationError: operationErrorMock)
             }
 
             afterEach {
@@ -143,12 +145,13 @@ class ConcreteRequestOperation: RequestOperationType {
     var parser: RequestParserMock
     var request: Request
     var validator: RequestValidatorMock
-    var operationError: ((Error) -> Error)?
+    var operationError: ((Error) -> Error)
 
-    init(executor: RequestExecutorMock, parser: RequestParserMock, request: Request, validator: RequestValidatorMock) {
+    init(executor: RequestExecutorMock, parser: RequestParserMock, request: Request, validator: RequestValidatorMock, operationError: @escaping ((Error) -> Error)) {
         self.executor = executor
         self.parser = parser
         self.request = request
         self.validator = validator
+        self.operationError = operationError
     }
 }

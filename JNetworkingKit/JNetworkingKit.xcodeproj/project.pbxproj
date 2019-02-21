@@ -277,9 +277,9 @@
 		A37C6B702170E1D600126140 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				078A15E7221DBBA900C67339 /* RequestValidator */,
 				A37C6B712170E1D600126140 /* RequestClient */,
 				A37C6B742170E1D600126140 /* RequestExecutor */,
+				078A15E7221DBBA900C67339 /* RequestValidator */,
 				A37C6B772170E1D600126140 /* RequestParser */,
 				A37C6B792170E1D600126140 /* RequestOperation */,
 			);
@@ -307,8 +307,8 @@
 		A37C6B772170E1D600126140 /* RequestParser */ = {
 			isa = PBXGroup;
 			children = (
-				078A15DF221DA20400C67339 /* Extensions */,
 				A37C6B782170E1D600126140 /* RequestParserType.swift */,
+				078A15DF221DA20400C67339 /* Extensions */,
 			);
 			path = RequestParser;
 			sourceTree = "<group>";
@@ -324,11 +324,11 @@
 		A37C6B872170E28200126140 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				A37C6B882170E28200126140 /* RequestParserMock.swift */,
-				A37C6B892170E28200126140 /* RequestExecutorMock.swift */,
 				A37C6B8A2170E28200126140 /* ErrorMock.swift */,
 				A37C6B8B2170E28200126140 /* RequestClientMock.swift */,
+				A37C6B892170E28200126140 /* RequestExecutorMock.swift */,
 				078A15EA221DBED600C67339 /* RequestValidatorMock.swift */,
+				A37C6B882170E28200126140 /* RequestParserMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";

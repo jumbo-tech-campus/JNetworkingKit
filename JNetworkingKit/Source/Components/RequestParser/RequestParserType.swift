@@ -1,7 +1,7 @@
 import Foundation
 
-public enum RequestParserError: Error, Hashable {
-    case invalidData
+public enum RequestParserError: Error {
+    case invalidData(parserError: Error?)
     case api(code: String, message: String)
 }
 

@@ -23,27 +23,27 @@ public enum HttpStatus {
         }
     }
 
-    static public func isInformationalResponse(statusCode: Int) -> Bool {
-        return HttpStatus(statusCode) == .informationalResponse
+    public var isInformationalResponse: Bool {
+        return self == .informationalResponse
     }
 
-    static public func isSuccessful(statusCode: Int) -> Bool {
-        return HttpStatus(statusCode) == .success
+    public var isSuccessful: Bool {
+        return self == .success
     }
 
-    static public func isRedirection(statusCode: Int) -> Bool {
-        return HttpStatus(statusCode) == .redirection
+    public var isRedirection: Bool {
+        return self == .redirection
     }
 
-    static public func isClientError(statusCode: Int) -> Bool {
-        return HttpStatus(statusCode) == .clientError
+    public var isClientError: Bool {
+        return self == .clientError
     }
 
-    static public func isServerError(statusCode: Int) -> Bool {
-        return HttpStatus(statusCode) == .serverError
+    public var isServerError: Bool {
+        return self == .serverError
     }
 
-    static public func isUnknown(statusCode: Int) -> Bool {
-        return HttpStatus(statusCode) == .unknown
+    public var isUnknown: Bool {
+        return self == .unknown
     }
 }
