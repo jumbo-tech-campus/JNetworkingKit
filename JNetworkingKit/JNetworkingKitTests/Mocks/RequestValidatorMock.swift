@@ -24,6 +24,8 @@ class RequestValidatorMock {
 }
 
 extension RequestValidatorMock: RequestValidatorType {
+    var operationError: ((Error) -> Error)?  { return nil }
+
     func validate(response: Response) throws {
         captures.validate = Captures.Validate(response: response)
 
