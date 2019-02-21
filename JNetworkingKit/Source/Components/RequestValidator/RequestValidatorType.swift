@@ -1,16 +1,16 @@
-enum RequestValidatorError: Error {
+public enum RequestValidatorError: Error {
     case informationalResponse(Response)
     case redirection(Response)
     case clientError(Response)
     case serverError(Response)
 
-    var response: Response {
+    public var response: Response {
         switch self {
-            case .informationalResponse(let response),
-                 .redirection(let response),
-                 .clientError(let response),
-                 .serverError(let response):
-            return response
+        case .informationalResponse(let response),
+             .redirection(let response),
+             .clientError(let response),
+             .serverError(let response):
+        return response
         }
     }
 }
