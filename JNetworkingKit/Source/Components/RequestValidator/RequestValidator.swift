@@ -1,1 +1,3 @@
-public class RequestValidator: RequestValidatorType {}
+public class RequestValidator: RequestValidatorType {
+    public init() {}
+}
