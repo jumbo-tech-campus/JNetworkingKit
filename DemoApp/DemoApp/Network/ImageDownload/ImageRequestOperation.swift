@@ -5,9 +5,10 @@ import JNetworkingKit
 class ImageOperation: NSObject, RequestOperationType {
     typealias Result = UIImage
 
-    var executor: RequestExecutor = RequestExecutor()
-    var parser: ImageParser = ImageParser()
+    var executor = RequestExecutor()
+    var parser = ImageParser()
     var request: Request
+    var validator = RequestValidator()
 
     @objc
     init(url: String) {

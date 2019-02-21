@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		078A15F3221ECFE200C67339 /* PartialDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078A15F2221ECFE200C67339 /* PartialDataParser.swift */; };
 		3FBE45E8C4EE019BEFE0CD20 /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D99D35278F83E4EEB232D62 /* Pods_DemoApp.framework */; };
 		A337438B21747F6F0003CA4D /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A337438A21747F6F0003CA4D /* FirstViewController.m */; };
 		A3DAD5B1217477E900D41D4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DAD5B0217477E900D41D4D /* AppDelegate.swift */; };
@@ -24,10 +25,11 @@
 		A3E2047B2174B1F100A796A6 /* MovieDetailRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E204792174B1F100A796A6 /* MovieDetailRequestOperation.swift */; };
 		A3E2047F2174B2F400A796A6 /* MovieRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2047E2174B2F400A796A6 /* MovieRouter.swift */; };
 		A3E204872174B9E500A796A6 /* CacheRequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E204842174B9E500A796A6 /* CacheRequestExecutor.swift */; };
-		A3E204882174B9E500A796A6 /* HeaderRequestParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E204852174B9E500A796A6 /* HeaderRequestParser.swift */; };
+		A3E204882174B9E500A796A6 /* HeaderRequestValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E204852174B9E500A796A6 /* HeaderRequestValidator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		078A15F2221ECFE200C67339 /* PartialDataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialDataParser.swift; sourceTree = "<group>"; };
 		782147C853D13650874E5F1B /* Pods-DemoApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DemoApp/Pods-DemoApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7D99D35278F83E4EEB232D62 /* Pods_DemoApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8100EAFAA53B654AD751C2A5 /* Pods-DemoApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-DemoApp/Pods-DemoApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -51,7 +53,7 @@
 		A3E204792174B1F100A796A6 /* MovieDetailRequestOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailRequestOperation.swift; sourceTree = "<group>"; };
 		A3E2047E2174B2F400A796A6 /* MovieRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRouter.swift; sourceTree = "<group>"; };
 		A3E204842174B9E500A796A6 /* CacheRequestExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheRequestExecutor.swift; sourceTree = "<group>"; };
-		A3E204852174B9E500A796A6 /* HeaderRequestParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderRequestParser.swift; sourceTree = "<group>"; };
+		A3E204852174B9E500A796A6 /* HeaderRequestValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderRequestValidator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				A3E204842174B9E500A796A6 /* CacheRequestExecutor.swift */,
-				A3E204852174B9E500A796A6 /* HeaderRequestParser.swift */,
+				A3E204852174B9E500A796A6 /* HeaderRequestValidator.swift */,
+				078A15F2221ECFE200C67339 /* PartialDataParser.swift */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -327,7 +330,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-DemoApp/Pods-DemoApp-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-DemoApp/Pods-DemoApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/JNetworkingKit/JNetworkingKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -338,7 +341,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DemoApp/Pods-DemoApp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DemoApp/Pods-DemoApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -355,12 +358,13 @@
 				A3E2047B2174B1F100A796A6 /* MovieDetailRequestOperation.swift in Sources */,
 				A3DAD5B1217477E900D41D4D /* AppDelegate.swift in Sources */,
 				A3E2047F2174B2F400A796A6 /* MovieRouter.swift in Sources */,
-				A3E204882174B9E500A796A6 /* HeaderRequestParser.swift in Sources */,
+				A3E204882174B9E500A796A6 /* HeaderRequestValidator.swift in Sources */,
 				A3E204672174949500A796A6 /* SecondViewController.swift in Sources */,
 				A3E2046B2174966000A796A6 /* Gateway.swift in Sources */,
 				A3E2047A2174B1F100A796A6 /* MovieDetailRequestParser.swift in Sources */,
 				A3E204712174AE8400A796A6 /* ImageRequestParser.swift in Sources */,
 				A3E204702174AE8400A796A6 /* ImageRequestOperation.swift in Sources */,
+				078A15F3221ECFE200C67339 /* PartialDataParser.swift in Sources */,
 				A3E204732174B14700A796A6 /* MovieGateway.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

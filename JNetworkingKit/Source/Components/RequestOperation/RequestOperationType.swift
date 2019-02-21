@@ -10,13 +10,13 @@ public protocol RequestOperationType {
     var parser: Parser { get set }
     var request: Request { get set }
     var validator: Validator { get set }
-    var operationError: ((Error) -> Error) { get set }
+    var operationError: ((Error) -> Error) { get }
 
     func execute(onSuccess: ((Result) -> Void)?, onError: ((Error) -> Void)?)
 }
 
-extension RequestOperationType {
-    var operationError: ((Error) -> Error) { return { $0 } }
+public extension RequestOperationType {
+    public var operationError: ((Error) -> Error) { return { $0 } }
 
     public func execute(onSuccess: ((Result) -> Void)? = nil, onError: ((Error) -> Void)? = nil) {
         executor.perform(request: request,

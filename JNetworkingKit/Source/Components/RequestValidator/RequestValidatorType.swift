@@ -1,15 +1,17 @@
 public enum RequestValidatorError: Error {
-    case informationalResponse(Response)
-    case redirection(Response)
-    case clientError(Response)
-    case serverError(Response)
+    case informational(response: Response)
+    case redirection(response: Response)
+    case clientError(response: Response)
+    case serverError(response: Response)
+    case invalidData(response: Response)
 
     public var response: Response {
         switch self {
-        case .informationalResponse(let response),
+        case .informational(let response),
              .redirection(let response),
              .clientError(let response),
-             .serverError(let response):
+             .serverError(let response),
+             .invalidData(let response):
         return response
         }
     }
@@ -23,13 +25,13 @@ extension RequestValidatorType {
     public func validate(response: Response) throws {
         switch response.statusCode {
         case 100...199:
-            throw RequestValidatorError.informationalResponse(response)
+            throw RequestValidatorError.informational(response: response)
         case 300...399:
-            throw RequestValidatorError.redirection(response)
+            throw RequestValidatorError.redirection(response: response)
         case 400...499:
-            throw RequestValidatorError.clientError(response)
+            throw RequestValidatorError.clientError(response: response)
         case 500...599:
-            throw RequestValidatorError.serverError(response)
+            throw RequestValidatorError.serverError(response: response)
         default:
             break
         }

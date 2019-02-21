@@ -1,10 +1,10 @@
 import Foundation
 import JNetworkingKit
 
-class HeaderRequestParser: RequestParserType {
-    func parse(response: Response) throws -> Any {
+class HeaderRequestValidator: RequestValidatorType {
+    func validate(response: Response) throws -> Any {
         guard !response.headers.isEmpty else {
-            throw RequestParserError.noData
+            throw RequestValidatorError.invalidData(response: response)
         }
 
         print("Request headers:")

@@ -7,4 +7,5 @@ class MovieDetailRequestOperation: NSObject, RequestOperationType {
     var executor = RequestExecutor()
     var parser = MovieDetailRequestParser()
     var request = Request(route: MovieRouter.list)
+    var validator = RequestValidator()
 }

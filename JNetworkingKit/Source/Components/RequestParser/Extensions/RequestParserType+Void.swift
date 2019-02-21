@@ -1,3 +1,3 @@
-extension RequestParserType where Result == Void {
-    func parse(response: Response) throws {}
+public extension RequestParserType where Result == Void {
+    public func parse(response: Response) throws {}
 }
