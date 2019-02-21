@@ -9,14 +9,14 @@ class HttpStatusSpec: QuickSpec {
         describe("HttpStatus") {
             var statusCode: Int!
 
+            afterEach {
+                statusCode = nil
+            }
+
             describe("check informational response") {
 
                 beforeEach {
                     statusCode = 150
-                }
-
-                afterEach {
-                    statusCode = nil
                 }
 
                 it("initializes an informational response status code") {
@@ -34,10 +34,6 @@ class HttpStatusSpec: QuickSpec {
                     statusCode = 250
                 }
 
-                afterEach {
-                    statusCode = nil
-                }
-
                 it("initializes an success response status code") {
                     expect(HttpStatus.status(for: statusCode)).to(equal(.success))
                 }
@@ -51,10 +47,6 @@ class HttpStatusSpec: QuickSpec {
 
                 beforeEach {
                     statusCode = 350
-                }
-
-                afterEach {
-                    statusCode = nil
                 }
 
                 it("initializes an redirection response status code") {
@@ -72,10 +64,6 @@ class HttpStatusSpec: QuickSpec {
                     statusCode = 450
                 }
 
-                afterEach {
-                    statusCode = nil
-                }
-
                 it("initializes an client error response status code") {
                     expect(HttpStatus.status(for: statusCode)).to(equal(.clientError))
                 }
@@ -91,10 +79,6 @@ class HttpStatusSpec: QuickSpec {
                     statusCode = 550
                 }
 
-                afterEach {
-                    statusCode = nil
-                }
-
                 it("initializes an server error response status code") {
                     expect(HttpStatus.status(for: statusCode)).to(equal(.serverError))
                 }
@@ -108,10 +92,6 @@ class HttpStatusSpec: QuickSpec {
 
                 beforeEach {
                     statusCode = 999
-                }
-
-                afterEach {
-                    statusCode = nil
                 }
 
                 it("initializes an redirection response status code") {

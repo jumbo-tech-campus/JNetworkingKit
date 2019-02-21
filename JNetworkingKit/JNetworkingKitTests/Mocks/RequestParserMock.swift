@@ -3,9 +3,6 @@ import Foundation
 @testable import JNetworkingKit
 
 class RequestParserMock {
-    var captures = Captures()
-    var stubs = Stubs()
-
     struct Captures {
         var parse: Parse?
 
@@ -22,6 +19,9 @@ class RequestParserMock {
             var result: String?
         }
     }
+
+    var captures = Captures()
+    var stubs = Stubs()
 }
 
 extension RequestParserMock: RequestParserType {

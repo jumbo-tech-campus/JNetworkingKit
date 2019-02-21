@@ -3,9 +3,6 @@ import Foundation
 @testable import JNetworkingKit
 
 class RequestValidatorMock {
-    var captures = Captures()
-    var stubs = Stubs()
-
     struct Captures {
         var validate: Validate?
 
@@ -21,6 +18,9 @@ class RequestValidatorMock {
             var error: Error?
         }
     }
+
+    var captures = Captures()
+    var stubs = Stubs()
 }
 
 extension RequestValidatorMock: RequestValidatorType {
