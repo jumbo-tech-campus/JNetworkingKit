@@ -3,8 +3,10 @@ import UIKit
 import JNetworkingKit
 
 class ImageParser: RequestParserType {
-    func parse(data: Data) throws -> UIImage {
-        guard let image = UIImage(data: data) else {
+    typealias Result = UIImage
+
+    func parse(response: Response) throws -> UIImage {
+        guard let image = UIImage(data: response.data) else {
             throw RequestParserError.invalidData(parserError: nil)
         }
 

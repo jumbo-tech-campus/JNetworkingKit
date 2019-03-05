@@ -2,9 +2,9 @@ import Foundation
 import JNetworkingKit
 
 class PartialDataRequestParser: RequestParserType {
-    func parse(data: Data) throws -> [String] {
+    func parse(response: Response) throws -> [String] {
         do {
-            let jsonResponse = try JSONDecoder().decode([String: Result].self, from: data)
+            let jsonResponse = try JSONDecoder().decode([String: Result].self, from: response.data)
             let partialData: [String] =  jsonResponse["first_half"] ?? []
             return partialData
         } catch let error {

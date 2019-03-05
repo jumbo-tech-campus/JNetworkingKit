@@ -3,7 +3,7 @@ import UIKit
 import JNetworkingKit
 
 class ImageOperation: NSObject, RequestOperationType {
-    typealias Result = UIImage
+    typealias Result = ImageParser.Result
 
     var executor = RequestExecutor()
     var parser = ImageParser()
