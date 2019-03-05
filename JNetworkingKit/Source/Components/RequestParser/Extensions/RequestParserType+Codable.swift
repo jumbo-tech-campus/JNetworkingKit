@@ -1,9 +1,9 @@
 import Foundation
 
 public extension RequestParserType where Result: Codable {
-    public func parse(data: Data) throws -> Result {
+    public func parse(response: Response) throws -> Result {
         do {
-            return try JSONDecoder().decode(Result.self, from: data)
+            return try JSONDecoder().decode(Result.self, from: response.data)
         } catch let error {
             throw RequestParserError.invalidData(parserError: error)
         }

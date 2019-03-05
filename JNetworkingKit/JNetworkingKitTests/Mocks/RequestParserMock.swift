@@ -25,8 +25,10 @@ class RequestParserMock {
 }
 
 extension RequestParserMock: RequestParserType {
-    func parse(data: Data) throws -> String {
-        captures.parse = Captures.Parse(data: data)
+    typealias Result = String
+
+    func parse(response: Response) throws -> String {
+        captures.parse = Captures.Parse(data: response.data)
 
         if let error = stubs.parse.error {
             throw error

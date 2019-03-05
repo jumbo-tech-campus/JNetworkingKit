@@ -140,7 +140,7 @@ class RequestOperationTypeSpec: QuickSpec {
 }
 
 class ConcreteRequestOperation: RequestOperationType {
-    typealias Result = String
+    typealias Result = RequestParserMock.Result
 
     var executor: RequestExecutorMock
     var parser: RequestParserMock
