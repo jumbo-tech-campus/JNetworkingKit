@@ -8,9 +8,11 @@ Keys in this proposal are:
 
 * Only 1 class will execute requests
 * Only 1 class will parse requests
+* Only 1 class will validate requests
 * `RequestExecutor` can be extended easily
 * `RequestClient` can be extended easily
 * `RequestParser` can be extended easily
+* `RequestValidator` can be extended easily
 
 The proposal is build upon:
 
@@ -21,7 +23,7 @@ Together they make the code fully testable and can be developed & expanded test-
 
 ## Architecture
 
-The architecture has 7 different entities, that are defined at *Application level* (your application) or *Library level* (the library itself).
+The architecture has 8 different entities, that are defined at *Application level* (your application) or *Library level* (the library itself).
 
 #### Application level
 
@@ -76,6 +78,7 @@ extension Gateway: UserGateway {
 * **`RequestOperation`**: responsible to provide and manage the correct instances of `Request`, `Executor` and `Parser`.
 * **`RequestExecutor`**: responsible to perform the request using the correct `Client`. An extended version of the Executor can be used to add more business logic, like caching or the observable pattern.
 * **`RequestClient`**: responsible to execute the request. The default `Client` uses the `URLSession` component, but a different `Client` can be created to use different system or libraries (like _Alamofire_).
+* **`RequestValidator`**: responsible to perform the validation of the request. The default implementation checks for the response code, but you can validate header or body as well.
 * **`RequestParser`**: responsible to parse the response and create the final object.
 
 The library is designed around the `RequestOperation`. It defines its variable using **swift's generics**, in this way a developer can instantiate and use different `RequestExecutor`, `RequestClient` and `RequestParser` instances to add more functionality and capabilities to the Network Layer.
@@ -119,6 +122,7 @@ class MovieDetailRequestOperation: NSObject, RequestOperationType {
 
     var executor = RequestExecutor()
     var parser = MovieDetailRequestParser()
+    var validator = RequestValidator()
     var request = Request(route: MovieRouter.list)
 }
 ```
