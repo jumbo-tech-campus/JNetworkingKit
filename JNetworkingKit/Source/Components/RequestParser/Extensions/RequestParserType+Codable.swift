@@ -9,3 +9,8 @@ public extension RequestParserType where Result: Codable {
         }
     }
 }
+
+public class AnyRequestParser<ResultType: Codable>: RequestParserType {
+    public typealias Result = ResultType
+    public init() {}
+}

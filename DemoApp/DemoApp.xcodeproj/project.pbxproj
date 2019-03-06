@@ -21,7 +21,6 @@
 		A3E204712174AE8400A796A6 /* ImageRequestParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2046F2174AE8400A796A6 /* ImageRequestParser.swift */; };
 		A3E204732174B14700A796A6 /* MovieGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E204722174B14700A796A6 /* MovieGateway.swift */; };
 		A3E204762174B16900A796A6 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E204752174B16900A796A6 /* Movie.swift */; };
-		A3E2047A2174B1F100A796A6 /* MovieDetailRequestParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E204782174B1F100A796A6 /* MovieDetailRequestParser.swift */; };
 		A3E2047B2174B1F100A796A6 /* MovieDetailRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E204792174B1F100A796A6 /* MovieDetailRequestOperation.swift */; };
 		A3E2047F2174B2F400A796A6 /* MovieRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E2047E2174B2F400A796A6 /* MovieRouter.swift */; };
 		A3E204872174B9E500A796A6 /* CacheRequestExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3E204842174B9E500A796A6 /* CacheRequestExecutor.swift */; };
@@ -49,7 +48,6 @@
 		A3E2046F2174AE8400A796A6 /* ImageRequestParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRequestParser.swift; sourceTree = "<group>"; };
 		A3E204722174B14700A796A6 /* MovieGateway.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieGateway.swift; sourceTree = "<group>"; };
 		A3E204752174B16900A796A6 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		A3E204782174B1F100A796A6 /* MovieDetailRequestParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailRequestParser.swift; sourceTree = "<group>"; };
 		A3E204792174B1F100A796A6 /* MovieDetailRequestOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailRequestOperation.swift; sourceTree = "<group>"; };
 		A3E2047E2174B2F400A796A6 /* MovieRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRouter.swift; sourceTree = "<group>"; };
 		A3E204842174B9E500A796A6 /* CacheRequestExecutor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheRequestExecutor.swift; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 			isa = PBXGroup;
 			children = (
 				A3E204792174B1F100A796A6 /* MovieDetailRequestOperation.swift */,
-				A3E204782174B1F100A796A6 /* MovieDetailRequestParser.swift */,
 			);
 			path = MovieDetail;
 			sourceTree = "<group>";
@@ -361,7 +358,6 @@
 				A3E204882174B9E500A796A6 /* HeaderRequestValidator.swift in Sources */,
 				A3E204672174949500A796A6 /* SecondViewController.swift in Sources */,
 				A3E2046B2174966000A796A6 /* Gateway.swift in Sources */,
-				A3E2047A2174B1F100A796A6 /* MovieDetailRequestParser.swift in Sources */,
 				A3E204712174AE8400A796A6 /* ImageRequestParser.swift in Sources */,
 				A3E204702174AE8400A796A6 /* ImageRequestOperation.swift in Sources */,
 				078A15F3221ECFE200C67339 /* PartialDataParser.swift in Sources */,
