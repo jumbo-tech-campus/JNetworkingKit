@@ -5,7 +5,7 @@ class MovieDetailRequestOperation: NSObject, RequestOperationType {
     typealias Result = Movie
 
     var executor = RequestExecutor()
-    var parser = MovieDetailRequestParser()
+    var parser = AnyRequestParser<Result>()
     var request = Request(route: MovieRouter.list)
     var validator = RequestValidator()
 }

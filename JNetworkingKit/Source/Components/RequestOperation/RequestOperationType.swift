@@ -23,7 +23,7 @@ public extension RequestOperationType {
             onSuccess: { response in
                 do {
                     try self.validator.validate(response: response)
-                    let result = try self.parser.parse(data: response.data)
+                    let result = try self.parser.parse(response: response)
                     DispatchQueue.main.async {
                         onSuccess?(result)
                     }
