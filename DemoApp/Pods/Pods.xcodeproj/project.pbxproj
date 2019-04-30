@@ -583,42 +583,6 @@
 			};
 			name = Release;
 		};
-		28264BB66A68A49D1F54189A096B4CFB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9BD8F0A98E4684C9925D6F48F5B73123 /* JNetworkingKit.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/JNetworkingKit/JNetworkingKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/JNetworkingKit/JNetworkingKit-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/JNetworkingKit/JNetworkingKit.modulemap";
-				PRODUCT_MODULE_NAME = JNetworkingKit;
-				PRODUCT_NAME = JNetworkingKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		98969FCA9ED0F570CA7C8B92E6EFACEB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 70013776D065BA5599DA25EB1F5453AA /* Pods-DemoApp.debug.xcconfig */;
@@ -716,7 +680,43 @@
 			};
 			name = Release;
 		};
-		D645759CA53A3EA9A4472863C24DAA6D /* Debug */ = {
+		B76B79A1536811850F8726D50BF28B4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9BD8F0A98E4684C9925D6F48F5B73123 /* JNetworkingKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/JNetworkingKit/JNetworkingKit-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/JNetworkingKit/JNetworkingKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/JNetworkingKit/JNetworkingKit.modulemap";
+				PRODUCT_MODULE_NAME = JNetworkingKit;
+				PRODUCT_NAME = JNetworkingKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		C91EA2C262073948F1742116BB1E8172 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9BD8F0A98E4684C9925D6F48F5B73123 /* JNetworkingKit.xcconfig */;
 			buildSettings = {
@@ -775,8 +775,8 @@
 		AD76C018B187FF25102C4510B5BEB67A /* Build configuration list for PBXNativeTarget "JNetworkingKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D645759CA53A3EA9A4472863C24DAA6D /* Debug */,
-				28264BB66A68A49D1F54189A096B4CFB /* Release */,
+				C91EA2C262073948F1742116BB1E8172 /* Debug */,
+				B76B79A1536811850F8726D50BF28B4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
