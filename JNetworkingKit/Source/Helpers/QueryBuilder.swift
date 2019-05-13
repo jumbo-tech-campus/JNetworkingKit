@@ -2,12 +2,16 @@ public class QueryBuilder {
     private var queryParameters = [String: String]()
     private var queryPath: String?
 
-    func setPath(path: String) -> QueryBuilder {
+    public init() {
+
+    }
+
+    public func setPath(path: String) -> QueryBuilder {
         queryPath = path
         return self
     }
 
-    func setParameter(key: String, value: String?) -> QueryBuilder {
+    public func setParameter(key: String, value: String?) -> QueryBuilder {
         guard let existingValue = value else {
             return self
         }
@@ -15,7 +19,7 @@ public class QueryBuilder {
         return self
     }
 
-    func setParameter(key: String, value: Int?) -> QueryBuilder {
+    public func setParameter(key: String, value: Int?) -> QueryBuilder {
         guard let existingValue = value else {
             return self
         }
@@ -23,12 +27,12 @@ public class QueryBuilder {
         return self
     }
 
-    func setParameters(parameters: [String: String]) -> QueryBuilder {
+    public func setParameters(parameters: [String: String]) -> QueryBuilder {
         queryParameters = queryParameters.merging(parameters, uniquingKeysWith: { (first, _) in first })
         return self
     }
 
-    public func build() -> String? {
+    public func build() -> String {
         let queryString = queryParameters.compactMap({ (key, value) -> String in
             return "\(key)=\(value)"
         }).joined(separator: "&")
