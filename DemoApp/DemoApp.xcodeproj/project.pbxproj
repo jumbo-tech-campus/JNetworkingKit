@@ -121,13 +121,6 @@
 			path = Clients;
 			sourceTree = "<group>";
 		};
-		A3A52931227899B8005B2CCA /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		A3DAD5A4217477E900D41D4D = {
 			isa = PBXGroup;
 			children = (
@@ -170,7 +163,6 @@
 		A3E204632174945200A796A6 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				A3A52931227899B8005B2CCA /* New Group */,
 				A3E204682174965A00A796A6 /* Environment.swift */,
 				A3E2046A2174966000A796A6 /* Gateway.swift */,
 				A3E2046D2174AE5B00A796A6 /* MovieDownload */,
