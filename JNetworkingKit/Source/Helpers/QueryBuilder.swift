@@ -7,19 +7,19 @@ public class QueryBuilder {
 
     }
 
+    public func setParameter(queryItem: URLQueryItem) -> QueryBuilder {
+        queryItems.append(queryItem)
+        return self
+    }
+
     public func setParameter(key: String, value: String?) -> QueryBuilder {
-        guard let existingValue = value else {
-            return self
-        }
-        queryItems.append(URLQueryItem(name: key, value: existingValue))
+        queryItems.append(URLQueryItem(name: key, value: value))
         return self
     }
 
     public func setParameter(key: String, value: Int?) -> QueryBuilder {
-        guard let existingValue = value else {
-            return self
-        }
-        queryItems.append(URLQueryItem(name: key, value: String(existingValue)))
+        let stringValue = value.flatMap { String($0) }
+        queryItems.append(URLQueryItem(name: key, value: stringValue))
         return self
     }
 

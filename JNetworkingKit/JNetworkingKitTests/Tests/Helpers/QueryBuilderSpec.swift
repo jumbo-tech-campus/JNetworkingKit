@@ -5,11 +5,12 @@ import Nimble
 
 class QueryBuilderSpec: QuickSpec {
     override func spec() {
-        describe("QueryBuilderSpec") {
+        describe("QueryBuilder") {
             let pathStub = "http://www.validurl.com"
             let dictionaryStub = ["dict1":"dictvalue1", "dict2":"dictvalue2"]
             let parameterStringStub = (key: "paramString1", value: "value1")
             let parameterIntStub = (key: "paramInt1", value: 1)
+            let parameterQueryItemStub = URLQueryItem(name: "paramQuery1", value: "value1")
             let parameterNilStub: (key: String, value: String?) = (key: "paramNil", value: nil)
 
             var sut: QueryBuilder!
@@ -36,6 +37,7 @@ class QueryBuilderSpec: QuickSpec {
                             .setParameter(key: parameterStringStub.key, value: parameterStringStub.value)
                             .setParameter(key: parameterIntStub.key, value: parameterIntStub.value)
                             .setParameter(key: parameterNilStub.key, value: parameterNilStub.value)
+                            .setParameter(queryItem: parameterQueryItemStub)
                             .build()
                         url = URL(string: pathStub + "?" + query)
                     }
@@ -57,8 +59,13 @@ class QueryBuilderSpec: QuickSpec {
                         expect(query).to(contain(["\(parameterIntStub.key)=\(parameterIntStub.value)"]))
                     }
 
-                    it("creates a query without the nil parameter"){
-                        expect(query).toNot(contain([parameterNilStub.key]))
+                    it("creates a query containing the query item parameter as string"){
+                        let valueString: String = parameterQueryItemStub.value ?? ""
+                        expect(query).to(contain(["\(parameterQueryItemStub.name)=\(valueString)"]))
+                    }
+
+                    it("creates a query with a empty nil parameter"){
+                        expect(query).to(contain([parameterNilStub.key]))
                     }
                 }
 
@@ -72,13 +79,36 @@ class QueryBuilderSpec: QuickSpec {
                     }
                 }
 
-                context("no fields are set") {
+                context("two of the same parameters") {
+                    beforeEach {
+                        query = sut.setParameter(key: parameterStringStub.key, value: parameterStringStub.value)
+                            .setParameter(key: parameterStringStub.key, value: parameterStringStub.value)
+                            .build()
+                    }
+
+                    it("creates a valid query parameter containing both parameters") {
+                        expect(query) == "\(parameterStringStub.key)=\(parameterStringStub.value)&\(parameterStringStub.key)=\(parameterStringStub.value)"
+                    }
+                }
+
+                context("only nil parameter is set") {
                     beforeEach {
                         query = sut.build()
                     }
 
                     it("returns a empty string") {
                         expect(query).to(beEmpty())
+                    }
+                }
+
+                context("no fields are set") {
+                    beforeEach {
+                        query = sut.setParameter(key: parameterNilStub.key, value: parameterNilStub.value)
+                        .build()
+                    }
+
+                    it("returns a empty string") {
+                        expect(query) == parameterNilStub.key
                     }
                 }
             }
