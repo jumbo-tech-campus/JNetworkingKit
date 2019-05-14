@@ -93,6 +93,17 @@ class QueryBuilderSpec: QuickSpec {
 
                 context("only nil parameter is set") {
                     beforeEach {
+                        query = sut.setParameter(key: parameterNilStub.key, value: parameterNilStub.value)
+                            .build()
+                    }
+
+                    it("returns only the parameter key as a query") {
+                        expect(query) == parameterNilStub.key
+                    }
+                }
+
+                context("no fields are set") {
+                    beforeEach {
                         query = sut.build()
                     }
 
@@ -100,18 +111,8 @@ class QueryBuilderSpec: QuickSpec {
                         expect(query).to(beEmpty())
                     }
                 }
-
-                context("no fields are set") {
-                    beforeEach {
-                        query = sut.setParameter(key: parameterNilStub.key, value: parameterNilStub.value)
-                        .build()
-                    }
-
-                    it("returns a empty string") {
-                        expect(query) == parameterNilStub.key
-                    }
-                }
             }
         }
     }
 }
+
