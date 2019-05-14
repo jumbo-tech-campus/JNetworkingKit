@@ -1,7 +1,7 @@
 import Foundation
 
-public class RequestExecutor: RequestExecutorType {
-    public var client: RequestClientType {
+open class RequestExecutor: RequestExecutorType {
+    open var client: RequestClientType {
         return URLSession.shared
     }
 

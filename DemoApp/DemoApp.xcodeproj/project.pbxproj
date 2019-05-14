@@ -10,6 +10,10 @@
 		078A15F3221ECFE200C67339 /* PartialDataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078A15F2221ECFE200C67339 /* PartialDataParser.swift */; };
 		3FBE45E8C4EE019BEFE0CD20 /* Pods_DemoApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D99D35278F83E4EEB232D62 /* Pods_DemoApp.framework */; };
 		A337438B21747F6F0003CA4D /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A337438A21747F6F0003CA4D /* FirstViewController.m */; };
+		A3A529262278977F005B2CCA /* RequestExecutorExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A529252278977F005B2CCA /* RequestExecutorExtended.swift */; };
+		A3A5292822789825005B2CCA /* RequestClientExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A5292722789825005B2CCA /* RequestClientExtended.swift */; };
+		A3A5292C227898A3005B2CCA /* VoidRequestParserExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A5292B227898A3005B2CCA /* VoidRequestParserExtended.swift */; };
+		A3A5292F2278990C005B2CCA /* AnyRequestParserExtended.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A5292E2278990C005B2CCA /* AnyRequestParserExtended.swift */; };
 		A3DAD5B1217477E900D41D4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3DAD5B0217477E900D41D4D /* AppDelegate.swift */; };
 		A3DAD5B6217477E900D41D4D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A3DAD5B4217477E900D41D4D /* Main.storyboard */; };
 		A3DAD5B8217477EA00D41D4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3DAD5B7217477EA00D41D4D /* Assets.xcassets */; };
@@ -35,6 +39,10 @@
 		A337438821747F6F0003CA4D /* DemoApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DemoApp-Bridging-Header.h"; sourceTree = "<group>"; };
 		A337438921747F6F0003CA4D /* FirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
 		A337438A21747F6F0003CA4D /* FirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FirstViewController.m; sourceTree = "<group>"; };
+		A3A529252278977F005B2CCA /* RequestExecutorExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestExecutorExtended.swift; sourceTree = "<group>"; };
+		A3A5292722789825005B2CCA /* RequestClientExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestClientExtended.swift; sourceTree = "<group>"; };
+		A3A5292B227898A3005B2CCA /* VoidRequestParserExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidRequestParserExtended.swift; sourceTree = "<group>"; };
+		A3A5292E2278990C005B2CCA /* AnyRequestParserExtended.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnyRequestParserExtended.swift; sourceTree = "<group>"; };
 		A3DAD5AD217477E900D41D4D /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3DAD5B0217477E900D41D4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A3DAD5B5217477E900D41D4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,6 +84,41 @@
 				A3DAD5BC217477EA00D41D4D /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		A3A5292422789764005B2CCA /* Validators */ = {
+			isa = PBXGroup;
+			children = (
+				A3E204852174B9E500A796A6 /* HeaderRequestValidator.swift */,
+			);
+			path = Validators;
+			sourceTree = "<group>";
+		};
+		A3A5292922789858005B2CCA /* Executors */ = {
+			isa = PBXGroup;
+			children = (
+				A3E204842174B9E500A796A6 /* CacheRequestExecutor.swift */,
+				A3A529252278977F005B2CCA /* RequestExecutorExtended.swift */,
+			);
+			path = Executors;
+			sourceTree = "<group>";
+		};
+		A3A5292A22789891005B2CCA /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				A3A5292E2278990C005B2CCA /* AnyRequestParserExtended.swift */,
+				078A15F2221ECFE200C67339 /* PartialDataParser.swift */,
+				A3A5292B227898A3005B2CCA /* VoidRequestParserExtended.swift */,
+			);
+			path = Parsers;
+			sourceTree = "<group>";
+		};
+		A3A529302278998D005B2CCA /* Clients */ = {
+			isa = PBXGroup;
+			children = (
+				A3A5292722789825005B2CCA /* RequestClientExtended.swift */,
+			);
+			path = Clients;
 			sourceTree = "<group>";
 		};
 		A3DAD5A4217477E900D41D4D = {
@@ -184,9 +227,10 @@
 		A3E204822174B9E500A796A6 /* Examples */ = {
 			isa = PBXGroup;
 			children = (
-				A3E204842174B9E500A796A6 /* CacheRequestExecutor.swift */,
-				A3E204852174B9E500A796A6 /* HeaderRequestValidator.swift */,
-				078A15F2221ECFE200C67339 /* PartialDataParser.swift */,
+				A3A529302278998D005B2CCA /* Clients */,
+				A3A5292922789858005B2CCA /* Executors */,
+				A3A5292A22789891005B2CCA /* Parsers */,
+				A3A5292422789764005B2CCA /* Validators */,
 			);
 			path = Examples;
 			sourceTree = "<group>";
@@ -356,12 +400,16 @@
 				A3DAD5B1217477E900D41D4D /* AppDelegate.swift in Sources */,
 				A3E2047F2174B2F400A796A6 /* MovieRouter.swift in Sources */,
 				A3E204882174B9E500A796A6 /* HeaderRequestValidator.swift in Sources */,
+				A3A5292F2278990C005B2CCA /* AnyRequestParserExtended.swift in Sources */,
 				A3E204672174949500A796A6 /* SecondViewController.swift in Sources */,
+				A3A5292C227898A3005B2CCA /* VoidRequestParserExtended.swift in Sources */,
 				A3E2046B2174966000A796A6 /* Gateway.swift in Sources */,
+				A3A5292822789825005B2CCA /* RequestClientExtended.swift in Sources */,
 				A3E204712174AE8400A796A6 /* ImageRequestParser.swift in Sources */,
 				A3E204702174AE8400A796A6 /* ImageRequestOperation.swift in Sources */,
 				078A15F3221ECFE200C67339 /* PartialDataParser.swift in Sources */,
 				A3E204732174B14700A796A6 /* MovieGateway.swift in Sources */,
+				A3A529262278977F005B2CCA /* RequestExecutorExtended.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
