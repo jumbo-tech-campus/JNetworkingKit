@@ -10,6 +10,7 @@ class QueryBuilderSpec: QuickSpec {
             let dictionaryStub = ["dict1":"dictvalue1", "dict2":"dictvalue2"]
             let parameterStringStub = (key: "paramString1", value: "value1")
             let parameterIntStub = (key: "paramInt1", value: 1)
+            let parameterNilStub: (key: String, value: String?) = (key: "paramNil", value: nil)
 
             var sut: QueryBuilder!
 
@@ -31,40 +32,10 @@ class QueryBuilderSpec: QuickSpec {
 
                 context("all fields are set") {
                     beforeEach {
-                        query = sut.setPath(path: pathStub)
-                            .setParameters(parameters: dictionaryStub)
-                            .setParameter(key: parameterStringStub.key, value: parameterStringStub.value)
-                            .setParameter(key: parameterIntStub.key, value: parameterIntStub.value)
-                            .build()
-                        url = URL(string: query)
-                    }
-
-                    it("creates a Valid url") {
-                        expect(url).toNot(beNil())
-                    }
-
-                    it("creates a final url containing all dictionary values"){
-                        expect(query).to(contain(["dict1=dictvalue1", "dict2=dictvalue2"]))
-                    }
-
-                    it("creates a final url containing the string parameter"){
-                        expect(query).to(contain(["paramString1=value1"]))
-                    }
-
-                    it("creates a final url containing the int parameter as string"){
-                        expect(query).to(contain(["paramInt1=1"]))
-                    }
-
-                    it("creates a final url starting with the path plus ? character"){
-                        expect(query.prefix(pathStub.count + 1)) == "http://www.validurl.com?"
-                    }
-                }
-
-                context("all fields are set except path") {
-                    beforeEach {
                         query = sut.setParameters(parameters: dictionaryStub)
                             .setParameter(key: parameterStringStub.key, value: parameterStringStub.value)
                             .setParameter(key: parameterIntStub.key, value: parameterIntStub.value)
+                            .setParameter(key: parameterNilStub.key, value: parameterNilStub.value)
                             .build()
                         url = URL(string: pathStub + "?" + query)
                     }
@@ -74,15 +45,20 @@ class QueryBuilderSpec: QuickSpec {
                     }
 
                     it("creates a query containing all dictionary values"){
-                        expect(query).to(contain(["dict1=dictvalue1", "dict2=dictvalue2"]))
+                        expect(query).to(contain(dictionaryStub.map { (key, value) in
+                            "\(key)=\(value)" }))
                     }
 
                     it("creates a query containing the string parameter"){
-                        expect(query).to(contain(["paramString1=value1"]))
+                        expect(query).to(contain(["\(parameterStringStub.key)=\(parameterStringStub.value)"]))
                     }
 
                     it("creates a query containing the int parameter as string"){
-                        expect(query).to(contain(["paramInt1=1"]))
+                        expect(query).to(contain(["\(parameterIntStub.key)=\(parameterIntStub.value)"]))
+                    }
+
+                    it("creates a query without the nil parameter"){
+                        expect(query).toNot(contain([parameterNilStub.key]))
                     }
                 }
 
@@ -92,7 +68,7 @@ class QueryBuilderSpec: QuickSpec {
                     }
 
                     it("creates a valid query parameter") {
-                        expect(query) == "paramString1=value1"
+                        expect(query) == "\(parameterStringStub.key)=\(parameterStringStub.value)"
                     }
                 }
 

@@ -1,14 +1,8 @@
 public class QueryBuilder {
     private var queryParameters = [String: String]()
-    private var queryPath: String?
 
     public init() {
 
-    }
-
-    public func setPath(path: String) -> QueryBuilder {
-        queryPath = path
-        return self
     }
 
     public func setParameter(key: String, value: String?) -> QueryBuilder {
@@ -33,13 +27,8 @@ public class QueryBuilder {
     }
 
     public func build() -> String {
-        let queryString = queryParameters.compactMap({ (key, value) -> String in
+        return queryParameters.compactMap({ (key, value) -> String in
             return "\(key)=\(value)"
         }).joined(separator: "&")
-
-        guard let path = self.queryPath else {
-            return queryString
-        }
-        return path + "?" + queryString
     }
 }
