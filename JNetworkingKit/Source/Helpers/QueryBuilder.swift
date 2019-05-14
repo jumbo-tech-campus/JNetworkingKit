@@ -1,5 +1,7 @@
+import Foundation
+
 public class QueryBuilder {
-    private var queryParameters = [String: String]()
+    private var queryItems = [URLQueryItem]()
 
     public init() {
 
@@ -9,7 +11,7 @@ public class QueryBuilder {
         guard let existingValue = value else {
             return self
         }
-        queryParameters[key] = existingValue
+        queryItems.append(URLQueryItem(name: key, value: existingValue))
         return self
     }
 
@@ -17,18 +19,21 @@ public class QueryBuilder {
         guard let existingValue = value else {
             return self
         }
-        queryParameters[key] = String(existingValue)
+        queryItems.append(URLQueryItem(name: key, value: String(existingValue)))
         return self
     }
 
     public func setParameters(parameters: [String: String]) -> QueryBuilder {
-        queryParameters = queryParameters.merging(parameters, uniquingKeysWith: { (first, _) in first })
+        let queryParams = parameters.map { (key, value) in
+            URLQueryItem(name: key, value: value) }
+        queryItems.append(contentsOf: queryParams)
         return self
     }
 
     public func build() -> String {
-        return queryParameters.compactMap({ (key, value) -> String in
-            return "\(key)=\(value)"
-        }).joined(separator: "&")
+        var urlComponents = URLComponents()
+        urlComponents.queryItems = queryItems
+
+        return urlComponents.query ?? ""
     }
 }
