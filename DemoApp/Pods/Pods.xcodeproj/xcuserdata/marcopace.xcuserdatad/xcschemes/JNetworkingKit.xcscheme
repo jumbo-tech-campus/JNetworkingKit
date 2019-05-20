@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "E5EAEC3409CFA2FDC35ADCAAC3E9618B"
+               BlueprintIdentifier = "1DEE411511CAA06DF09295DE070A6F66"
+               BuildableName = "JNetworkingKit.framework"
                BlueprintName = "JNetworkingKit"
-               ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "JNetworkingKit.framework">
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

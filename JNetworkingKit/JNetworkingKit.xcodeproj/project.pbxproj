@@ -521,7 +521,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-JNetworkingKitTests/Pods-JNetworkingKitTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-JNetworkingKitTests/Pods-JNetworkingKitTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
@@ -532,7 +532,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JNetworkingKitTests/Pods-JNetworkingKitTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JNetworkingKitTests/Pods-JNetworkingKitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		616E54F3BAFFB52704C71F30 /* [CP] Check Pods Manifest.lock */ = {
