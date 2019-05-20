@@ -42,6 +42,8 @@
 		A37C6B9E2170E28200126140 /* RequestSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37C6B942170E28200126140 /* RequestSpec.swift */; };
 		A37C6B9F2170E28200126140 /* EnvironmentSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37C6B952170E28200126140 /* EnvironmentSpec.swift */; };
 		A37C6BA02170E28200126140 /* RequestRouteSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37C6B962170E28200126140 /* RequestRouteSpec.swift */; };
+		AFF7E91A2289B4CD00D87CA7 /* QueryBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF7E9192289B4CC00D87CA7 /* QueryBuilderSpec.swift */; };
+		AFF7E91D2289B4F500D87CA7 /* QueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF7E91C2289B4F500D87CA7 /* QueryBuilder.swift */; };
 		E40C5A747AA9E676418C9E7D /* Pods_JNetworkingKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE9392B205AF2866EB01B7A /* Pods_JNetworkingKitTests.framework */; };
 		FD771DCEBEA2DA7564424615 /* Pods_JNetworkingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0655C6E6E7B582F1F1DC37 /* Pods_JNetworkingKit.framework */; };
 /* End PBXBuildFile section */
@@ -102,6 +104,8 @@
 		A37C6B942170E28200126140 /* RequestSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestSpec.swift; sourceTree = "<group>"; };
 		A37C6B952170E28200126140 /* EnvironmentSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnvironmentSpec.swift; sourceTree = "<group>"; };
 		A37C6B962170E28200126140 /* RequestRouteSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRouteSpec.swift; sourceTree = "<group>"; };
+		AFF7E9192289B4CC00D87CA7 /* QueryBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryBuilderSpec.swift; sourceTree = "<group>"; };
+		AFF7E91C2289B4F500D87CA7 /* QueryBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,9 +234,10 @@
 		A37C6B652170E1D600126140 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				A37C6B662170E1D600126140 /* Models */,
-				A37C6B6E2170E1D600126140 /* Extensions */,
 				A37C6B702170E1D600126140 /* Components */,
+				A37C6B6E2170E1D600126140 /* Extensions */,
+				AFF7E91B2289B4F500D87CA7 /* Helpers */,
+				A37C6B662170E1D600126140 /* Models */,
 			);
 			path = Source;
 			sourceTree = SOURCE_ROOT;
@@ -336,9 +341,10 @@
 		A37C6B8C2170E28200126140 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				A37C6B922170E28200126140 /* Models */,
-				A37C6B8D2170E28200126140 /* Extensions */,
 				A37C6B8F2170E28200126140 /* Components */,
+				A37C6B8D2170E28200126140 /* Extensions */,
+				AFF7E9182289B4CC00D87CA7 /* Helpers */,
+				A37C6B922170E28200126140 /* Models */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -378,6 +384,22 @@
 				A37C6B962170E28200126140 /* RequestRouteSpec.swift */,
 			);
 			path = Request;
+			sourceTree = "<group>";
+		};
+		AFF7E9182289B4CC00D87CA7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AFF7E9192289B4CC00D87CA7 /* QueryBuilderSpec.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		AFF7E91B2289B4F500D87CA7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				AFF7E91C2289B4F500D87CA7 /* QueryBuilder.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		F9827BDC4FCB09A4F961C782 /* Pods */ = {
@@ -499,7 +521,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-JNetworkingKitTests/Pods-JNetworkingKitTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-JNetworkingKitTests/Pods-JNetworkingKitTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
 				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
@@ -510,7 +532,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JNetworkingKitTests/Pods-JNetworkingKitTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-JNetworkingKitTests/Pods-JNetworkingKitTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		616E54F3BAFFB52704C71F30 /* [CP] Check Pods Manifest.lock */ = {
@@ -572,6 +594,7 @@
 			files = (
 				A37C6B852170E1D600126140 /* RequestParserType.swift in Sources */,
 				A37C6B822170E1D600126140 /* RequestClientType.swift in Sources */,
+				AFF7E91D2289B4F500D87CA7 /* QueryBuilder.swift in Sources */,
 				A37C6B462170E04B00126140 /* ViewController.swift in Sources */,
 				A37C6B7B2170E1D600126140 /* Response.swift in Sources */,
 				A37C6B7C2170E1D600126140 /* ResponseData.swift in Sources */,
@@ -597,6 +620,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A37C6B9E2170E28200126140 /* RequestSpec.swift in Sources */,
+				AFF7E91A2289B4CD00D87CA7 /* QueryBuilderSpec.swift in Sources */,
 				A37C6B9A2170E28200126140 /* RequestClientMock.swift in Sources */,
 				078A15EB221DBED600C67339 /* RequestValidatorMock.swift in Sources */,
 				078A15E6221DB46000C67339 /* HttpStatusSpec.swift in Sources */,
