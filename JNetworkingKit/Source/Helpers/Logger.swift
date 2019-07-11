@@ -17,14 +17,14 @@ public final class Logger {
         return formatter
     }
 
-    private static var isLoggingEnabled: Bool = false
+    static public var isLoggingEnabled: Bool = false
 
     static func log(_ object: Any,
                     loggedComponent: LoggedComponent,
                     fileName: String = #file,
                     line: Int = #line,
                     methodName: String = #function) {
-        if isLoggingEnabled {
+        if Logger.isLoggingEnabled {
             // swiftlint:disable:next line_length
             print("\(loggedComponent.rawValue) \(Date().toString()): [\(sourceFileName(filePath: fileName))]:\(line) \(methodName) -> \(object)")
         }
