@@ -24,22 +24,18 @@ public final class Logger {
                     fileName: String = #file,
                     line: Int = #line,
                     methodName: String = #function) {
+        #if DEBUG
         if Logger.isLoggingEnabled {
             // swiftlint:disable:next line_length
             print("\(loggedComponent.rawValue) \(Date().toString()): [\(sourceFileName(filePath: fileName))]:\(line) \(methodName) -> \(object)")
         }
+        #endif
     }
 
     private class func sourceFileName(filePath: String) -> String {
         let components = filePath.components(separatedBy: "/")
         return components.last ?? ""
     }
-}
-
-func print(_ object: Any) {
-    #if DEBUG
-    Swift.print(object)
-    #endif
 }
 
 fileprivate extension Date {
