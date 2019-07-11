@@ -16,9 +16,9 @@ public protocol RequestOperationType {
 }
 
 public extension RequestOperationType {
-    public var operationError: ((Error) -> Error) { return { $0 } }
+    var operationError: ((Error) -> Error) { return { $0 } }
 
-    public func execute(onSuccess: ((Result) -> Void)? = nil, onError: ((Error) -> Void)? = nil) {
+    func execute(onSuccess: ((Result) -> Void)? = nil, onError: ((Error) -> Void)? = nil) {
         executor.perform(request: request,
             onSuccess: { response in
                 do {
