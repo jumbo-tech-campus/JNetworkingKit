@@ -23,7 +23,7 @@ public protocol RequestValidatorType {
 
 extension RequestValidatorType {
     public func validate(response: Response) throws {
-        Logger.log("Beginning to validate response", "\n\tResponse: \(response)", loggedComponent: .validator)
+        Logger.log("Beginning to validate response", "\n\tResponse: \(response) Status Code: \(response.statusCode)", loggedComponent: .validator)
         switch response.statusCode {
         case 100...199:
             throw RequestValidatorError.informational(response: response)

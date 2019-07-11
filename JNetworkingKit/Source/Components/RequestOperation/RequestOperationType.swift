@@ -26,17 +26,20 @@ public extension RequestOperationType {
                     try self.validator.validate(response: response)
                     let result = try self.parser.parse(response: response)
                     DispatchQueue.main.async {
+                        Logger.log("Completed request successfully!", "\n\tResult: \(result)", loggedComponent: .client)
                         onSuccess?(result)
                     }
 
                 } catch let error {
                     DispatchQueue.main.async {
+                        Logger.log("Failed to validate or parse response", "\n\tError: \(error) Response: \(response)", loggedComponent: .client)
                         onError?(self.operationError(error))
                     }
                 }
             },
             onError: { error in
                 DispatchQueue.main.async {
+                    Logger.log("Failed to execute request", "\n\tError: \(error) Request: \(request)", loggedComponent: .client)
                     onError?(self.operationError(error))
                 }
             }

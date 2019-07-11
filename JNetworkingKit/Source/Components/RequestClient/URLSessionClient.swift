@@ -13,7 +13,7 @@ extension URLSession: RequestClientType {
 
         dataTask(with: request) { (data, response, error) in
             if let error = error {
-                Logger.log("Generic client error", "\n\t\(error.localizedDescription)", loggedComponent: .client)
+                Logger.log("Generic client error", "\n\t\(error)", loggedComponent: .client)
                 return onError(RequestClientError.generic(message: error.localizedDescription))
             }
 
