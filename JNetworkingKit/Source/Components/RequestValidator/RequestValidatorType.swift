@@ -23,6 +23,7 @@ public protocol RequestValidatorType {
 
 extension RequestValidatorType {
     public func validate(response: Response) throws {
+        // swiftlint:disable:next line_length
         Logger.log("Beginning to validate response", "\n\tResponse: \(response) Status Code: \(response.statusCode)", loggedComponent: .validator)
         switch response.statusCode {
         case 100...199:

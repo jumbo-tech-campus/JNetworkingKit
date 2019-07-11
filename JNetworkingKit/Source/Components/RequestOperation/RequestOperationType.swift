@@ -32,6 +32,7 @@ public extension RequestOperationType {
 
                 } catch let error {
                     DispatchQueue.main.async {
+                        // swiftlint:disable:next line_length
                         Logger.log("Failed to validate or parse response", "\n\tError: \(error) Response: \(response)", loggedComponent: .client)
                         onError?(self.operationError(error))
                     }
@@ -39,6 +40,7 @@ public extension RequestOperationType {
             },
             onError: { error in
                 DispatchQueue.main.async {
+                    // swiftlint:disable:next line_length
                     Logger.log("Failed to execute request", "\n\tError: \(error) Request: \(self.request)", loggedComponent: .client)
                     onError?(self.operationError(error))
                 }

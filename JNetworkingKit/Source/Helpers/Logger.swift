@@ -25,12 +25,12 @@ public final class Logger {
     static public var isLoggingEnabled: Bool = false
     static public var logLevel: LogLevel = .basic
 
-    static func log(_ baseObject: Any,
-                    _ deepObject: Any,
-                    loggedComponent: LoggedComponent,
-                    fileName: String = #file,
-                    line: Int = #line,
-                    methodName: String = #function) {
+    static public func log(_ baseObject: Any,
+                           _ deepObject: Any = "",
+                           loggedComponent: LoggedComponent,
+                           fileName: String = #file,
+                           line: Int = #line,
+                           methodName: String = #function) {
         #if DEBUG
         if Logger.isLoggingEnabled {
             let totalObject = logLevel == .deep ? "\(baseObject) \(deepObject)" : "\(baseObject)"
