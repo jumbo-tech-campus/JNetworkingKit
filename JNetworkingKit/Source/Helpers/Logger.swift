@@ -9,7 +9,7 @@ public enum LoggedComponent: String {
 }
 
 public enum LogLevel {
-    case base
+    case basic
     case deep
 }
 
@@ -23,7 +23,7 @@ public final class Logger {
     }
 
     static public var isLoggingEnabled: Bool = false
-    static public var logLevel: LogLevel = .base
+    static public var logLevel: LogLevel = .basic
 
     static func log(_ baseObject: Any,
                     _ deepObject: Any,
