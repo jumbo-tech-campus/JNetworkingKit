@@ -19,7 +19,7 @@ public extension RequestOperationType {
     var operationError: ((Error) -> Error) { return { $0 } }
 
     func execute(onSuccess: ((Result) -> Void)? = nil, onError: ((Error) -> Void)? = nil) {
-        Logger.log("Beginning to perform request \(request)", loggedComponent: .operation)
+        Logger.log("Beginning to perform request", "\n\tRequest: \(request)", loggedComponent: .operation)
         executor.perform(request: request,
             onSuccess: { response in
                 do {

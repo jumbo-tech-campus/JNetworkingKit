@@ -8,6 +8,11 @@ public enum LoggedComponent: String {
     case operation = "[⚙️ Operation]"
 }
 
+public enum LogLevel {
+    case base
+    case deep
+}
+
 public final class Logger {
     static var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
@@ -19,7 +24,8 @@ public final class Logger {
 
     static public var isLoggingEnabled: Bool = false
 
-    static func log(_ object: Any,
+    static func log(_ baseObject: Any,
+                    _ deepObject: Any,
                     loggedComponent: LoggedComponent,
                     fileName: String = #file,
                     line: Int = #line,
@@ -27,7 +33,7 @@ public final class Logger {
         #if DEBUG
         if Logger.isLoggingEnabled {
             // swiftlint:disable:next line_length
-            print("\(loggedComponent.rawValue) \(Date().toString()): [\(sourceFileName(filePath: fileName))]:\(line) \(methodName) -> \(object)")
+            print("\(loggedComponent.rawValue) \(Date().toString()): [\(sourceFileName(filePath: fileName))]:\(line) \(methodName) -> \(baseObject) \(deepObject)")
         }
         #endif
     }

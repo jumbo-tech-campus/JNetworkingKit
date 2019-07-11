@@ -6,7 +6,7 @@ open class AnyRequestParser<ResultType: Codable>: RequestParserType {
     public init() {}
 
     open func parse(response: Response) throws -> Result {
-        Logger.log("Beginning to parse response \(response)", loggedComponent: .parser)
+        Logger.log("Beginning to parse response", "\n\tResponse: \(response)", loggedComponent: .parser)
         do {
             return try JSONDecoder().decode(Result.self, from: response.data)
         } catch let error {
