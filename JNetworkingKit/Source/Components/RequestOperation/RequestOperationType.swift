@@ -39,7 +39,7 @@ public extension RequestOperationType {
             },
             onError: { error in
                 DispatchQueue.main.async {
-                    Logger.log("Failed to execute request", "\n\tError: \(error) Request: \(request)", loggedComponent: .client)
+                    Logger.log("Failed to execute request", "\n\tError: \(error) Request: \(self.request)", loggedComponent: .client)
                     onError?(self.operationError(error))
                 }
             }
