@@ -23,6 +23,7 @@ public final class Logger {
     }
 
     static public var isLoggingEnabled: Bool = false
+    static public var logLevel: LogLevel = .base
 
     static func log(_ baseObject: Any,
                     _ deepObject: Any,
@@ -32,8 +33,9 @@ public final class Logger {
                     methodName: String = #function) {
         #if DEBUG
         if Logger.isLoggingEnabled {
+            let totalObject = logLevel == .deep ? "\(baseObject) \(deepObject)" : "\(baseObject)"
             // swiftlint:disable:next line_length
-            print("\(loggedComponent.rawValue) \(Date().toString()): [\(sourceFileName(filePath: fileName))]:\(line) \(methodName) -> \(baseObject) \(deepObject)")
+            print("\(loggedComponent.rawValue) \(Date().toString()): [\(sourceFileName(filePath: fileName))]:\(line) \(methodName) -> \(totalObject)")
         }
         #endif
     }
