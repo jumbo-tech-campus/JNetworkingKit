@@ -7,6 +7,7 @@ public protocol RequestExecutorType {
 
 extension RequestExecutorType {
     public func perform(request: Request, onSuccess: @escaping (Response) -> Void, onError: @escaping (Error) -> Void) {
+        Logger.log("Beginning to perform request \(request)", loggedComponent: .executor)
         client.perform(request: request, onSuccess: onSuccess, onError: onError)
     }
 }

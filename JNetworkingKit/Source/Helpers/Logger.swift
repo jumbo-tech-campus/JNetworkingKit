@@ -1,11 +1,11 @@
 import Foundation
 
 public enum LoggedComponent: String {
-    case client = "[💁‍♂️]"
-    case executor = "[🚀]"
-    case validator = "[🔎]"
-    case parser = "[📚]"
-    case operation = "[⚙️]"
+    case client = "[💁‍♂️ Client]"
+    case executor = "[🚀 Executor]"
+    case validator = "[🔎 Validator]"
+    case parser = "[📚 Parser]"
+    case operation = "[⚙️ Operation]"
 }
 
 public final class Logger {
