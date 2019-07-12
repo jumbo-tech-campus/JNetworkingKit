@@ -27,3 +27,9 @@ public class Environment: NSObject {
             && version == environment.version
     }
 }
+
+extension Environment {
+    public override var description: String {
+        return "<\(type(of: self)):\nurl = \(server)\npath = \(path ?? "nil")\nversion = \(version ?? "nil")\nfullURL = \(url)>"
+    }
+}

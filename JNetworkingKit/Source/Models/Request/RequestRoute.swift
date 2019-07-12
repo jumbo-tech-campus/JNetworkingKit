@@ -24,3 +24,9 @@ extension RequestRoute: Equatable {
 public func + (lhs: RequestRoute, rhs: RequestRoute) -> RequestRoute {
     return RequestRoute(path: "\(lhs.route)/\(rhs.route)")
 }
+
+extension RequestRoute: CustomStringConvertible {
+    public var description: String {
+        return "<\(type(of: self)):\npath = \(path)\nparameters = \(parameters ?? [:])\nroute = \(route)>"
+    }
+}

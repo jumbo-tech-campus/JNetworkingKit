@@ -52,3 +52,11 @@ extension Request: Equatable {
             && lhs.data == rhs.data
     }
 }
+
+extension Request: CustomStringConvertible {
+    public var description: String {
+        let routeString = route?.description ?? "nil"
+        let dataString = data?.description ?? "nil"
+        return "<\(type(of: self)):\nenvironment = \(environment)\nroute = \(routeString)\nmethod = \(method)\nheaders = \(headers)\nparameters = \(parameters)\ndata = \(dataString)>"
+    }
+}
