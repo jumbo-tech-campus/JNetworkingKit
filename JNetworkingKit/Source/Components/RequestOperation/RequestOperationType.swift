@@ -30,7 +30,7 @@ public extension RequestOperationType {
                     DispatchQueue.main.async {
                         NetworkingLogger.log("Completed request successfully!",
                                              "Result: \(result)",
-                                             loggedComponent: .client)
+                                             loggedComponent: .operation)
                         onSuccess?(result)
                     }
 
@@ -39,7 +39,7 @@ public extension RequestOperationType {
                         NetworkingLogger.log("Failed to validate or parse response",
                                              "Error: \(error)" +
                                              "\n\tResponse: \(response)",
-                                             loggedComponent: .client)
+                                             loggedComponent: .operation)
                         onError?(self.operationError(error))
                     }
                 }
@@ -48,7 +48,7 @@ public extension RequestOperationType {
                 DispatchQueue.main.async {
                     NetworkingLogger.log("Failed to execute request",
                                          "Error: \(error)",
-                                         loggedComponent: .client)
+                                         loggedComponent: .operation)
                     onError?(self.operationError(error))
                 }
             }
