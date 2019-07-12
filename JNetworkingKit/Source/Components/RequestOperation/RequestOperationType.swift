@@ -20,7 +20,7 @@ public extension RequestOperationType {
 
     func execute(onSuccess: ((Result) -> Void)? = nil, onError: ((Error) -> Void)? = nil) {
         NetworkingLogger.log("Beginning to perform request",
-                            "\n\tRequest: \(request)",
+                            "Request: \(request)",
                             loggedComponent: .operation)
         executor.perform(request: request,
             onSuccess: { response in
@@ -29,7 +29,7 @@ public extension RequestOperationType {
                     let result = try self.parser.parse(response: response)
                     DispatchQueue.main.async {
                         NetworkingLogger.log("Completed request successfully!",
-                                             "\n\tResult: \(result)",
+                                             "Result: \(result)",
                                              loggedComponent: .client)
                         onSuccess?(result)
                     }
@@ -37,7 +37,7 @@ public extension RequestOperationType {
                 } catch let error {
                     DispatchQueue.main.async {
                         NetworkingLogger.log("Failed to validate or parse response",
-                                             "\n\tError: \(error)" +
+                                             "Error: \(error)" +
                                              "\n\tResponse: \(response)",
                                              loggedComponent: .client)
                         onError?(self.operationError(error))
@@ -47,8 +47,7 @@ public extension RequestOperationType {
             onError: { error in
                 DispatchQueue.main.async {
                     NetworkingLogger.log("Failed to execute request",
-                                         "\n\tError: \(error)" +
-                                         "\n\tRequest: \(self.request)",
+                                         "Error: \(error)",
                                          loggedComponent: .client)
                     onError?(self.operationError(error))
                 }

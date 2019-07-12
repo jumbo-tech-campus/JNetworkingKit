@@ -22,6 +22,7 @@ extension URLSession: RequestClientType {
             guard let data = data else {
                 return onError(RequestClientError.noData)
             }
+
             onSuccess(Response(data: data, headers: response.allHeaderFields, statusCode: response.statusCode))
         }.resume()
     }

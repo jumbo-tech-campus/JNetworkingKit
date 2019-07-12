@@ -32,7 +32,7 @@ public final class NetworkingLogger {
                            line: Int = #line,
                            methodName: String = #function) {
         if NetworkingLogger.isLoggingEnabled {
-            let totalObject = logLevel == .verbose ? "\(baseObject) \(deepObject)" : "\(baseObject)"
+            let totalObject = logLevel == .verbose ? "\(baseObject)\n\t\(deepObject)" : "\(baseObject)"
             print("\(loggedComponent.rawValue) \(Date().toString()): " +
                 "[\(sourceFileName(filePath: fileName))]:" +
                 "\(line) \(methodName) -> \(totalObject)")
