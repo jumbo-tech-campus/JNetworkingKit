@@ -15,6 +15,8 @@ public class Response: NSObject {
 
 extension Response {
     override public var description: String {
-        return "<\(type(of: self)):\n\tdata = \(data)\n\theaders = \(headers)\n\tstatusCode = \(statusCode)>"
+        return "<\(type(of: self)):\n\tdata = \(data)" +
+                "\n\theaders = \(headers)" +
+                "\n\tstatusCode = \(statusCode)>"
     }
 }

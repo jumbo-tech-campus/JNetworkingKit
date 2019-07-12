@@ -19,29 +19,37 @@ public extension RequestOperationType {
     var operationError: ((Error) -> Error) { return { $0 } }
 
     func execute(onSuccess: ((Result) -> Void)? = nil, onError: ((Error) -> Void)? = nil) {
-        NetworkingLogger.log("Beginning to perform request", "\n\tRequest: \(request)", loggedComponent: .operation)
+        NetworkingLogger.log("Beginning to perform request",
+                            "\n\tRequest: \(request)",
+                            loggedComponent: .operation)
         executor.perform(request: request,
             onSuccess: { response in
                 do {
                     try self.validator.validate(response: response)
                     let result = try self.parser.parse(response: response)
                     DispatchQueue.main.async {
-                        NetworkingLogger.log("Completed request successfully!", "\n\tResult: \(result)", loggedComponent: .client)
+                        NetworkingLogger.log("Completed request successfully!",
+                                             "\n\tResult: \(result)",
+                                             loggedComponent: .client)
                         onSuccess?(result)
                     }
 
                 } catch let error {
                     DispatchQueue.main.async {
-                        // swiftlint:disable:next line_length
-                        NetworkingLogger.log("Failed to validate or parse response", "\n\tError: \(error) Response: \(response)", loggedComponent: .client)
+                        NetworkingLogger.log("Failed to validate or parse response",
+                                             "\n\tError: \(error)" +
+                                             "\n\tResponse: \(response)",
+                                             loggedComponent: .client)
                         onError?(self.operationError(error))
                     }
                 }
             },
             onError: { error in
                 DispatchQueue.main.async {
-                    // swiftlint:disable:next line_length
-                    NetworkingLogger.log("Failed to execute request", "\n\tError: \(error) Request: \(self.request)", loggedComponent: .client)
+                    NetworkingLogger.log("Failed to execute request",
+                                         "\n\tError: \(error)" +
+                                         "\n\tRequest: \(self.request)",
+                                         loggedComponent: .client)
                     onError?(self.operationError(error))
                 }
             }

@@ -31,14 +31,12 @@ public final class NetworkingLogger {
                            fileName: String = #file,
                            line: Int = #line,
                            methodName: String = #function) {
-
-        #if DEBUG
         if NetworkingLogger.isLoggingEnabled {
             let totalObject = logLevel == .verbose ? "\(baseObject) \(deepObject)" : "\(baseObject)"
-            // swiftlint:disable:next line_length
-            print("\(loggedComponent.rawValue) \(Date().toString()): [\(sourceFileName(filePath: fileName))]:\(line) \(methodName) -> \(totalObject)")
+            print("\(loggedComponent.rawValue) \(Date().toString()): " +
+                "[\(sourceFileName(filePath: fileName))]:" +
+                "\(line) \(methodName) -> \(totalObject)")
         }
-        #endif
     }
 
     private class func sourceFileName(filePath: String) -> String {
