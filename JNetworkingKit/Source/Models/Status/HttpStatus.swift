@@ -67,6 +67,6 @@ public enum HttpStatus {
 
 extension HttpStatus: CustomStringConvertible {
     public var description: String {
-        return "<\(type(of: self)):\nhttpStatus = \(self.toString)>"
+        return "<\(type(of: self)):\n\thttpStatus = \(self.toString)>"
     }
 }

@@ -30,6 +30,6 @@ public class Environment: NSObject {
 
 extension Environment {
     public override var description: String {
-        return "<\(type(of: self)):\nurl = \(server)\npath = \(path ?? "nil")\nversion = \(version ?? "nil")\nfullURL = \(url)>"
+        return "<\(type(of: self)):\n\turl = \(server)\n\tpath = \(path ?? "nil")\n\tversion = \(version ?? "nil")\n\tfullURL = \(url)>"
     }
 }

@@ -27,6 +27,6 @@ public func + (lhs: RequestRoute, rhs: RequestRoute) -> RequestRoute {
 
 extension RequestRoute: CustomStringConvertible {
     public var description: String {
-        return "<\(type(of: self)):\npath = \(path)\nparameters = \(parameters ?? [:])\nroute = \(route)>"
+        return "<\(type(of: self)):\n\tpath = \(path)\n\tparameters = \(parameters ?? [:])\n\troute = \(route)>"
     }
 }

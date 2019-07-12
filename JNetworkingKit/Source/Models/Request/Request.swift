@@ -57,6 +57,6 @@ extension Request: CustomStringConvertible {
     public var description: String {
         let routeString = route?.description ?? "nil"
         let dataString = data?.description ?? "nil"
-        return "<\(type(of: self)):\nenvironment = \(environment)\nroute = \(routeString)\nmethod = \(method)\nheaders = \(headers)\nparameters = \(parameters)\ndata = \(dataString)>"
+        return "<\(type(of: self)):\n\tenvironment = \(environment)\n\troute = \(routeString)\n\tmethod = \(method)\n\theaders = \(headers)\n\tparameters = \(parameters)\n\tdata = \(dataString)>"
     }
 }
