@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		076AEECC22D75F6A00318249 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076AEECB22D75F6A00318249 /* Logger.swift */; };
+		076AEECC22D75F6A00318249 /* NetworkingLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076AEECB22D75F6A00318249 /* NetworkingLogger.swift */; };
 		078A15DE221D9E8E00C67339 /* HttpStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078A15DD221D9E8E00C67339 /* HttpStatus.swift */; };
 		078A15E2221DA21400C67339 /* RequestParserType+Void.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078A15E0221DA21400C67339 /* RequestParserType+Void.swift */; };
 		078A15E3221DA21400C67339 /* RequestParserType+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078A15E1221DA21400C67339 /* RequestParserType+Codable.swift */; };
@@ -60,7 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		076AEECB22D75F6A00318249 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		076AEECB22D75F6A00318249 /* NetworkingLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingLogger.swift; sourceTree = "<group>"; };
 		078A15DD221D9E8E00C67339 /* HttpStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpStatus.swift; sourceTree = "<group>"; };
 		078A15E0221DA21400C67339 /* RequestParserType+Void.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RequestParserType+Void.swift"; sourceTree = "<group>"; };
 		078A15E1221DA21400C67339 /* RequestParserType+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "RequestParserType+Codable.swift"; sourceTree = "<group>"; };
@@ -400,7 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				AFF7E91C2289B4F500D87CA7 /* QueryBuilder.swift */,
-				076AEECB22D75F6A00318249 /* Logger.swift */,
+				076AEECB22D75F6A00318249 /* NetworkingLogger.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -599,7 +599,7 @@
 				A37C6B822170E1D600126140 /* RequestClientType.swift in Sources */,
 				AFF7E91D2289B4F500D87CA7 /* QueryBuilder.swift in Sources */,
 				A37C6B462170E04B00126140 /* ViewController.swift in Sources */,
-				076AEECC22D75F6A00318249 /* Logger.swift in Sources */,
+				076AEECC22D75F6A00318249 /* NetworkingLogger.swift in Sources */,
 				A37C6B7B2170E1D600126140 /* Response.swift in Sources */,
 				A37C6B7C2170E1D600126140 /* ResponseData.swift in Sources */,
 				A37C6B862170E1D600126140 /* RequestOperationType.swift in Sources */,

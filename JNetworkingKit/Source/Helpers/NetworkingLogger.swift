@@ -10,13 +10,13 @@ public enum LoggedComponent: String {
 
 public enum LogLevel {
     case basic
-    case deep
+    case verbose
 }
 
-public final class Logger {
+public final class NetworkingLogger {
     static var dateFormatter: DateFormatter {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM-yyyy hh:mm:ss"
+        formatter.dateFormat = "dd-MM-yyyy hh:mm:ss:SSS"
         formatter.locale = Locale.current
         formatter.timeZone = TimeZone.current
         return formatter
@@ -31,9 +31,10 @@ public final class Logger {
                            fileName: String = #file,
                            line: Int = #line,
                            methodName: String = #function) {
+
         #if DEBUG
-        if Logger.isLoggingEnabled {
-            let totalObject = logLevel == .deep ? "\(baseObject) \(deepObject)" : "\(baseObject)"
+        if NetworkingLogger.isLoggingEnabled {
+            let totalObject = logLevel == .verbose ? "\(baseObject) \(deepObject)" : "\(baseObject)"
             // swiftlint:disable:next line_length
             print("\(loggedComponent.rawValue) \(Date().toString()): [\(sourceFileName(filePath: fileName))]:\(line) \(methodName) -> \(totalObject)")
         }
@@ -48,6 +49,6 @@ public final class Logger {
 
 fileprivate extension Date {
     func toString() -> String {
-        return Logger.dateFormatter.string(from: self as Date)
+        return NetworkingLogger.dateFormatter.string(from: self as Date)
     }
 }

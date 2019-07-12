@@ -2,7 +2,7 @@ import Foundation
 
 public extension RequestParserType where Result == Void {
     func parse(response: Response) throws {
-        Logger.log("Beginning to parse response", "\n\tResponse: \(response)", loggedComponent: .parser)
+        NetworkingLogger.log("Beginning to parse response", "\n\tResponse: \(response)", loggedComponent: .parser)
     }
 }
 
