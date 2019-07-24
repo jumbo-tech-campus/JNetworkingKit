@@ -11,13 +11,13 @@ public struct Request {
         case delete
     }
 
-    var environment: Environment
-    var route: RequestRoute?
+    public private(set) var environment: Environment
+    public private(set) var route: RequestRoute?
 
-    var method: Request.Method
-    var headers: RequestHeaders
-    var parameters: RequestParameters
-    var data: Data?
+    public private(set) var method: Request.Method
+    public private(set) var headers: RequestHeaders
+    public private(set) var parameters: RequestParameters
+    public private(set) var data: Data?
 
     public var url: URL? {
         return URL(string: [environment.url, route?.route].compactMap({ $0 }).joined(separator: "/"))

@@ -195,8 +195,8 @@ Now you can run the demo application. There are 2 screens:
 
 ## Future improvement
 
-- Create a `Logger`, which can be used to log information in debug mode.
-- Add support for `+` operator on `Request`s, to implement the parent / child concept
-- Add Cocoapod support
-- Add Carthage support
-- Add Swift Package Manager support
+- [x] Create a `Logger`, which can be used to log information in debug mode.
+- [x] Add support for `+` operator on `Request`s, to implement the parent / child concept
+- [x] Add Cocoapod support
+- [ ] Add Carthage support
+- [ ] Add Swift Package Manager support

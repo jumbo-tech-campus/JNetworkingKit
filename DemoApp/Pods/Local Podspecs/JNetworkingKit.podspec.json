@@ -1,6 +1,6 @@
 {
   "name": "JNetworkingKit",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "summary": "A generic networking setup for Swift and Objective-C.",
   "license": {
     "type": "MIT",
@@ -9,13 +9,14 @@
   "authors": "Jumbo",
   "homepage": "https://www.jumbo.com/",
   "social_media_url": "https://twitter.com/jumbotechcampus",
-  "swift_version": "4.2",
+  "swift_versions": "4.2",
   "platforms": {
     "ios": "9.0"
   },
   "source": {
     "git": "https://github.com/jumbo-tech-campus/JNetworkingKit.git",
-    "tag": "2.1.0"
+    "tag": "2.2.0"
   },
-  "source_files": "JNetworkingKit/Source/**/*.{swift}"
+  "source_files": "JNetworkingKit/Source/**/*.{swift}",
+  "swift_version": "4.2"
 }
