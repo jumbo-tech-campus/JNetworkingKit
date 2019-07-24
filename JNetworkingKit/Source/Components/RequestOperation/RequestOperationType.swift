@@ -16,26 +16,39 @@ public protocol RequestOperationType {
 }
 
 public extension RequestOperationType {
-    public var operationError: ((Error) -> Error) { return { $0 } }
+    var operationError: ((Error) -> Error) { return { $0 } }
 
-    public func execute(onSuccess: ((Result) -> Void)? = nil, onError: ((Error) -> Void)? = nil) {
+    func execute(onSuccess: ((Result) -> Void)? = nil, onError: ((Error) -> Void)? = nil) {
+        NetworkingLogger.log("Beginning to perform request",
+                            "Request: \(request)",
+                            loggedComponent: .operation)
         executor.perform(request: request,
             onSuccess: { response in
                 do {
                     try self.validator.validate(response: response)
                     let result = try self.parser.parse(response: response)
                     DispatchQueue.main.async {
+                        NetworkingLogger.log("Completed request successfully!",
+                                             "Result: \(result)",
+                                             loggedComponent: .operation)
                         onSuccess?(result)
                     }
 
                 } catch let error {
                     DispatchQueue.main.async {
+                        NetworkingLogger.log("Failed to validate or parse response",
+                                             "Error: \(error)" +
+                                             "\n\tResponse: \(response)",
+                                             loggedComponent: .operation)
                         onError?(self.operationError(error))
                     }
                 }
             },
             onError: { error in
                 DispatchQueue.main.async {
+                    NetworkingLogger.log("Failed to execute request",
+                                         "Error: \(error)",
+                                         loggedComponent: .operation)
                     onError?(self.operationError(error))
                 }
             }

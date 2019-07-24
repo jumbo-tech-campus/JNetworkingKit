@@ -12,3 +12,11 @@ public class Response: NSObject {
         self.statusCode = statusCode
     }
 }
+
+extension Response {
+    override public var description: String {
+        return "<\(type(of: self)):\n\tdata = \(data)" +
+                "\n\theaders = \(headers)" +
+                "\n\tstatusCode = \(statusCode)>"
+    }
+}

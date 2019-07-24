@@ -11,9 +11,8 @@ extension URLSession: RequestClientType {
         }
 
         dataTask(with: request) { (data, response, error) in
-            guard error == nil else {
-                onError(RequestClientError.generic(message: error?.localizedDescription ?? "Generic error."))
-                return
+            if let error = error {
+                return onError(RequestClientError.generic(message: error.localizedDescription))
             }
 
             guard let response = response as? HTTPURLResponse else {

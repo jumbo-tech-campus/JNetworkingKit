@@ -1,7 +1,7 @@
 import Foundation
 
 public extension RequestParserType where Result == Void {
-    public func parse(response: Response) throws {}
+    func parse(response: Response) throws {}
 }
 
 open class VoidRequestParser: RequestParserType {
