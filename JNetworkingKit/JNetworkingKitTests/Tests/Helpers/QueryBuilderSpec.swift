@@ -113,8 +113,8 @@ class QueryBuilderSpec: QuickSpec {
                         query = sut.build()
                     }
 
-                    it("returns a question mark") {
-                        expect(query) == "?"
+                    it("returns a empty string") {
+                        expect(query).to(beEmpty())
                     }
                 }
             }

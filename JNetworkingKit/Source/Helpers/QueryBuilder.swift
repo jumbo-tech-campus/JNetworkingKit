@@ -32,7 +32,10 @@ public class QueryBuilder {
 
     public func build() -> String {
         var urlComponents = URLComponents()
-        urlComponents.queryItems = queryItems
+
+        if !queryItems.isEmpty {
+            urlComponents.queryItems = queryItems
+        }
 
         return urlComponents.url?.absoluteString ?? ""
     }
