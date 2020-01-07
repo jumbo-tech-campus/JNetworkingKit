@@ -34,6 +34,6 @@ public class QueryBuilder {
         var urlComponents = URLComponents()
         urlComponents.queryItems = queryItems
 
-        return urlComponents.query ?? ""
+        return urlComponents.url?.absoluteString ?? ""
     }
 }
