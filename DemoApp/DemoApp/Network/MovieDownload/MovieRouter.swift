@@ -3,7 +3,7 @@ import JNetworkingKit
 
 struct MovieRouter {
     static var list: RequestRoute {
-        let path = "?apikey={apikey}&"
+        let path = "apikey={apikey}&"
         let parameters = ["apikey": "<YOUR-OMDB-KEY>"]
         let query = QueryBuilder()
             .setParameter(key: "t", value: "Matrix")
