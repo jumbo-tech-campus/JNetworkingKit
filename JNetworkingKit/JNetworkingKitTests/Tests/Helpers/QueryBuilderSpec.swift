@@ -9,6 +9,7 @@ class QueryBuilderSpec: QuickSpec {
             let pathStub = "http://www.validurl.com"
             let dictionaryStub = ["dict1":"dictvalue1", "dict2":"dictvalue2"]
             let parameterStringStub = (key: "paramString1", value: "value1")
+            let parameterStringSpaceStub = (key: "paramString2", value: "value2 ")
             let parameterIntStub = (key: "paramInt1", value: 1)
             let parameterQueryItemStub = URLQueryItem(name: "paramQuery1", value: "value1")
             let parameterNilStub: (key: String, value: String?) = (key: "paramNil", value: nil)
@@ -35,6 +36,7 @@ class QueryBuilderSpec: QuickSpec {
                     beforeEach {
                         query = sut.setParameters(parameters: dictionaryStub)
                             .setParameter(key: parameterStringStub.key, value: parameterStringStub.value)
+                            .setParameter(key: parameterStringSpaceStub.key, value: parameterStringSpaceStub.value)
                             .setParameter(key: parameterIntStub.key, value: parameterIntStub.value)
                             .setParameter(key: parameterNilStub.key, value: parameterNilStub.value)
                             .setParameter(queryItem: parameterQueryItemStub)
@@ -53,6 +55,10 @@ class QueryBuilderSpec: QuickSpec {
 
                     it("creates a query containing the string parameter"){
                         expect(query).to(contain(["\(parameterStringStub.key)=\(parameterStringStub.value)"]))
+                    }
+
+                    it("creates a query containing the encoded string parameter"){
+                        expect(query).to(contain(["\(parameterStringSpaceStub.key)=\(parameterStringSpaceStub.value.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!)"]))
                     }
 
                     it("creates a query containing the int parameter as string"){
@@ -75,7 +81,7 @@ class QueryBuilderSpec: QuickSpec {
                     }
 
                     it("creates a valid query parameter") {
-                        expect(query) == "\(parameterStringStub.key)=\(parameterStringStub.value)"
+                        expect(query) == "?\(parameterStringStub.key)=\(parameterStringStub.value)"
                     }
                 }
 
@@ -87,7 +93,7 @@ class QueryBuilderSpec: QuickSpec {
                     }
 
                     it("creates a valid query parameter containing both parameters") {
-                        expect(query) == "\(parameterStringStub.key)=\(parameterStringStub.value)&\(parameterStringStub.key)=\(parameterStringStub.value)"
+                        expect(query) == "?\(parameterStringStub.key)=\(parameterStringStub.value)&\(parameterStringStub.key)=\(parameterStringStub.value)"
                     }
                 }
 
@@ -98,7 +104,7 @@ class QueryBuilderSpec: QuickSpec {
                     }
 
                     it("returns only the parameter key as a query") {
-                        expect(query) == parameterNilStub.key
+                        expect(query) == "?"+parameterNilStub.key
                     }
                 }
 
