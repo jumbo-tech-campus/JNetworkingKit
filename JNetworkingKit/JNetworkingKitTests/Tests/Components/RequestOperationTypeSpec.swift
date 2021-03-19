@@ -11,6 +11,7 @@ class RequestOperationTypeSpec: QuickSpec {
             var parserMock: RequestParserMock!
             var requestMock: Request!
             var validatorMock: RequestValidatorMock!
+            var responseMiddlewareMock: ResponseMiddlewareMock!
             var operationErrorMock: ((Error) -> Error)!
             var sut: ConcreteRequestOperation!
 
@@ -19,8 +20,14 @@ class RequestOperationTypeSpec: QuickSpec {
                 parserMock = RequestParserMock()
                 requestMock = Request(url: "")
                 validatorMock = RequestValidatorMock()
+                responseMiddlewareMock = ResponseMiddlewareMock()
                 operationErrorMock = { $0 }
-                sut = ConcreteRequestOperation(executor: executorMock, parser: parserMock, request: requestMock, validator: validatorMock, operationError: operationErrorMock)
+                sut = ConcreteRequestOperation(executor: executorMock,
+                                               parser: parserMock,
+                                               request: requestMock,
+                                               validator: validatorMock,
+                                               responseMiddleware: responseMiddlewareMock,
+                                               operationError: operationErrorMock)
             }
 
             afterEach {
@@ -28,6 +35,7 @@ class RequestOperationTypeSpec: QuickSpec {
                 parserMock = nil
                 requestMock = nil
                 validatorMock = nil
+                responseMiddlewareMock = nil
                 sut = nil
             }
 
@@ -81,6 +89,14 @@ class RequestOperationTypeSpec: QuickSpec {
                     it("performs the success callback on the main thread") {
                         expect(callbackThread.isMainThread).toEventually(equal(true))
                     }
+
+                    it("calls the response middleware with correct request") {
+                        expect(responseMiddlewareMock.captures.process?.request).toEventually(equal(requestMock))
+                    }
+
+                    it("calls the response middleware with correct response") {
+                        expect(responseMiddlewareMock.captures.process?.response).toEventually(equal(fakeResponse))
+                    }
                 }
 
                 context("invalid data received") {
@@ -114,6 +130,14 @@ class RequestOperationTypeSpec: QuickSpec {
                     it("performs the error callback on the main thread") {
                         expect(callbackThread.isMainThread).toEventually(equal(true))
                     }
+
+                    it("calls the response middleware with correct request") {
+                        expect(responseMiddlewareMock.captures.process?.request).toEventually(equal(requestMock))
+                    }
+
+                    it("calls the response middleware with correct response") {
+                        expect(responseMiddlewareMock.captures.process?.response).toEventually(equal(fakeResponse))
+                    }
                 }
             }
 
@@ -146,13 +170,21 @@ class ConcreteRequestOperation: RequestOperationType {
     var parser: RequestParserMock
     var request: Request
     var validator: RequestValidatorMock
+    var responseMiddleware: ResponseMiddlewareMock
     var operationError: ((Error) -> Error)
 
-    init(executor: RequestExecutorMock, parser: RequestParserMock, request: Request, validator: RequestValidatorMock, operationError: @escaping ((Error) -> Error)) {
+    init(executor: RequestExecutorMock,
+         parser: RequestParserMock,
+         request: Request,
+         validator: RequestValidatorMock,
+         responseMiddleware: ResponseMiddlewareMock,
+         operationError: @escaping ((Error) -> Error)) {
         self.executor = executor
         self.parser = parser
         self.request = request
         self.validator = validator
+        self.responseMiddleware = responseMiddleware
+
         self.operationError = operationError
     }
 }
