@@ -5,11 +5,13 @@ public protocol RequestOperationType {
     associatedtype Executor: RequestExecutorType
     associatedtype Parser: RequestParserType
     associatedtype Validator: RequestValidatorType
+    associatedtype ResponseMiddleware: ResponseMiddlewareType
 
     var executor: Executor { get set }
     var parser: Parser { get set }
     var request: Request { get set }
     var validator: Validator { get set }
+    var responseMiddleware: ResponseMiddleware { get set }
     var operationError: ((Error) -> Error) { get }
 
     func execute(onSuccess: ((Result) -> Void)?, onError: ((Error) -> Void)?)
@@ -31,6 +33,9 @@ public extension RequestOperationType {
                         NetworkingLogger.log("Completed request successfully!",
                                              "Result: \(result)",
                                              loggedComponent: .operation)
+
+                        self.responseMiddleware.process(request: request, response: response)
+
                         onSuccess?(result)
                     }
 
@@ -40,6 +45,9 @@ public extension RequestOperationType {
                                              "Error: \(error)" +
                                              "\n\tResponse: \(response)",
                                              loggedComponent: .operation)
+
+                        self.responseMiddleware.process(request: request, response: response)
+
                         onError?(self.operationError(error))
                     }
                 }
