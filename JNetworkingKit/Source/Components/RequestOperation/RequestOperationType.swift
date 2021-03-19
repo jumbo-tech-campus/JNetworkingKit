@@ -34,7 +34,7 @@ public extension RequestOperationType {
                                              "Result: \(result)",
                                              loggedComponent: .operation)
 
-                        self.responseMiddleware.process(request: request, response: response)
+                        self.responseMiddleware.process(request: self.request, response: response)
 
                         onSuccess?(result)
                     }
@@ -46,7 +46,7 @@ public extension RequestOperationType {
                                              "\n\tResponse: \(response)",
                                              loggedComponent: .operation)
 
-                        self.responseMiddleware.process(request: request, response: response)
+                        self.responseMiddleware.process(request: self.request, response: response)
 
                         onError?(self.operationError(error))
                     }
