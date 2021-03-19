@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -45,6 +45,9 @@
 		A37C6BA02170E28200126140 /* RequestRouteSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37C6B962170E28200126140 /* RequestRouteSpec.swift */; };
 		AFF7E91A2289B4CD00D87CA7 /* QueryBuilderSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF7E9192289B4CC00D87CA7 /* QueryBuilderSpec.swift */; };
 		AFF7E91D2289B4F500D87CA7 /* QueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF7E91C2289B4F500D87CA7 /* QueryBuilder.swift */; };
+		C53773B426050A9100067CF4 /* ResponseMiddlewareType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53773B326050A9100067CF4 /* ResponseMiddlewareType.swift */; };
+		C53773B826050AC600067CF4 /* ResponseMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53773B726050AC600067CF4 /* ResponseMiddleware.swift */; };
+		C53773BC26050C2800067CF4 /* ResponseMiddlewareMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = C53773BB26050C2800067CF4 /* ResponseMiddlewareMock.swift */; };
 		E40C5A747AA9E676418C9E7D /* Pods_JNetworkingKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DE9392B205AF2866EB01B7A /* Pods_JNetworkingKitTests.framework */; };
 		FD771DCEBEA2DA7564424615 /* Pods_JNetworkingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C0655C6E6E7B582F1F1DC37 /* Pods_JNetworkingKit.framework */; };
 /* End PBXBuildFile section */
@@ -108,6 +111,9 @@
 		A37C6B962170E28200126140 /* RequestRouteSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestRouteSpec.swift; sourceTree = "<group>"; };
 		AFF7E9192289B4CC00D87CA7 /* QueryBuilderSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryBuilderSpec.swift; sourceTree = "<group>"; };
 		AFF7E91C2289B4F500D87CA7 /* QueryBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryBuilder.swift; sourceTree = "<group>"; };
+		C53773B326050A9100067CF4 /* ResponseMiddlewareType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseMiddlewareType.swift; sourceTree = "<group>"; };
+		C53773B726050AC600067CF4 /* ResponseMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseMiddleware.swift; sourceTree = "<group>"; };
+		C53773BB26050C2800067CF4 /* ResponseMiddlewareMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseMiddlewareMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +295,7 @@
 				078A15E7221DBBA900C67339 /* RequestValidator */,
 				A37C6B772170E1D600126140 /* RequestParser */,
 				A37C6B792170E1D600126140 /* RequestOperation */,
+				C53773AE26050A7A00067CF4 /* ResponseMiddleware */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -336,6 +343,7 @@
 				A37C6B892170E28200126140 /* RequestExecutorMock.swift */,
 				078A15EA221DBED600C67339 /* RequestValidatorMock.swift */,
 				A37C6B882170E28200126140 /* RequestParserMock.swift */,
+				C53773BB26050C2800067CF4 /* ResponseMiddlewareMock.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -403,6 +411,15 @@
 				076AEECB22D75F6A00318249 /* NetworkingLogger.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		C53773AE26050A7A00067CF4 /* ResponseMiddleware */ = {
+			isa = PBXGroup;
+			children = (
+				C53773B326050A9100067CF4 /* ResponseMiddlewareType.swift */,
+				C53773B726050AC600067CF4 /* ResponseMiddleware.swift */,
+			);
+			path = ResponseMiddleware;
 			sourceTree = "<group>";
 		};
 		F9827BDC4FCB09A4F961C782 /* Pods */ = {
@@ -592,10 +609,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C53773B426050A9100067CF4 /* ResponseMiddlewareType.swift in Sources */,
 				A37C6B852170E1D600126140 /* RequestParserType.swift in Sources */,
 				A37C6B822170E1D600126140 /* RequestClientType.swift in Sources */,
 				AFF7E91D2289B4F500D87CA7 /* QueryBuilder.swift in Sources */,
 				A37C6B462170E04B00126140 /* ViewController.swift in Sources */,
+				C53773B826050AC600067CF4 /* ResponseMiddleware.swift in Sources */,
 				076AEECC22D75F6A00318249 /* NetworkingLogger.swift in Sources */,
 				A37C6B7B2170E1D600126140 /* Response.swift in Sources */,
 				A37C6B7C2170E1D600126140 /* ResponseData.swift in Sources */,
@@ -621,6 +640,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A37C6B9E2170E28200126140 /* RequestSpec.swift in Sources */,
+				C53773BC26050C2800067CF4 /* ResponseMiddlewareMock.swift in Sources */,
 				AFF7E91A2289B4CD00D87CA7 /* QueryBuilderSpec.swift in Sources */,
 				A37C6B9A2170E28200126140 /* RequestClientMock.swift in Sources */,
 				078A15EB221DBED600C67339 /* RequestValidatorMock.swift in Sources */,
