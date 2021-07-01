@@ -9,6 +9,8 @@ public struct Request {
         case post
         case put
         case delete
+        case head
+        case patch
     }
 
     public private(set) var environment: Environment
