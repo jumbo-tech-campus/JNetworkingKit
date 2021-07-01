@@ -847,7 +847,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 610695998B68C859A86E4EAC /* Pods-JNetworkingKitTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = JNetworkingKitTests/Resources/Info.plist;
@@ -868,7 +867,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5FB20137AFBD88B796BF5075 /* Pods-JNetworkingKitTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = JNetworkingKitTests/Resources/Info.plist;
