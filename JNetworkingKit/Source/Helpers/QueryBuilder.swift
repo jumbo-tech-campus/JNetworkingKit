@@ -7,35 +7,34 @@ public class QueryBuilder {
 
     }
 
+    @discardableResult
     public func setParameter(queryItem: URLQueryItem) -> QueryBuilder {
         queryItems.append(queryItem)
         return self
     }
 
     public func setParameter(key: String, value: String?) -> QueryBuilder {
-        queryItems.append(URLQueryItem(name: key, value: value))
-        return self
+        return setParameter(queryItem: URLQueryItem(name: key, value: value))
     }
 
     public func setParameter(key: String, value: Int?) -> QueryBuilder {
         let stringValue = value.flatMap { String($0) }
-        queryItems.append(URLQueryItem(name: key, value: stringValue))
-        return self
+        return setParameter(queryItem: URLQueryItem(name: key, value: stringValue))
     }
 
     public func setParameters(parameters: [String: String]) -> QueryBuilder {
-        let queryParams = parameters.map { (key, value) in
-            URLQueryItem(name: key, value: value) }
-        queryItems.append(contentsOf: queryParams)
+        parameters
+            .map { URLQueryItem(name: $0, value: $1) }
+            .forEach { setParameter(queryItem: $0) }
+
         return self
     }
 
     public func build() -> String {
-        var urlComponents = URLComponents()
+        let itemsWithValue = queryItems.filter { $0.value != nil }
 
-        if !queryItems.isEmpty {
-            urlComponents.queryItems = queryItems
-        }
+        var urlComponents = URLComponents()
+        urlComponents.queryItems = itemsWithValue.isEmpty ? nil : itemsWithValue
 
         return urlComponents.url?.absoluteString ?? ""
     }

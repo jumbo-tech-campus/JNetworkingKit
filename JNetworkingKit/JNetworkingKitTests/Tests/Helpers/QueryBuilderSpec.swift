@@ -70,14 +70,16 @@ class QueryBuilderSpec: QuickSpec {
                         expect(query).to(contain(["\(parameterQueryItemStub.name)=\(valueString)"]))
                     }
 
-                    it("creates a query with a empty nil parameter"){
-                        expect(query).to(contain([parameterNilStub.key]))
+                    it("creates a query without a empty nil parameter"){
+                        expect(query).toNot(contain([parameterNilStub.key]))
                     }
                 }
 
                 context("only one parameter") {
                     beforeEach {
-                        query = sut.setParameter(key: parameterStringStub.key, value: parameterStringStub.value).build()
+                        query = sut
+                            .setParameter(key: parameterStringStub.key, value: parameterStringStub.value)
+                            .build()
                     }
 
                     it("creates a valid query parameter") {
@@ -87,7 +89,8 @@ class QueryBuilderSpec: QuickSpec {
 
                 context("two of the same parameters") {
                     beforeEach {
-                        query = sut.setParameter(key: parameterStringStub.key, value: parameterStringStub.value)
+                        query = sut
+                            .setParameter(key: parameterStringStub.key, value: parameterStringStub.value)
                             .setParameter(key: parameterStringStub.key, value: parameterStringStub.value)
                             .build()
                     }
@@ -99,12 +102,26 @@ class QueryBuilderSpec: QuickSpec {
 
                 context("only nil parameter is set") {
                     beforeEach {
-                        query = sut.setParameter(key: parameterNilStub.key, value: parameterNilStub.value)
+                        query = sut
+                            .setParameter(key: parameterNilStub.key, value: parameterNilStub.value)
                             .build()
                     }
 
                     it("returns only the parameter key as a query") {
-                        expect(query) == "?"+parameterNilStub.key
+                        expect(query) == ""
+                    }
+                }
+
+                context("one valid and one nil parameter is set") {
+                    beforeEach {
+                        query = sut
+                            .setParameter(key: parameterStringStub.key, value: parameterStringStub.value)
+                            .setParameter(key: parameterNilStub.key, value: parameterNilStub.value)
+                            .build()
+                    }
+
+                    it("returns only the parameter key as a query") {
+                        expect(query) == "?\(parameterStringStub.key)=\(parameterStringStub.value)"
                     }
                 }
 
