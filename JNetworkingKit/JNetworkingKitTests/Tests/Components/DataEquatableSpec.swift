@@ -14,7 +14,7 @@ final class DataEquatableSpec: QuickSpec {
                 }
             }
 
-            context("when data is invalid") {
+            context("when data objects are different") {
                 it("returns false") {
                     let req1 = try generateMock(range: 1..<2)
                     let req2 = try generateMock(range: 2..<3)

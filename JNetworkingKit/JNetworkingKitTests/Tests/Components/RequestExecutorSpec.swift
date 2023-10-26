@@ -18,8 +18,8 @@ class RequestExecutorSpec: QuickSpec {
             }
 
             it("uses shared URLSession") {
-                let x: RequestClientType = URLSession.shared
-                expect(sut.client).to(beIdenticalTo(x))
+                let requestClientType: RequestClientType = URLSession.shared
+                expect(sut.client).to(beIdenticalTo(requestClientType))
             }
         }
     }
