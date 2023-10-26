@@ -4,7 +4,7 @@ import Nimble
 @testable import JNetworkingKit
 
 class StringSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("String") {
             var sut: String!
 

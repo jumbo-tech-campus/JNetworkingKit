@@ -5,7 +5,7 @@ import Nimble
 
 class RequestOperationTypeSpec: QuickSpec {
 
-    override func spec() {
+    override class func spec() {
         describe("RequestOperationType") {
             var executorMock: RequestExecutorMock!
             var parserMock: RequestParserMock!

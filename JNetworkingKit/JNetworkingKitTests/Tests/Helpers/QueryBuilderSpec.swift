@@ -4,7 +4,7 @@ import Nimble
 @testable import JNetworkingKit
 
 class QueryBuilderSpec: QuickSpec {
-    override func spec() {
+    override class func spec() {
         describe("QueryBuilder") {
             let pathStub = "http://www.validurl.com"
             let dictionaryStub = ["dict1":"dictvalue1", "dict2":"dictvalue2"]

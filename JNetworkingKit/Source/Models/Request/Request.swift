@@ -44,17 +44,6 @@ public struct Request {
     }
 }
 
-extension Request: Equatable {
-    public static func == (lhs: Request, rhs: Request) -> Bool {
-        return lhs.environment.url == rhs.environment.url
-            && lhs.route == rhs.route
-            && lhs.method == rhs.method
-            && lhs.headers == rhs.headers
-            && lhs.parameters == rhs.parameters
-            && lhs.data == rhs.data
-    }
-}
-
 extension Request: CustomStringConvertible {
     public var description: String {
         let routeString = route?.description ?? "nil"

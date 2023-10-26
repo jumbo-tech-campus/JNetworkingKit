@@ -5,7 +5,7 @@ import Nimble
 
 class RequestSpec: QuickSpec {
 
-    override func spec() {
+    override class func spec() {
         describe("Request") {
             let environmentStub = Environment(server: "http://www.jumbo.com")
             let routeStub = RequestRoute(path: "{id}/{quantity}", parameters: ["id": "1", "quantity": "2"])

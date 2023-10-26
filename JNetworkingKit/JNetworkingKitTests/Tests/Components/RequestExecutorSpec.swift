@@ -5,7 +5,7 @@ import Nimble
 
 class RequestExecutorSpec: QuickSpec {
 
-    override func spec() {
+    override class func spec() {
         describe("RequestExecutor") {
             var sut: RequestExecutor!
 
@@ -18,7 +18,8 @@ class RequestExecutorSpec: QuickSpec {
             }
 
             it("uses shared URLSession") {
-                expect(sut.client).to(beIdenticalTo(URLSession.shared))
+                let x: RequestClientType = URLSession.shared
+                expect(sut.client).to(beIdenticalTo(x))
             }
         }
     }
