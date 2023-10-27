@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
   s.social_media_url = "https://twitter.com/jumbotechcampus"
 
   s.swift_version = '4.2'
-  s.platform      = :ios, "9.0"
+  s.platform      = :ios, "14.0"
   s.source        = { :git => "https://github.com/jumbo-tech-campus/JNetworkingKit.git", :tag => "#{s.version}" }
   s.source_files  = "JNetworkingKit/Source/**/*.{swift}"
 end
