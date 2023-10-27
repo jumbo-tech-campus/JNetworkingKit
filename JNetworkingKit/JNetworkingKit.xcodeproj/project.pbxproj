@@ -15,7 +15,6 @@
 		078A15E9221DBBBF00C67339 /* RequestValidatorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078A15E8221DBBBF00C67339 /* RequestValidatorType.swift */; };
 		078A15EB221DBED600C67339 /* RequestValidatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078A15EA221DBED600C67339 /* RequestValidatorMock.swift */; };
 		078A15EF221E94CA00C67339 /* RequestValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078A15EE221E94CA00C67339 /* RequestValidator.swift */; };
-		15FF94302AEA65C800A138C8 /* Request+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FF942F2AEA65C800A138C8 /* Request+Extensions.swift */; };
 		15FF94322AEA664B00A138C8 /* DataEquatableSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15FF94312AEA664B00A138C8 /* DataEquatableSpec.swift */; };
 		A36323B52170E61E0097A22F /* RequestExecutorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = A36323B42170E61E0097A22F /* RequestExecutorSpec.swift */; };
 		A37C6B442170E04B00126140 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37C6B432170E04B00126140 /* AppDelegate.swift */; };
@@ -73,7 +72,6 @@
 		078A15E8221DBBBF00C67339 /* RequestValidatorType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestValidatorType.swift; sourceTree = "<group>"; };
 		078A15EA221DBED600C67339 /* RequestValidatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestValidatorMock.swift; sourceTree = "<group>"; };
 		078A15EE221E94CA00C67339 /* RequestValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestValidator.swift; sourceTree = "<group>"; };
-		15FF942F2AEA65C800A138C8 /* Request+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Request+Extensions.swift"; sourceTree = "<group>"; };
 		15FF94312AEA664B00A138C8 /* DataEquatableSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataEquatableSpec.swift; sourceTree = "<group>"; };
 		3C0655C6E6E7B582F1F1DC37 /* Pods_JNetworkingKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JNetworkingKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DE9392B205AF2866EB01B7A /* Pods_JNetworkingKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JNetworkingKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -367,7 +365,6 @@
 			isa = PBXGroup;
 			children = (
 				A37C6B8E2170E28200126140 /* StringSpec.swift */,
-				15FF942F2AEA65C800A138C8 /* Request+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -653,7 +650,6 @@
 				078A15E6221DB46000C67339 /* HttpStatusSpec.swift in Sources */,
 				15FF94322AEA664B00A138C8 /* DataEquatableSpec.swift in Sources */,
 				A37C6B9D2170E28200126140 /* RequestOperationTypeSpec.swift in Sources */,
-				15FF94302AEA65C800A138C8 /* Request+Extensions.swift in Sources */,
 				A37C6B982170E28200126140 /* RequestExecutorMock.swift in Sources */,
 				A37C6B992170E28200126140 /* ErrorMock.swift in Sources */,
 				A37C6B972170E28200126140 /* RequestParserMock.swift in Sources */,
