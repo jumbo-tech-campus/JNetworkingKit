@@ -1,43 +1,49 @@
-import Foundation
-
 /// A Nimble matcher that succeeds when the actual value is greater than
 /// or equal to the expected value.
-public func beGreaterThanOrEqualTo<T: Comparable>(_ expectedValue: T?) -> Predicate<T> {
+public func beGreaterThanOrEqualTo<T: Comparable>(_ expectedValue: T?) -> Matcher<T> {
     let message = "be greater than or equal to <\(stringify(expectedValue))>"
-    return Predicate.simple(message) { actualExpression in
-        let actualValue = try actualExpression.evaluate()
-        if let actual = actualValue, let expected = expectedValue {
-            return PredicateStatus(bool: actual >= expected)
-        }
-        return .fail
+    return Matcher.simple(message) { actualExpression in
+        guard let actual = try actualExpression.evaluate(), let expected = expectedValue else { return .fail }
+
+        return MatcherStatus(bool: actual >= expected)
     }
 }
 
+public func >= <T: Comparable>(lhs: SyncExpectation<T>, rhs: T) {
+    lhs.to(beGreaterThanOrEqualTo(rhs))
+}
+
+public func >= <T: Comparable>(lhs: AsyncExpectation<T>, rhs: T) async {
+    await lhs.to(beGreaterThanOrEqualTo(rhs))
+}
+
+#if canImport(Darwin)
+import enum Foundation.ComparisonResult
+
 /// A Nimble matcher that succeeds when the actual value is greater than
 /// or equal to the expected value.
-public func beGreaterThanOrEqualTo<T: NMBComparable>(_ expectedValue: T?) -> Predicate<T> {
+public func beGreaterThanOrEqualTo<T: NMBComparable>(_ expectedValue: T?) -> Matcher<T> {
     let message = "be greater than or equal to <\(stringify(expectedValue))>"
-    return Predicate.simple(message) { actualExpression in
+    return Matcher.simple(message) { actualExpression in
         let actualValue = try actualExpression.evaluate()
         let matches = actualValue != nil && actualValue!.NMB_compare(expectedValue) != ComparisonResult.orderedAscending
-        return PredicateStatus(bool: matches)
+        return MatcherStatus(bool: matches)
     }
 }
 
-public func >=<T: Comparable>(lhs: Expectation<T>, rhs: T) {
+public func >= <T: NMBComparable>(lhs: SyncExpectation<T>, rhs: T) {
     lhs.to(beGreaterThanOrEqualTo(rhs))
 }
 
-public func >=<T: NMBComparable>(lhs: Expectation<T>, rhs: T) {
-    lhs.to(beGreaterThanOrEqualTo(rhs))
+public func >= <T: NMBComparable>(lhs: AsyncExpectation<T>, rhs: T) async {
+    await lhs.to(beGreaterThanOrEqualTo(rhs))
 }
 
-#if os(macOS) || os(iOS) || os(tvOS) || os(watchOS)
-extension NMBObjCMatcher {
-    @objc public class func beGreaterThanOrEqualToMatcher(_ expected: NMBComparable?) -> NMBObjCMatcher {
-        return NMBObjCMatcher(canMatchNil: false) { actualExpression, failureMessage in
+extension NMBMatcher {
+    @objc public class func beGreaterThanOrEqualToMatcher(_ expected: NMBComparable?) -> NMBMatcher {
+        return NMBMatcher { actualExpression in
             let expr = actualExpression.cast { $0 as? NMBComparable }
-            return try beGreaterThanOrEqualTo(expected).matches(expr, failureMessage: failureMessage)
+            return try beGreaterThanOrEqualTo(expected).satisfies(expr).toObjectiveC()
         }
     }
 }

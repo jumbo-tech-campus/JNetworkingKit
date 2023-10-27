@@ -5,7 +5,7 @@ import Nimble
 
 class EnvironmentSpec: QuickSpec {
 
-    override func spec() {
+    override class func spec() {
         describe("Environment") {
             let serverStub = "http://www.jumbo.com"
             let pathStub = "backend"

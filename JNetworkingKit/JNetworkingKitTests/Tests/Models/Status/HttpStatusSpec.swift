@@ -5,7 +5,7 @@ import Nimble
 
 class HttpStatusSpec: QuickSpec {
 
-    override func spec() {
+    override class func spec() {
         describe("HttpStatus") {
             var sut: HttpStatus!
 

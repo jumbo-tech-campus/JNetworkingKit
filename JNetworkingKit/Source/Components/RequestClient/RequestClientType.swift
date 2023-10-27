@@ -7,7 +7,7 @@ public enum RequestClientError: Error, Hashable {
     case noData
 }
 
-public protocol RequestClientType {
+public protocol RequestClientType: AnyObject {
     func perform(request: Request,
                  onSuccess: @escaping (Response) -> Void,
                  onError: @escaping (RequestClientError) -> Void)

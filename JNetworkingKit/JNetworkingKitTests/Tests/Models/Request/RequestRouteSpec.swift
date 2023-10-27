@@ -5,7 +5,7 @@ import Nimble
 
 class RequestRouteSpec: QuickSpec {
 
-    override func spec() {
+    override class func spec() {
         describe("RequestRoute") {
             var sut: RequestRoute!
             var pathStub: String!
